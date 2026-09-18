@@ -1,1 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dane Wesolko — Product Design Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --fg:#000000;
+    --red:#D52B1E;
+    --muted:#595959;
+    --rule:#e0e0e0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#000000;
+      --fg:#ffffff;
+      --red:#FF4433;
+      --muted:#a8a8a8;
+      --rule:#333333;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#000000;
+    --fg:#ffffff;
+    --red:#FF4433;
+    --muted:#a8a8a8;
+    --rule:#333333;
+  }
 
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums;
+  }
+  a{color:inherit;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 24px;
+    background:var(--bg);
+    border-bottom:1px solid var(--rule);
+  }
+  .mark{
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:0.02em;
+  }
+  .navtoggle{
+    display:none;
+    background:none;
+    border:none;
+    color:var(--fg);
+    font-family:inherit;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    cursor:pointer;
+    padding:8px 0;
+  }
+  .topnav{
+    display:flex;
+    gap:22px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .topnav a{
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    text-decoration:none;
+    padding-bottom:4px;
+    border-bottom:2px solid transparent;
+  }
+  .topnav a.active{
+    border-bottom-color:var(--red);
+  }
+
+  @media (max-width:768px){
+    .navtoggle{display:block;}
+    .topnav{
+      display:flex;
+      flex-direction:column;
+      gap:0;
+      position:fixed;
+      top:57px;
+      left:0;
+      right:0;
+      bottom:0;
+      background:var(--bg);
+      padding:8px 24px 24px;
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.18s ease, transform 0.18s ease;
+    }
+    .topnav.open{
+      opacity:1;
+      transform:translateY(0);
+      pointer-events:auto;
+    }
+    .topnav a{
+      display:block;
+      font-size:20px;
+      font-weight:700;
+      text-transform:none;
+      letter-spacing:normal;
+      padding:18px 4px 18px 16px;
+      border-bottom:1px solid var(--rule);
+      border-left:3px solid transparent;
+      width:100%;
+    }
+    .topnav a.active{
+      color:var(--red);
+      border-bottom-color:var(--rule);
+      border-left-color:var(--red);
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .topnav{transition:none;}
+  }
+
+  /* ---------- structural grid ---------- */
+  .section{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:24px;
+    max-width:980px;
+    margin:0 auto;
+    padding:56px 24px;
+    border-bottom:4px solid var(--red);
+  }
+  .section:last-of-type{
+    border-bottom:none;
+  }
+  .section .num{
+    font-size:14px;
+    font-weight:700;
+    color:var(--red);
+    padding-top:4px;
+  }
+  .section .label{
+    font-size:14px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin:0 0 28px 0;
+  }
+  @media (max-width:640px){
+    .section{grid-template-columns:1fr;gap:8px;padding:40px 20px;}
+    .section .num{padding-top:0;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    max-width:980px;
+    margin:0 auto;
+    padding:80px 24px 56px;
+  }
+  .hero h1{
+    font-size:clamp(40px,8vw,84px);
+    font-weight:700;
+    line-height:1.0;
+    letter-spacing:-0.01em;
+    margin:0 0 14px 0;
+  }
+  .hero .role{
+    font-size:clamp(16px,2.4vw,20px);
+    font-weight:700;
+    color:var(--red);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin:0 0 28px 0;
+  }
+  .hero p{
+    max-width:600px;
+    font-size:19px;
+    line-height:1.5;
+    margin:0;
+  }
+
+  /* ---------- about / off the clock lists ---------- */
+  .bullets{
+    list-style:none;
+    margin:0;
+    padding:0;
+    max-width:620px;
+  }
+  .bullets li{
+    font-size:17px;
+    line-height:1.5;
+    padding:10px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .bullets li:last-child{border-bottom:none;}
+  .lede{
+    font-size:18px;
+    line-height:1.55;
+    max-width:620px;
+    margin:0 0 24px 0;
+  }
+  .lede:last-child{margin-bottom:0;}
+
+  /* ---------- selected work ---------- */
+  .work-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .work-item{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:16px;
+    padding:20px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .work-list .work-item:last-child{border-bottom:none;}
+  .work-item h3{
+    font-size:18px;
+    font-weight:700;
+    margin:0 0 4px 0;
+  }
+  .work-item .company{
+    font-size:14px;
+    font-weight:700;
+    color:var(--red);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  .work-item p{
+    font-size:16px;
+    line-height:1.5;
+    color:var(--muted);
+    margin:0;
+  }
+  @media (max-width:640px){
+    .work-item{grid-template-columns:1fr;gap:6px;}
+  }
+
+  /* ---------- experience table ---------- */
+  .exp-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 70px;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid var(--rule);
+    font-size:16px;
+  }
+  .exp-list .exp-row:last-child{border-bottom:none;}
+  .exp-row .company{font-weight:700;}
+  .exp-row .role{color:var(--muted);}
+  .exp-row .year{
+    text-align:right;
+    color:var(--muted);
+  }
+  .exp-earlier{
+    padding-top:16px;
+    font-size:15px;
+    color:var(--muted);
+    line-height:1.5;
+  }
+  @media (max-width:640px){
+    .exp-row{grid-template-columns:1fr;gap:2px;}
+    .exp-row .year{text-align:left;}
+  }
+
+  /* ---------- mentorship / education ---------- */
+  .credlist{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    max-width:620px;
+  }
+  .cred{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    font-size:16px;
+  }
+  .cred .role{font-weight:700;}
+  .cred .meta{color:var(--muted);text-align:right;}
+  @media (max-width:640px){
+    .cred{grid-template-columns:1fr;gap:2px;}
+    .cred .meta{text-align:left;}
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    max-width:980px;
+    margin:0 auto;
+    padding:48px 24px 64px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  footer .big{
+    font-size:clamp(28px,5vw,44px);
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    text-align:right;
+  }
+  .footer-links a{
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  .footer-links a:hover{color:var(--red);}
+  @media (max-width:640px){
+    .footer-links{text-align:left;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="mark">DW</div>
+  <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="topnav">Menu</button>
+  <ul class="topnav" id="topnav">
+    <li><a href="#about" data-target="about">About</a></li>
+    <li><a href="#offtheclock" data-target="offtheclock">Off the Clock</a></li>
+    <li><a href="#work" data-target="work">Work</a></li>
+    <li><a href="#experience" data-target="experience">Experience</a></li>
+    <li><a href="#contact" data-target="contact">Contact</a></li>
+  </ul>
+</div>
+
+<section class="hero">
+  <h1>Dane Wesolko</h1>
+  <p class="role">Product Design Leader — 9+ Years</p>
+  <p>I design products that don't have a template yet: AI risk platforms, nuclear scheduling tools, expert-network communities.</p>
+</section>
+
+<section class="section" id="about">
+  <div class="num">01</div>
+  <div>
+    <p class="label">About</p>
+    <p class="lede">Started in print and branding. Moved into UX, then product leadership, then AI.</p>
+    <ul class="bullets">
+      <li>9+ years building new products from scratch</li>
+      <li>Regulated, high-stakes industries: energy, pharma, cybersecurity, enterprise SaaS</li>
+      <li>More often first-to-exist than tenth-to-market</li>
+      <li>Still sketches by hand before opening Figma</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="offtheclock">
+  <div class="num">02</div>
+  <div>
+    <p class="label">Off the Clock</p>
+    <ul class="bullets">
+      <li>Started businesses. Some failed.</li>
+      <li>Self-taught trading and corporate finance</li>
+      <li>Deep in digital marketing, hands-on</li>
+      <li>Built more WordPress sites than I can count</li>
+      <li>Long-term interest in newsletters and online media</li>
+      <li>Organized real-world communities — harder than any app</li>
+      <li>Use AI in my own process before it shows up in a job description</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="num">03</div>
+  <div>
+    <p class="label">Selected Work</p>
+    <div class="work-list">
+      <div class="work-item">
+        <div>
+          <h3>Nuclear Fleet Scheduling</h3>
+          <div class="company">FPL</div>
+        </div>
+        <p>AI-assisted scheduling for nuclear operations. Iteration time: weeks to hours.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Cyber Risk Platform</h3>
+          <div class="company">Mercator Digital</div>
+        </div>
+        <p>Built a recommendation engine for Fortune 100 CISOs — dense risk data, turned into plain-language actions.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Connectively</h3>
+          <div class="company">Cision</div>
+        </div>
+        <p>Community platform with AI summarization and expert-matching.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Newswire Workflow</h3>
+          <div class="company">PRNewswire / Cision</div>
+        </div>
+        <p>AI-assisted press release MVP.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Real-World Evidence Platform</h3>
+          <div class="company">IQVIA</div>
+        </div>
+        <p>Real-world data, direct to pharma sales teams.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Comparator Sourcing</h3>
+          <div class="company">IQVIA</div>
+        </div>
+        <p>Removed friction from clinical sourcing logistics.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Hydration & Ordering</h3>
+          <div class="company">Gatorade</div>
+        </div>
+        <p>Streamlined B2B ordering. More orders, new revenue.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Patient Access</h3>
+          <div class="company">CoraMed</div>
+        </div>
+        <p>Faster medication access for reps and physicians, emerging markets.</p>
+      </div>
+      <div class="work-item">
+        <div>
+          <h3>Platform Scale</h3>
+          <div class="company">Valassis Digital</div>
+        </div>
+        <p>Design strategy for a $2B+ platform, millions of users.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="num">04</div>
+  <div>
+    <p class="label">Experience</p>
+    <div class="exp-list">
+      <div class="exp-row"><div class="company">FPL</div><div class="role">Senior UX Designer</div><div class="year">2025</div></div>
+      <div class="exp-row"><div class="company">Mercator Digital</div><div class="role">Senior Interaction Designer</div><div class="year">2024</div></div>
+      <div class="exp-row"><div class="company">Cision</div><div class="role">Lead Product Designer</div><div class="year">2022–23</div></div>
+      <div class="exp-row"><div class="company">SmartRecruiters</div><div class="role">Lead Product Designer</div><div class="year">2021</div></div>
+      <div class="exp-row"><div class="company">Valassis Digital</div><div class="role">Senior Interaction Designer</div><div class="year">2019–21</div></div>
+      <div class="exp-row"><div class="company">PepsiCo</div><div class="role">Senior UX Designer</div><div class="year">2020</div></div>
+      <div class="exp-row"><div class="company">IQVIA</div><div class="role">UX Designer</div><div class="year">2018–19</div></div>
+      <div class="exp-row"><div class="company">Open Up Resources</div><div class="role">Front-end Developer</div><div class="year">2018</div></div>
+      <div class="exp-row"><div class="company">Purpose UX</div><div class="role">UX Designer</div><div class="year">2017–18</div></div>
+      <div class="exp-row"><div class="company">Spreedly</div><div class="role">UX Designer</div><div class="year">2016–17</div></div>
+      <div class="exp-row"><div class="company">Float Left Interactive</div><div class="role">UX Engineer</div><div class="year">2016</div></div>
+    </div>
+    <p class="exp-earlier">Earlier: Art Director / Senior Graphic Designer — Counselor Magazine, The WSR Group, agencies</p>
+  </div>
+</section>
+
+<section class="section" id="credentials">
+  <div class="num">05</div>
+  <div>
+    <p class="label">Mentorship & Education</p>
+    <div class="credlist">
+      <div class="cred"><div class="role">Peer Mentor, ADPList.org</div><div class="meta">2022–Present</div></div>
+      <div class="cred"><div class="role">A.S., Graphic Design — Art Institute of Fort Lauderdale</div><div class="meta"></div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p class="big">Let's talk.</p>
+  <div class="footer-links">
+    <a href="mailto:danewesolko@gmail.com">danewesolko@gmail.com</a>
+    <a href="https://www.linkedin.com/in/dane-michael-wesolko/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navtoggle');
+    var nav = document.getElementById('topnav');
+
+    function closeMenu(){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'Menu';
+    }
+    function openMenu(){
+      nav.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = 'Close';
+    }
+
+    toggle.addEventListener('click', function(){
+      var isOpen = nav.classList.contains('open');
+      isOpen ? closeMenu() : openMenu();
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMenu();
+    });
+  })();
+
+  (function(){
+    var links = document.querySelectorAll('.topnav a');
+    var sections = Array.prototype.map.call(links, function(l){
+      return document.getElementById(l.getAttribute('data-target'));
+    });
+    if(!('IntersectionObserver' in window)) return;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          links.forEach(function(l){
+            l.classList.toggle('active', l.getAttribute('data-target') === id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ if(s) observer.observe(s); });
+  })();
+</script>
+
+</body>
+</html>
