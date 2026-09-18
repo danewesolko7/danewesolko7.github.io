@@ -257,7 +257,7 @@
   /* ---------- experience table ---------- */
   .exp-row{
     display:grid;
-    grid-template-columns:1fr 1fr 70px;
+    grid-template-columns:1fr 1fr auto;
     gap:12px;
     padding:12px 0;
     border-bottom:1px solid var(--rule);
@@ -269,7 +269,7 @@
   .exp-row .year{
     text-align:right;
     color:var(--muted);
-    white-space: nowrap;
+    white-space:nowrap;
   }
   .exp-earlier{
     padding-top:16px;
@@ -287,7 +287,6 @@
     display:flex;
     flex-direction:column;
     gap:18px;
-    max-width:620px;
   }
   .cred{
     display:grid;
