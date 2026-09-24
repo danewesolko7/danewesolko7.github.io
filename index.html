@@ -36,6 +36,7 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
+    overflow-x:hidden;
     background:var(--bg);
     color:var(--fg);
     font-family:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -140,16 +141,23 @@
 
   /* ---------- structural grid ---------- */
   .section{
+    position:relative;
     display:grid;
     grid-template-columns:100px 1fr;
     gap:24px;
     max-width:980px;
     margin:0 auto;
     padding:56px 24px;
-    border-bottom:4px solid var(--red);
   }
-  .section:last-of-type{
-    border-bottom:none;
+  .section:not(:last-of-type)::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:50%;
+    width:100vw;
+    margin-left:-50vw;
+    height:4px;
+    background:var(--red);
   }
   .section .num{
     font-size:14px;
