@@ -254,10 +254,37 @@
     .work-item{grid-template-columns:1fr;gap:6px;}
   }
 
+  /* ---------- case studies ---------- */
+  .caselist{
+    display:flex;
+    flex-direction:column;
+  }
+  .case-row{
+    display:block;
+    padding:18px 0;
+    border-bottom:1px solid var(--rule);
+    text-decoration:none;
+    color:var(--fg);
+  }
+  .caselist .case-row:last-child{border-bottom:none;}
+  .case-row .title{
+    font-size:18px;
+    font-weight:700;
+  }
+  .case-row .source{
+    font-size:13px;
+    font-weight:700;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-top:4px;
+  }
+  .case-row:hover .title{color:var(--red);}
+
   /* ---------- experience table ---------- */
   .exp-row{
     display:grid;
-    grid-template-columns:1fr 1fr auto;
+    grid-template-columns:1fr 1fr 70px;
     gap:12px;
     padding:12px 0;
     border-bottom:1px solid var(--rule);
@@ -269,7 +296,7 @@
   .exp-row .year{
     text-align:right;
     color:var(--muted);
-    white-space:nowrap;
+    white-space: nowrap;
   }
   .exp-earlier{
     padding-top:16px;
@@ -287,6 +314,7 @@
     display:flex;
     flex-direction:column;
     gap:18px;
+    max-width:620px;
   }
   .cred{
     display:grid;
@@ -350,6 +378,7 @@
     <li><a href="#about" data-target="about">About</a></li>
     <li><a href="#offtheclock" data-target="offtheclock">Off the Clock</a></li>
     <li><a href="#work" data-target="work">Work</a></li>
+    <li><a href="#casestudies" data-target="casestudies">Case Studies</a></li>
     <li><a href="#experience" data-target="experience">Experience</a></li>
     <li><a href="#contact" data-target="contact">Contact</a></li>
   </ul>
@@ -463,8 +492,45 @@
   </div>
 </section>
 
-<section class="section" id="experience">
+<section class="section" id="casestudies">
   <div class="num">04</div>
+  <div>
+    <p class="label">Case Studies</p>
+    <div class="caselist">
+      <a class="case-row" href="https://brains42069.substack.com/p/reinventing-the-comparator-sourcing" target="_blank" rel="noopener">
+        <div class="title">Reinventing the Comparator Sourcing Industry</div>
+        <div class="source">Substack</div>
+      </a>
+      <a class="case-row" href="https://brains42069.substack.com/p/optimizing-processes-to-drive-consumer" target="_blank" rel="noopener">
+        <div class="title">Optimizing Processes to Drive Consumer Savings</div>
+        <div class="source">Substack</div>
+      </a>
+      <a class="case-row" href="https://brains42069.substack.com/p/revolutionizing-nuclear-fleet-management" target="_blank" rel="noopener">
+        <div class="title">Revolutionizing Nuclear Fleet Management with AI-Powered Toolkit</div>
+        <div class="source">Substack</div>
+      </a>
+      <a class="case-row" href="https://brains42069.substack.com/p/keeping-athletes-hydrated-on-and" target="_blank" rel="noopener">
+        <div class="title">Keeping Athletes Hydrated On and Off the Field</div>
+        <div class="source">Substack</div>
+      </a>
+      <a class="case-row" href="https://brains42069.substack.com/p/helping-patients-get-the-medicine" target="_blank" rel="noopener">
+        <div class="title">Helping Patients Get the Medicine They Need</div>
+        <div class="source">Substack</div>
+      </a>
+      <a class="case-row" href="https://brains42069.substack.com/p/enhancing-newswire-products-with" target="_blank" rel="noopener">
+        <div class="title">Enhancing Newswire Products with AI and Machine Learning</div>
+        <div class="source">Substack</div>
+      </a>
+      <a class="case-row" href="https://brains42069.substack.com/p/accessing-insight-from-real-world" target="_blank" rel="noopener">
+        <div class="title">Accessing Insight from Real-World Evidence</div>
+        <div class="source">Substack</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="num">05</div>
   <div>
     <p class="label">Experience</p>
     <div class="exp-list">
@@ -485,7 +551,7 @@
 </section>
 
 <section class="section" id="credentials">
-  <div class="num">05</div>
+  <div class="num">06</div>
   <div>
     <p class="label">Mentorship & Education</p>
     <div class="credlist">
