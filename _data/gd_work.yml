@@ -1,0 +1,69 @@
+# Graphic design page — "Selected Work", in display order, grouped by `group`.
+# Optional `images`: files in assets/img/graphic/, shown under the item's text,
+# two to a row. `label` is an optional caption under each image; use it when
+# one item shows work from two projects (Omphoy + Mayfair). `panel: true` sets a
+# small image (a logo) on a white panel as tall as its neighbor. `wide: true` on
+# an item runs its images across the full row instead of the text column.
+#   images:
+#     - { file: counselor-2015-04.jpg, width: 1200, height: 1553, alt: "…", label: "…" }
+- group: "Editorial"
+  title: "Counselor magazine"
+  meta: "Art Director, 2012–2016"
+  summary: "I ran each issue from start to finish: cover concepts and design, feature article layouts, directory inserts, and every page through final layout. When a story called for it, I illustrated the cover myself, as with the June 2015 issue on attorneys seeking help for substance abuse (below)."
+  wide: true
+  images:
+    - { file: counselor-2015-04-texting-aftercare.jpg, width: 600, height: 390, alt: "Counselor April 2015 spread, A Mobile Texting Aftercare Pilot Program: a large headline over a young man looking at his phone, facing a photo of students texting and three columns of text", label: "A Mobile Texting Aftercare Pilot Program" }
+    - { file: counselor-2015-04-collegiate-recovery.jpg, width: 600, height: 390, alt: "Counselor April 2015 spread, Welcome to a New Era: Collegiate Recovery Programs, with a campus lawn photo and a red drop cap", label: "Collegiate Recovery Programs" }
+    - { file: counselor-2015-04-tennessee.jpg, width: 600, height: 392, alt: "Counselor April 2015 spread, Connecting to the Earth in Tennessee: a misty Smoky Mountains photo across the gutter above green display type", label: "Connecting to the Earth in Tennessee" }
+    - { file: counselor-2015-04-music-brain.jpg, width: 600, height: 392, alt: "Counselor April 2015 spread, Music and the Brain in Recovery: yellow display type over line drawings of instruments, with an author photo and an album ad", label: "Music and the Brain in Recovery" }
+- group: "Editorial"
+  title: "Renew magazine"
+  meta: "Spring 2015"
+  summary: "When Renew partnered with Health Communications in 2014, I took over layout and design for every issue. This is Spring 2015."
+  images:
+    - { file: renew-2015-spring-cover.jpg, width: 600, height: 780, alt: "Renew magazine Spring 2015 cover: Mike Ness of Social Distortion and his son Julian, under the headline Recovering Together" }
+
+- group: "Illustration"
+  title: "Counselor covers"
+  meta: "October 2012 · June 2015"
+  summary: "October 2012: cover illustration and design. It won an ASHPE Bronze award for best cover illustration, and it's the cover at the top of this page. June 2015: asked to illustrate the cover for the story on attorneys seeking help. I wanted it fun and true to my illustrative style. The process is shown from sketch to final."
+  images:
+    - { file: counselor-2015-06-cover.jpg, width: 572, height: 732, alt: "Counselor magazine June 2015 cover: an illustrated attorney waving a white flag, with cannabis, pills and a liquor box bursting from his head, under the headline The Impaired Professional", label: "June 2015" }
+
+- group: "Identity"
+  title: "Spartico"
+  meta: "Coconut Grove"
+  summary: "A trattoria serving gourmet pizza and Italian food at casual prices. I designed the logo, then carried it through the website, menus, and flyers."
+  images:
+    - { file: spartico-logo.jpg, width: 600, height: 272, alt: "Spartico logo: thin geometric wordmark over a flame rising from a spiral", label: "Logo", panel: true }
+    - { file: spartico-website.jpg, width: 600, height: 622, alt: "Spartico website home page with the logo, a wood-fired oven slideshow, and breakfast, lunch and dinner menu panels", label: "Website" }
+- group: "Identity"
+  title: "Copperline Partners"
+  meta: "Real estate"
+  summary: "Fifty years in multi-family real estate management and development. I designed the logo, business cards, letterhead, and envelopes."
+
+- group: "Advertising and collateral"
+  title: "Health Communications media kit"
+  meta: "Publishing"
+  summary: "When Renew merged with Health Communications, sales needed a kit that showed Counselor, Renew, and US Journal Training as three separate entities working as one."
+- group: "Advertising and collateral"
+  title: "The Omphoy & The Mayfair"
+  meta: "Palm Beach · Coconut Grove"
+  summary: "The Omphoy Ocean Resort: marketing material for the luxury hotel's launch and its early years. The Mayfair Hotel & Spa: marketing flyers, over several projects."
+  images:
+    - { file: omphoy-flyer.jpg, width: 580, height: 751, alt: "The Omphoy flyer, Day-cation at The Omphoy: a couple on a beach cabana, the restaurant, and jet skis, over cabana rates", label: "The Omphoy" }
+    - { file: mayfair-flyer.jpg, width: 573, height: 742, alt: "The Mayfair Hotel & Spa flyer, 2011 Coconut Grove Resident Event Perks, with the atrium ballroom and a list of event offers", label: "The Mayfair" }
+- group: "Advertising and collateral"
+  title: "The Brazilian Court Hotel & Beach Club"
+  meta: "Palm Beach"
+  summary: "A lost mailer, rebuilt for reprint."
+- group: "Advertising and collateral"
+  title: "Altier Jewelers"
+  meta: "Boca Raton"
+  summary: "Two full-page advertisements for the city's first jewelry store, founded in 1960."
+- group: "Advertising and collateral"
+  title: "Newbreed Fight Gear"
+  meta: "Apparel"
+  summary: "Print and web ads, apparel mockups, and style guides for overseas manufacturers."
+  images:
+    - { file: newbreed-ad.jpg, width: 721, height: 960, alt: "Newbreed print ad: rash guards and fight shorts with dragon, samurai and Jiu Jitsu Fighter graphics, tagline It's Who You Are, and retailer logos" }
