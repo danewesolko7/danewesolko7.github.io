@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- Share-card template (1200×630). Rendered by scripts/make-og.sh; not published.
+     Query params: kicker, title, covers (comma-separated files in assets/img/covers/). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=block" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:1200px;height:630px;overflow:hidden;}
+  body{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:48px;
+    padding:72px 80px;
+    background:#000;
+    color:#fff;
+    font-family:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    border-bottom:12px solid #D52B1E;
+  }
+  .text{flex:1;display:flex;flex-direction:column;gap:22px;}
+  .mark{font-weight:700;font-size:26px;letter-spacing:0.02em;}
+  .mark span{color:#a8a8a8;font-weight:400;}
+  .kicker{margin:0;font-weight:700;font-size:22px;color:#D52B1E;text-transform:uppercase;letter-spacing:0.06em;}
+  h1{margin:0;font-weight:700;font-size:72px;line-height:1.02;letter-spacing:-0.015em;}
+  h1 em{font-style:normal;color:#D52B1E;}
+  .url{font-weight:700;font-size:20px;color:#a8a8a8;letter-spacing:0.04em;text-transform:uppercase;}
+  .covers{position:relative;width:400px;height:460px;flex:none;}
+  .covers::before{content:"";position:absolute;left:50%;top:50%;width:340px;height:340px;transform:translate(-50%,-50%);border-radius:50%;background:#D52B1E;}
+  .covers img{position:absolute;top:50%;width:170px;aspect-ratio:2/3;object-fit:cover;box-shadow:0 22px 44px rgba(0,0,0,.6);}
+  .covers img:nth-child(1){left:0;transform:translateY(-50%) rotate(-8deg);}
+  .covers img:nth-child(2){right:0;transform:translateY(-50%) rotate(8deg);}
+  .covers img:nth-child(3){left:50%;width:205px;transform:translate(-50%,-50%);box-shadow:0 30px 60px rgba(0,0,0,.7);}
+</style>
+</head>
+<body>
+  <div class="text">
+    <div class="mark" id="mark">DW</div>
+    <p class="kicker" id="kicker"></p>
+    <h1 id="title"></h1>
+    <div class="url">danewesolko.com</div>
+  </div>
+  <div class="covers" id="covers" hidden></div>
+<script>
+  var q = new URLSearchParams(location.search);
+  document.getElementById('kicker').textContent = q.get('kicker') || '';
+  // *word* in the title renders in red
+  document.getElementById('title').innerHTML = (q.get('title') || '')
+    .replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; })
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+  if(q.get('crumb')) document.getElementById('mark').innerHTML = 'DW <span>/ ' + q.get('crumb') + '</span>';
+  var covers = (q.get('covers') || '').split(',').filter(Boolean);
+  if(covers.length){
+    var box = document.getElementById('covers');
+    box.hidden = false;
+    covers.forEach(function(f){
+      var img = document.createElement('img');
+      img.src = '../assets/img/covers/' + f;
+      box.appendChild(img);
+    });
+  }
+</script>
+</body>
+</html>

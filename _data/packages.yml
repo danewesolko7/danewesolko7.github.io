@@ -1,8 +1,10 @@
 # Book cover design page — pricing cards. `option` is the text used in the
 # quote form's Package dropdown; buttons preselect it.
+# price_value: plain number (USD) for structured data.
 - name: "Ebook Cover"
   audience: "Digital-first launches"
   price: "$650"
+  price_value: 650
   option: "Ebook Cover ($650)"
   button: "Choose Ebook"
   features:
@@ -15,6 +17,7 @@
   audience: "Recommended"
   featured: true
   price: "$1,100"
+  price_value: 1100
   option: "Full Wrap ($1,100)"
   button: "Choose Full Wrap"
   features:
@@ -28,6 +31,7 @@
   audience: "Multi-book & small presses"
   price_from: true
   price: "$1,800"
+  price_value: 1800
   option: "Series & Publisher"
   button: "Request a quote"
   features:

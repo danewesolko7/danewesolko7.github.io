@@ -1,0 +1,46 @@
+{%- comment -%} Service + price list + FAQ for the book cover design page. {%- endcomment -%}
+    {
+      "@type": "Service",
+      "@id": "{{ include.page_url }}#service",
+      "name": "Book Cover Design",
+      "serviceType": "Book cover design",
+      "description": {{ page.description | jsonify }},
+      "url": "{{ include.page_url }}",
+      "provider": { "@id": "{{ include.home_url }}#person" },
+      "areaServed": "Worldwide",
+      "audience": { "@type": "Audience", "audienceType": "Independent authors and small presses" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Book cover design packages",
+        "itemListElement": [
+          {%- for plan in site.data.packages %}
+          {
+            "@type": "Offer",
+            "name": {{ plan.name | jsonify }},
+            "description": {{ plan.features | join: '; ' | jsonify }},
+            "url": "{{ include.page_url }}#packages",
+            {%- if plan.price_from %}
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": {{ plan.price_value }}, "priceCurrency": "USD" }
+            {%- else %}
+            "price": {{ plan.price_value }},
+            "priceCurrency": "USD"
+            {%- endif %}
+          }{% unless forloop.last %},{% endunless %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ include.page_url }}#faq",
+      "isPartOf": { "@id": "{{ include.page_url }}#webpage" },
+      "mainEntity": [
+        {%- for item in site.data.book_faq %}
+        {
+          "@type": "Question",
+          "name": {{ item.q | jsonify }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | jsonify }} }
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }

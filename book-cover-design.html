@@ -2,7 +2,10 @@
 layout: default
 permalink: /book-cover-design.html
 title: Book Cover Design — Dane Wesolko
-description: Covers designed by a former publishing art director. Ebook, full-wrap and series cover design for independent authors and small presses.
+description: Book cover design by a former publishing art director at Health Communications, Inc. Ebook, full-wrap and series covers for independent authors and small presses, from $650.
+image: /assets/img/og/book-cover-design.png
+image_alt: "Book cover design by Dane Wesolko — a cover that sells your book in one second"
+schema: book-cover
 crumb: Cover Design
 nav:
   - { label: Work, href: "#work" }
@@ -183,26 +186,12 @@ scripts: [package-select]
   <div class="section__body">
     <h2 class="section__label">Questions</h2>
     <div class="faq">
-      <details open>
-        <summary>Do I own the cover?</summary>
-        <p>Yes. You get full commercial rights to the final design for your book in every format. Stock images are licensed in your name where the license allows.</p>
+      {%- for item in site.data.book_faq %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
       </details>
-      <details>
-        <summary>How do payments work?</summary>
-        <p>50% deposit to book your slot, 50% on approval of final files.</p>
-      </details>
-      <details>
-        <summary>What do you need from me?</summary>
-        <p>Title, author name, genre, a short synopsis, three to five comparable titles, and for print, your trim size and page count.</p>
-      </details>
-      <details>
-        <summary>Do you use AI-generated art?</summary>
-        <p>Rarely. Covers are built from licensed photography, illustration and original type work. If AI imagery is the right tool for a specific concept, I'll tell you up front and we'll decide together, so you always know what's on your cover and that it's cleared for commercial use.</p>
-      </details>
-      <details>
-        <summary>Do you work with publishers?</summary>
-        <p>Yes. Small and mid-size presses can book single titles or a monthly block at a per-title rate.</p>
-      </details>
+      {%- endfor %}
     </div>
   </div>
 </section>
