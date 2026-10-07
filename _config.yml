@@ -3,6 +3,7 @@ title: Dane Wesolko
 description: Product design leader. AI risk platforms, nuclear scheduling tools, expert-network communities.
 author: Dane Wesolko
 email: danewesolko@gmail.com
+linkedin: "https://www.linkedin.com/in/dane-michael-wesolko/"
 url: "https://danewesolko7.github.io"
 baseurl: ""
 lang: en
@@ -10,6 +11,9 @@ lang: en
 # New pages get clean URLs (/about/ instead of /about.html).
 # Existing pages pin their own permalink so old links keep working.
 permalink: pretty
+
+# No GitHub Pages theme — the site supplies its own layouts and CSS.
+theme: null
 
 plugins:
   - jekyll-sitemap

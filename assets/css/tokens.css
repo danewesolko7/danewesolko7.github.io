@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Design tokens — the only place raw colors and sizes are defined.
+   Components reference these via var(--name).
+
+   Breakpoints (CSS variables can't be used in media queries):
+     640px — single-column layouts
+     768px — mobile nav
+   ========================================================================== */
+
+:root{
+  /* color — light */
+  --bg:#ffffff;
+  --fg:#000000;
+  --red:#D52B1E;
+  --muted:#595959;
+  --rule:#e0e0e0;
+  --on-red:#ffffff;
+
+  /* type */
+  --font:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs-12:12px;
+  --fs-13:13px;
+  --fs-14:14px;
+  --fs-15:15px;
+  --fs-16:16px;
+  --fs-17:17px;
+  --fs-18:18px;
+  --fs-19:19px;
+  --fs-22:22px;
+  --fs-h2:clamp(30px,4vw,44px);
+  --fs-display:clamp(40px,8vw,84px);
+  --fs-footer:clamp(28px,5vw,44px);
+  --fs-price:clamp(38px,4.4vw,48px);
+
+  --ls-caps:0.08em;      /* nav, labels, buttons */
+  --ls-caps-sm:0.05em;   /* small meta text */
+  --ls-caps-xs:0.03em;   /* company / author tags */
+  --ls-tight:-0.01em;    /* large headings */
+
+  /* layout */
+  --container:980px;
+  --container-wide:1100px;
+  --gutter:24px;
+  --gutter-sm:20px;
+  --section-pad:56px;
+  --section-pad-sm:40px;
+  --num-col:100px;
+  --rule-thick:4px;
+
+  /* effects */
+  --shadow-cover:0 12px 26px rgba(0,0,0,0.22), 0 2px 6px rgba(0,0,0,0.12);
+  --shadow-cover-lg:0 16px 32px rgba(0,0,0,0.28), 0 3px 8px rgba(0,0,0,0.16);
+  --ease:0.18s ease;
+}
+
+/* color — dark (system preference, unless the page forces light) */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#000000;
+    --fg:#ffffff;
+    --red:#FF4433;
+    --muted:#a8a8a8;
+    --rule:#333333;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#000000;
+  --fg:#ffffff;
+  --red:#FF4433;
+  --muted:#a8a8a8;
+  --rule:#333333;
+}
+
+/* Always-dark surface: re-scopes the color tokens for everything inside it.
+   Keeps the brand red (#D52B1E) so it matches the light page around it. */
+.surface-dark{
+  --bg:#000000;
+  --fg:#ffffff;
+  --muted:#a8a8a8;
+  --rule:#333333;
+  background:var(--bg);
+  color:var(--fg);
+}
