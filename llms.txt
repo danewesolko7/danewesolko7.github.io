@@ -1,0 +1,38 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# {{ site.person.name }}
+
+> {{ site.person.name }} is a {{ site.person.job_title | downcase }} with 9+ years building first-of-their-kind products in regulated, high-stakes industries: energy, pharma, cybersecurity and enterprise SaaS. Earlier career in print and branding as an art director, including in-house book cover design at Health Communications, Inc. (publisher of Chicken Soup for the Soul). Currently also offers book cover design for independent authors and small presses.
+
+Contact: {{ site.person.email }}
+{% for link in site.person.same_as %}Profile: {{ link }}
+{% endfor %}
+## Pages
+
+- [Portfolio]({{ '/' | absolute_url }}): bio, selected product work, case studies, experience and education.
+- [Book Cover Design]({{ '/book-cover-design.html' | absolute_url }}): cover design services, portfolio of published covers, packages and pricing, process, FAQ and quote form.
+
+## Selected product work
+
+{% for item in site.data.work %}- {{ item.title }} ({{ item.company }}): {{ item.summary }}
+{% endfor %}
+## Experience
+
+{% for job in site.data.experience %}- {{ job.company }}, {{ job.role }} ({{ job.years }})
+{% endfor %}- Earlier: Art Director / Senior Graphic Designer at Counselor Magazine, The WSR Group and agencies.
+
+## Case studies
+
+{% for item in site.data.case_studies %}- [{{ item.title }}]({{ item.url }})
+{% endfor %}
+## Book cover design packages
+
+{% for plan in site.data.packages %}- {{ plan.name }}: {% if plan.price_from %}from {% endif %}{{ plan.price }} USD. {{ plan.features | join: '; ' }}.
+{% endfor %}
+## Published covers
+
+{% for book in site.data.covers %}- {{ book.title }} by {{ book.author }}
+{% endfor %}- The Tracks trilogy ({% for book in site.data.series %}{{ book.title }}{% unless forloop.last %}, {% endunless %}{% endfor %}) by J. Gabriel Gates and Charlene Keel

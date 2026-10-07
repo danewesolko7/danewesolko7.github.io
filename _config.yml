@@ -1,0 +1,60 @@
+# Site settings — available in templates as site.<key>
+title: Dane Wesolko
+description: Product design leader with 9+ years building first-of-their-kind products in energy, pharma, cybersecurity and enterprise SaaS.
+lang: en
+locale: en_US
+
+# Canonical address. CNAME (repo root) must match the host.
+url: "https://danewesolko.com"
+baseurl: ""
+
+# Default share image (1200×630) for pages that don't set `image:`.
+image: /assets/img/og/home.png
+
+# Who the site is about — used in structured data (JSON-LD) and the footer.
+person:
+  name: Dane Wesolko
+  job_title: Product Design Leader
+  email: danewesolko@gmail.com
+  alumni_of: The Art Institute of Fort Lauderdale
+  knows_about:
+    - Product design
+    - User experience (UX) design
+    - AI product design
+    - Enterprise SaaS
+    - Design leadership
+    - Book cover design
+    - Art direction
+  same_as:
+    - "https://www.linkedin.com/in/dane-michael-wesolko/"
+    - "https://brains42069.substack.com/"
+
+# Shortcuts used by templates
+email: danewesolko@gmail.com
+linkedin: "https://www.linkedin.com/in/dane-michael-wesolko/"
+
+# Search engine verification — paste the content="" value from each tool.
+verification:
+  google: ""   # Google Search Console → HTML tag method
+  bing: ""     # Bing Webmaster Tools → meta tag method
+
+# Analytics — paste the provider's snippet into _includes/analytics.html.
+analytics: false
+
+# New pages get clean URLs (/about/ instead of /about.html).
+# Existing pages pin their own permalink so old links keep working.
+permalink: pretty
+
+# No GitHub Pages theme — the site supplies its own layouts and CSS.
+theme: null
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - .bundle/
+  - scripts/

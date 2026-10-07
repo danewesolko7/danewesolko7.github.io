@@ -1,0 +1,36 @@
+---
+# Starter for a new page. Copy to the site root (e.g. speaking.html) and edit.
+# Folders starting with _ aren't published, so this file itself never goes live.
+layout: default
+title: Page Title — Dane Wesolko
+description: One sentence for search results and link previews.
+# permalink: /speaking/            # optional; default is /<filename>/
+# crumb: Speaking                  # text after the DW mark in the top bar
+nav:                               # omit to use the site nav in _data/nav.yml
+  - { label: First, href: "#first" }
+  - { label: Contact, href: "#contact" }
+# nav_cta: { label: Get in touch, href: "#contact" }
+# styles: [speaking]               # loads assets/css/pages/speaking.css
+# scripts: [scrollspy]             # loads assets/js/scrollspy.js
+---
+
+<section class="hero">
+  <h1 class="hero__title">Page Title</h1>
+  <p class="hero__kicker">Short kicker line</p>
+  <p class="hero__text">One or two sentences introducing the page.</p>
+</section>
+
+<section class="section" id="first">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <div class="section__head">
+      <h2 class="section__label">Section Label</h2>
+      <p class="section__title">Optional large heading.</p>
+      <p class="section__intro">Optional intro paragraph.</p>
+    </div>
+    <div class="rows">
+      <div class="row"><h3 class="row__title">Item</h3><p class="row__text">Description.</p></div>
+      <div class="row"><h3 class="row__title">Item</h3><p class="row__text">Description.</p></div>
+    </div>
+  </div>
+</section>
