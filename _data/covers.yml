@@ -1,0 +1,42 @@
+# Book cover design page — "Selected Covers" grid, in display order.
+# image: file in assets/img/covers/   width/height: the file's pixel size
+- title: "The Undefeated Mind"
+  author: "Alex Lickerman, MD"
+  image: undefeated.jpg
+  width: 227
+  height: 350
+- title: "Spirit Recovery Medicine Bag"
+  author: "Lee McCormick & Mary Faulkner"
+  image: spirit.jpg
+  width: 640
+  height: 990
+- title: "I Love You But You Always Put Me Last"
+  author: "Andrew G. Marshall"
+  image: iloveyou.jpg
+  width: 629
+  height: 1000
+- title: "Soul Food"
+  author: "Dan Clark"
+  image: soulfood.jpg
+  width: 234
+  height: 350
+- title: "Connecting with Coincidence"
+  author: "Bernard D. Beitman, MD"
+  image: coincidence.jpg
+  width: 234
+  height: 350
+- title: "Taste of Beirut"
+  author: "Joumana Accad"
+  image: beirut.jpg
+  width: 242
+  height: 349
+- title: "The Complete A to Z Dictionary of Dreams"
+  author: "Ian Wallace"
+  image: dreams.jpg
+  width: 234
+  height: 350
+- title: "The Girly Thoughts 10-Day Detox Plan"
+  author: "Patricia A. O'Gorman, PhD"
+  image: girly.jpg
+  width: 182
+  height: 277

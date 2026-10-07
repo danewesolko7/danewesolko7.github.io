@@ -1,0 +1,39 @@
+# Book cover design page — pricing cards. `option` is the text used in the
+# quote form's Package dropdown; buttons preselect it.
+- name: "Ebook Cover"
+  audience: "Digital-first launches"
+  price: "$650"
+  option: "Ebook Cover ($650)"
+  button: "Choose Ebook"
+  features:
+    - "2 initial concepts"
+    - "2 rounds of revisions"
+    - "Kindle, Apple and Kobo exports"
+    - "Thumbnail legibility check"
+    - "Delivery in [10] business days"
+- name: "Full Wrap"
+  audience: "Recommended"
+  featured: true
+  price: "$1,100"
+  option: "Full Wrap ($1,100)"
+  button: "Choose Full Wrap"
+  features:
+    - "Ebook, paperback and hardcover"
+    - "3 initial concepts, 3 revision rounds"
+    - "Front, spine and back cover copy layout"
+    - "KDP and IngramSpark print files"
+    - "3D mockups for launch marketing"
+    - "Delivery in [15] business days"
+- name: "Series & Publisher"
+  audience: "Multi-book & small presses"
+  price_from: true
+  price: "$1,800"
+  option: "Series & Publisher"
+  button: "Request a quote"
+  features:
+    - "Series system built to scale (see 03)"
+    - "Template + style guide for future volumes"
+    - "Custom illustration or photo direction"
+    - "Audiobook and ad-size variants"
+    - "Per-title rate for 3+ books"
+    - "Priority scheduling"

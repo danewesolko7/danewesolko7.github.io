@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Book cover design page — styles nothing else uses.
+   ========================================================================== */
+
+/* three fanned covers over a red disc, in the hero */
+.cover-stack{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:1 / 0.86;
+}
+.cover-stack::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:74%;
+  aspect-ratio:1 / 1;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:var(--red);
+}
+.cover-stack img{
+  position:absolute;
+  top:50%;
+  width:38%;
+  height:auto;
+  aspect-ratio:2 / 3;
+  object-fit:cover;
+  box-shadow:0 22px 44px rgba(0,0,0,0.6), 0 4px 10px rgba(0,0,0,0.4);
+}
+.cover-stack img:nth-child(1){left:0;transform:translateY(-50%) rotate(-8deg);}
+.cover-stack img:nth-child(2){right:0;transform:translateY(-50%) rotate(8deg);}
+.cover-stack img:nth-child(3){
+  left:50%;
+  width:46%;
+  transform:translate(-50%,-50%);
+  box-shadow:0 30px 60px rgba(0,0,0,0.7), 0 6px 14px rgba(0,0,0,0.45);
+}
