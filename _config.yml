@@ -57,6 +57,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - DEVELOPMENT.md
   - vendor/
   - .bundle/
   - scripts/
