@@ -56,7 +56,7 @@ assets/css/pages/        CSS only one page uses
 assets/js/               nav.js (every page) + opt-in page scripts
 assets/img/              images (covers/, og/ share cards)
 scripts/                 make-og.sh + og-card.html share-image generator (not published)
-CNAME, robots.txt, llms.txt, site.webmanifest, favicon.ico   root files for hosting, crawlers and browsers
+robots.txt, llms.txt, site.webmanifest, favicon.ico   root files for crawlers and browsers
 ```
 
 ## Adding a page
@@ -87,7 +87,7 @@ Site-wide:
 - **Icons** — `favicon.ico`, `assets/icons/` (SVG, Apple touch, 192/512), and `site.webmanifest`.
 - **Search Console / Bing** — paste verification codes into `verification:` in `_config.yml`.
 - **Analytics** — paste the snippet into `_includes/analytics.html` and set `analytics: true`. It only loads in production builds.
-- **Domain** — `CNAME` holds `danewesolko.com`. It must match `url:` in `_config.yml`.
+- **Domain** — the site lives at `danewesolko7.github.io` (`url:` in `_config.yml`). `danewesolko.com` forwards there through GoDaddy. Don't add a `CNAME` file or set a custom domain in GitHub Pages settings: GitHub would redirect back to the domain and create a loop.
 
 Check structured data after changes with https://search.google.com/test/rich-results or https://validator.schema.org.
 
