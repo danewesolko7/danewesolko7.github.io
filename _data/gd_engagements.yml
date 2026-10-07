@@ -1,0 +1,12 @@
+# Graphic design page — ways to work together. `option` is the text in the
+# project form's Project type dropdown; `featured` lists it first.
+- name: "Single project"
+  option: "Single project"
+  featured: true
+  summary: "A logo, an ad, a flyer, a cover."
+- name: "Identity system"
+  option: "Identity system"
+  summary: "Logo through stationery and collateral."
+- name: "Ongoing layout"
+  option: "Ongoing layout"
+  summary: "Issue by issue, the way I handled Renew."

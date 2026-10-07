@@ -1,0 +1,40 @@
+{%- comment -%} Service + FAQ for the graphic design page. {%- endcomment -%}
+    {
+      "@type": "Service",
+      "@id": "{{ include.page_url }}#service",
+      "name": "Graphic Design",
+      "serviceType": "Graphic design",
+      "description": {{ page.description | jsonify }},
+      "url": "{{ include.page_url }}",
+      "provider": { "@id": "{{ include.home_url }}#person" },
+      "areaServed": "Worldwide",
+      "audience": { "@type": "Audience", "audienceType": "Publishers, hotels, restaurants and brands" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Graphic design engagements",
+        "itemListElement": [
+          {%- for plan in site.data.gd_engagements %}
+          {
+            "@type": "Offer",
+            "name": {{ plan.name | jsonify }},
+            "description": {{ plan.summary | jsonify }},
+            "url": "{{ include.page_url }}#start"
+          }{% unless forloop.last %},{% endunless %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ include.page_url }}#faq",
+      "isPartOf": { "@id": "{{ include.page_url }}#webpage" },
+      "mainEntity": [
+        {%- for item in site.data.gd_faq %}
+        {
+          "@type": "Question",
+          "name": {{ item.q | jsonify }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | jsonify }} }
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
