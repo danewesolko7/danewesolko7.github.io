@@ -5,10 +5,30 @@ A static site built with [Jekyll](https://jekyllrb.com/) and published by GitHub
 
 ## Local preview
 
-One-time setup (uses the macOS system Ruby; gems install into `vendor/`, not system-wide):
+Ruby **3.3.4** (pinned in `.ruby-version`) matches what GitHub Pages builds with. It's managed by [rbenv](https://github.com/rbenv/rbenv), installed from GitHub, with no Homebrew needed (Homebrew no longer supports Intel Macs).
+
+One-time machine setup (already done on this Mac):
 
 ```sh
-bundle install --path vendor/bundle
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+# ~/.zshrc
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
+# Ruby 3.3 needs libyaml, which macOS doesn't ship. Build it once into ~/.rbenv/deps:
+#   download yaml-0.2.5.tar.gz from https://pyyaml.org/download/libyaml/
+#   ./configure --prefix=$HOME/.rbenv/deps/libyaml && make && make install
+RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$HOME/.rbenv/deps/libyaml" rbenv install 3.3.4
+```
+
+Keep `~/.rbenv/deps/libyaml`: Ruby links against it.
+
+Project setup (gems install into `vendor/`):
+
+```sh
+bundle config set --local path vendor/bundle
+bundle install
 ```
 
 Run the preview server (rebuilds on save; restart it after editing `_config.yml`):
@@ -18,6 +38,8 @@ bundle exec jekyll serve
 ```
 
 Open http://localhost:4000.
+
+To match a newer GitHub Pages release later, compare https://pages.github.com/versions/ with `bundle exec github-pages versions`, then run `bundle update github-pages`. If it needs a newer Ruby: `git -C ~/.rbenv/plugins/ruby-build pull`, then `rbenv install <version>` and update `.ruby-version`.
 
 ## Layout
 
