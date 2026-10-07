@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Product design page — styles nothing else uses.
+   Screens are 1440×1080 mockups with their own colored backgrounds.
+   ========================================================================== */
+
+.shot{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+}
+
+/* two overlapping screens over a red block, in the hero */
+.screen-stack{
+  position:relative;
+  width:100%;
+  max-width:540px;
+  aspect-ratio:1 / 0.9;
+}
+.screen-stack::before{
+  content:"";
+  position:absolute;
+  left:14%;
+  top:8%;
+  width:72%;
+  height:84%;
+  background:var(--red);
+}
+.screen-stack img{
+  position:absolute;
+  width:76%;
+  height:auto;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+  box-shadow:0 22px 44px rgba(0,0,0,0.6), 0 4px 10px rgba(0,0,0,0.4);
+}
+.screen-stack img:nth-child(1){left:0;top:0;}
+.screen-stack img:nth-child(2){right:0;bottom:0;}
+
+/* featured project: screen beside its description */
+.feature{
+  display:grid;
+  grid-template-columns:3fr 2fr;
+  align-items:center;
+  gap:32px;
+  margin:0;
+  padding-bottom:8px;
+}
+.feature .shot{box-shadow:var(--shadow-cover-lg);}
+.feature__text{display:flex;flex-direction:column;gap:10px;}
+.feature__title{
+  margin:0;
+  font-size:var(--fs-22);
+  font-weight:700;
+}
+
+/* a full-width screen inside a section */
+.shot-frame{margin:0;}
+.shot-frame .shot{
+  aspect-ratio:16 / 10;
+  box-shadow:var(--shadow-cover-lg);
+}
+
+@media (max-width:640px){
+  .feature{grid-template-columns:1fr;gap:20px;}
+}

@@ -1,0 +1,40 @@
+{%- comment -%} Service + FAQ for the product design page. {%- endcomment -%}
+    {
+      "@type": "Service",
+      "@id": "{{ include.page_url }}#service",
+      "name": "Product Design",
+      "serviceType": "Product design",
+      "description": {{ page.description | jsonify }},
+      "url": "{{ include.page_url }}",
+      "provider": { "@id": "{{ include.home_url }}#person" },
+      "areaServed": "Worldwide",
+      "audience": { "@type": "Audience", "audienceType": "Product teams in regulated and enterprise industries" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Product design engagements",
+        "itemListElement": [
+          {%- for plan in site.data.pd_engagements %}
+          {
+            "@type": "Offer",
+            "name": {{ plan.name | jsonify }},
+            "description": {{ plan.summary | jsonify }},
+            "url": "{{ include.page_url }}#start"
+          }{% unless forloop.last %},{% endunless %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ include.page_url }}#faq",
+      "isPartOf": { "@id": "{{ include.page_url }}#webpage" },
+      "mainEntity": [
+        {%- for item in site.data.pd_faq %}
+        {
+          "@type": "Question",
+          "name": {{ item.q | jsonify }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | jsonify }} }
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }

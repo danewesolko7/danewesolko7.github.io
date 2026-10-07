@@ -1,0 +1,205 @@
+---
+layout: default
+title: Product Design — Dane Wesolko
+description: Product design for energy, pharma, payments and enterprise SaaS. 9+ years taking complex software from research through engineering handoff.
+image: /assets/img/og/product-design.png
+image_alt: "Product design by Dane Wesolko — software that has to work"
+schema: product-design
+crumb: Product Design
+nav:
+  - { label: Work, href: "#work" }
+  - { label: Case, href: "#case" }
+  - { label: Process, href: "#process" }
+  - { label: FAQ, href: "#faq" }
+nav_cta: { label: Start a project, href: "#start" }
+styles: [product-design]
+scripts: [package-select]
+---
+
+<div class="band band--rule surface-dark">
+  <section class="hero hero--split">
+    <div class="hero__content">
+      <p class="hero__kicker">Product Design — Research Through Handoff</p>
+      <h1 class="hero__title">Product design for software that has to <em>work</em>.</h1>
+      <p class="hero__text">Nuclear schedulers, pharma sales teams, payment developers. I design for people who can't afford a confusing screen.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="#start">Start a project</a>
+        <a class="btn btn--outline" href="#work">See the work</a>
+      </div>
+      <p class="tag tag--muted">9+ years · Energy, pharma, cybersecurity, payments, enterprise SaaS · Research through engineering handoff</p>
+      <div class="stats">
+        <div><div class="stats__value">9+ years</div><div class="tag tag--sm tag--muted">In product design</div></div>
+        <div><div class="stats__value">Toptal</div><div class="tag tag--sm tag--muted">Designer</div></div>
+        <div><div class="stats__value">ADPList</div><div class="tag tag--sm tag--muted">Mentor</div></div>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="screen-stack">
+        <img src="{{ '/assets/img/work/pfizer-field-case-manager.jpg' | relative_url }}" width="1440" height="1080" alt="Field Case Manager iPad app for Pfizer / Onco360, showing a list of health care providers with pending and active cases" fetchpriority="high">
+        <img src="{{ '/assets/img/work/iqvia-rwe.jpg' | relative_url }}" width="1440" height="1080" alt="IQVIA Evidence Platform home screen with patient counts, a chart of patients per indication, and a map of European data sources" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section" id="work">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <div class="section__head">
+      <p class="section__label">Selected Work</p>
+      <h2 class="section__title">Regulated, technical, and shipped.</h2>
+      <p class="section__intro">Nuclear operations, health data, clinical supply, payments and retail.</p>
+    </div>
+    {%- for item in site.data.pd_work %}{% if item.image %}
+    <figure class="feature">
+      <img class="shot" src="{{ '/assets/img/work/' | append: item.image | relative_url }}" width="1440" height="1080" alt="{{ item.image_alt | escape }}" loading="lazy" decoding="async">
+      <figcaption class="feature__text">
+        <p class="tag tag--sm tag--caps tag--red">Featured — {{ item.company }}</p>
+        <h3 class="feature__title">{{ item.title }}</h3>
+        <p class="row__text">{{ item.summary }}</p>
+      </figcaption>
+    </figure>
+    {%- endif %}{% endfor %}
+    <div class="rows">
+      {%- for item in site.data.pd_work %}{% if item.image %}{% continue %}{% endif %}
+      <div class="row">
+        <div>
+          <h3 class="row__title">{{ item.title }}</h3>
+          <p class="tag tag--sm tag--red">{{ item.company }}</p>
+        </div>
+        <p class="row__text">{{ item.summary }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="cta-band surface-dark">
+      <p class="cta-band__text">Have a product that has to work?</p>
+      <a class="btn btn--primary" href="#start">Start a project</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <div class="section__head">
+      <p class="section__label">Why It Works</p>
+      <h2 class="section__title">Evidence first, then pixels, then code.</h2>
+    </div>
+    <div class="rows">
+      <div class="row"><h3 class="row__title">Research before pixels</h3><p class="row__text">Interviews, contextual inquiry, workshops, usability tests. At Valassis I shipped an experimental interface first, so usage data could tell us what to build. At IQVIA, one round of testing found five problems before we had invested further.</p></div>
+      <div class="row"><h3 class="row__title">Prototypes that make the argument</h3><p class="row__text">Sketches, flows, wireframes, then clickable or coded prototypes (HTML, CSS, JavaScript) and generative prototyping. Stakeholders react to behavior, not static screens.</p></div>
+      <div class="row"><h3 class="row__title">Built with engineering</h3><p class="row__text">Component libraries, page models, grooming sessions, front-end support. At Spreedly, I wrote the front end myself.</p></div>
+      <div class="row"><h3 class="row__title">Scope that survives the calendar</h3><p class="row__text">Phased releases and clear MVP lines. At Spreedly, the layout was built to extend, so release two slotted in without a redesign. At Gatorade, when time ran short, I moved to proven e-commerce patterns and shipped.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="case">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <div class="section__head section__head--split">
+      <div>
+        <p class="section__label">Case in Depth — Tuner, Valassis</p>
+        <h2 class="section__title">Work only a few experts could do, opened up to analysts.</h2>
+        <p class="section__intro">Business Analysts couldn't optimize the campaigns they owned. Only a few Data Scientists working in Python, R, and Jupyter notebooks could.</p>
+      </div>
+      <a class="btn btn--dark" href="#start" data-package="Embedded designer">Work like this</a>
+    </div>
+    <figure class="shot-frame">
+      <img class="shot" src="{{ '/assets/img/work/valassis-tuner.jpg' | relative_url }}" width="1440" height="1080" alt="Tuner line item settings screen, with a campaign list and an optimization panel of constraints, values and priorities" loading="lazy" decoding="async">
+    </figure>
+    <div class="rows rows--steps">
+      <div class="row"><div class="tag tag--lg tag--red">01</div><h3 class="row__title">Start with evidence</h3><p class="row__text">The lead engineer and I released an experimental interface to a small group of Data Scientists. Usage data showed which optimizations people actually made.</p></div>
+      <div class="row"><div class="tag tag--lg tag--red">02</div><h3 class="row__title">Discover the workflow</h3><p class="row__text">Stakeholder interviews, contextual inquiries, and a design workshop. In the workshop, participants sketched on printed interface shells.</p></div>
+      <div class="row"><div class="tag tag--lg tag--red">03</div><h3 class="row__title">Narrow, then explore</h3><p class="row__text">Static wireframes to settle scope. Rapid prototyping for interaction patterns once the core was clear.</p></div>
+      <div class="row"><div class="tag tag--lg tag--red">04</div><h3 class="row__title">Deliver and stay</h3><p class="row__text">Components and page models to engineering. Embedded through grooming across two quarters, with a feedback loop after launch.</p></div>
+    </div>
+    <p class="note note--ruled">What I'd change: clearer system feedback after each optimization.</p>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <div class="section__head">
+      <p class="section__label">Process</p>
+      <h2 class="section__title">Four steps, no handoff cliff.</h2>
+    </div>
+    <div class="rows rows--steps">
+      <div class="row"><div class="tag tag--lg tag--red">Step 1</div><h3 class="row__title">Understand</h3><p class="row__text">Stakeholder interviews, user interviews, observation.</p></div>
+      <div class="row"><div class="tag tag--lg tag--red">Step 2</div><h3 class="row__title">Structure</h3><p class="row__text">Sketches, user flows, wireframes.</p></div>
+      <div class="row"><div class="tag tag--lg tag--red">Step 3</div><h3 class="row__title">Test</h3><p class="row__text">Interactive prototypes, usability testing.</p></div>
+      <div class="row"><div class="tag tag--lg tag--red">Step 4</div><h3 class="row__title">Hand off</h3><p class="row__text">Components, page models, front-end support, feedback after launch.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <h2 class="section__label">Worked With</h2>
+    <p class="lede">FPL · Mercator Digital · Cision / PR Newswire · IQVIA · Valassis · PepsiCo / Gatorade · Pfizer / Onco360 · Spreedly · SmartRecruiters</p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="section__num"></div>
+  <div class="section__body">
+    <h2 class="section__label">Questions</h2>
+    <div class="faq">
+      {%- for item in site.data.pd_faq %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="start">
+  <div class="section__num"></div>
+  <div class="section__body split">
+    <div class="section__head">
+      <p class="section__label">Start a Project</p>
+      <h2 class="section__title">Tell me what has to work.</h2>
+      <p class="section__intro">The product, the stage, and the deadline. I'll reply with next steps and an available start date.</p>
+      <p class="tag tag--lg">Prefer email? <a href="mailto:{{ site.email }}" class="tag--red">{{ site.email }}</a></p>
+      <p class="tag tag--lg"><a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+    <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      <input type="hidden" name="_subject" value="New product design inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+      <div class="form__row">
+        <label class="field">Name <input type="text" name="name" required></label>
+        <label class="field">Email <input type="email" name="email" required></label>
+      </div>
+      <label class="field">Company <input type="text" name="company"></label>
+      <div class="form__row">
+        <label class="field">Product stage
+          <select name="stage">
+            <option>Idea / discovery</option>
+            <option>Prototype</option>
+            <option>In development</option>
+            <option>Live product</option>
+          </select>
+        </label>
+        <label class="field">Engagement type
+          <select name="package">
+            {%- for plan in site.data.pd_engagements %}{% if plan.featured %}
+            <option>{{ plan.option }}</option>
+            {%- endif %}{% endfor %}
+            {%- for plan in site.data.pd_engagements %}{% unless plan.featured %}
+            <option>{{ plan.option }}</option>
+            {%- endunless %}{% endfor %}
+            <option>Not sure yet</option>
+          </select>
+        </label>
+      </div>
+      <label class="field">Timeline <input type="text" name="timeline"></label>
+      <label class="field">Notes <textarea name="notes" rows="3"></textarea></label>
+      <button type="submit" class="btn btn--primary btn--block">Start a conversation</button>
+    </form>
+  </div>
+</section>
