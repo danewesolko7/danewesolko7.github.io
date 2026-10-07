@@ -1,0 +1,13 @@
+# Product design page — FAQ. Rendered on the page and as FAQPage structured data.
+- q: "Do you write code?"
+  a: "Yes. I build HTML, CSS, and JavaScript prototypes, and I've shipped front-end work."
+- q: "Can you work in regulated industries?"
+  a: "That's most of my work: nuclear, pharma, health data, payments. I start by learning the rules that constrain the design."
+- q: "Do you design AI features?"
+  a: "Yes: a generative press release builder and an AI screening workflow. I also use AI tools in my own process."
+- q: "What if there's no budget for testing?"
+  a: "I'll design the best version I can, and I'll tell you which assumptions are still untested."
+- q: "Which tools do you use?"
+  a: "Figma day to day, plus coded prototypes when behavior matters."
+- q: "How do we start?"
+  a: "Send the form below. Tell me the product, the stage, and the deadline."

@@ -14,6 +14,7 @@ Contact: {{ site.person.email }}
 
 - [Portfolio]({{ '/' | absolute_url }}): bio, selected product work, case studies, experience and education.
 - [Book Cover Design]({{ '/book-cover-design.html' | absolute_url }}): cover design services, portfolio of published covers, packages and pricing, process, FAQ and quote form.
+- [Product Design]({{ '/product-design/' | absolute_url }}): product design services, selected work, a Tuner case study, engagement types, process, FAQ and project form.
 
 ## Selected product work
 
