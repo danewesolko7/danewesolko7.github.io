@@ -1,0 +1,129 @@
+---
+layout: default
+title: About — Dane Wesolko
+description: Dane Wesolko is a product designer and graphic designer. Print first, software now. Bio, ways to work together, and full CV.
+schema_type: AboutPage
+crumb: About
+nav:
+  - { label: About, href: "#about" }
+  - { label: Work With Me, href: "#workwithme" }
+  - { label: Off the Clock, href: "#offtheclock" }
+  - { label: CV, href: "#cv" }
+nav_cta: { label: Contact, href: "#contact" }
+scripts: [scrollspy]
+# Path to the CV PDF. Leave empty to hide the download button.
+cv_pdf: /assets/dane-wesolko-cv.pdf
+---
+
+<section class="hero">
+  <h1 class="hero__title">Dane Wesolko</h1>
+  <p class="hero__kicker">Product Designer and Graphic Designer</p>
+  <p class="hero__text">Print first, software now.</p>
+</section>
+
+<section class="section" id="about">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <h2 class="section__label">About</h2>
+    <p class="lede">I started in print, designing magazines, identities, and ads. I learned to solve problems on a grid before I ever touched a screen. That discipline carried me into UX, then product design leadership, then AI-assisted products.</p>
+    <p class="lede">Today I design software for hard problems: nuclear scheduling, pharma sales, payments, cybersecurity. I still sketch by hand before I open Figma.</p>
+    <div>
+      <h3 class="tag tag--caps tag--red">At a glance</h3>
+      <ul class="bullets">
+        <li>9+ years designing software, from research to engineering handoff</li>
+        <li>Regulated and high-stakes industries: energy, pharma, cybersecurity, enterprise SaaS</li>
+        <li>A print and art direction background before that</li>
+        <li>ASHPE award for best cover illustration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="workwithme">
+  <div class="section__num"></div>
+  <div class="section__body">
+    <h2 class="section__label">Three Ways to Work With Me</h2>
+    <div class="rows">
+      <a class="row" href="{{ '/product-design/' | relative_url }}">
+        <h3 class="row__title">Product design</h3>
+        <p class="row__text">Software for complex, high-stakes work, from first interviews through front-end handoff.</p>
+      </a>
+      <a class="row" href="{{ '/graphic-design/' | relative_url }}">
+        <h3 class="row__title">Graphic design</h3>
+        <p class="row__text">Magazines, identities, and advertising, built for print.</p>
+      </a>
+      <a class="row" href="{{ '/book-cover-design.html' | relative_url }}">
+        <h3 class="row__title">Book cover design</h3>
+        <p class="row__text">Covers that sell a book in one second.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="offtheclock">
+  <div class="section__num"></div>
+  <div class="section__body">
+    <h2 class="section__label">Off the Clock</h2>
+    <ul class="bullets">
+      <li>Started businesses. Some failed.</li>
+      <li>Self-taught trading and corporate finance</li>
+      <li>Deep in digital marketing, hands-on</li>
+      <li>Built more WordPress sites than I can count</li>
+      <li>Long-term interest in newsletters and online media</li>
+      <li>Organized real-world communities, which turned out to be harder than any app</li>
+      <li>Use AI in my own process before it shows up in a job description</li>
+    </ul>
+    <p class="note">I like understanding the whole machine, not just the interface layer.</p>
+  </div>
+</section>
+
+<section class="section" id="cv">
+  <div class="section__num"></div>
+  <div class="section__body stack">
+    <div class="section__head section__head--split">
+      <h2 class="section__label">CV</h2>
+      {%- if page.cv_pdf != "" %}
+      <a class="btn btn--dark" href="{{ page.cv_pdf | relative_url }}" download="Dane-Wesolko-CV.pdf">Download CV (PDF)</a>
+      {%- endif %}
+    </div>
+
+    <div>
+      <h3 class="tag tag--caps tag--red">Strengths</h3>
+      <ul class="bullets">
+        <li>User research and usability testing</li>
+        <li>Prototyping, including coded HTML, CSS, and JavaScript, and generative tools</li>
+        <li>Component libraries and design systems</li>
+        <li>Accessibility (AA)</li>
+        <li>Front-end development</li>
+        <li>Design leadership and mentoring</li>
+        <li>Art direction and print production</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="tag tag--caps tag--red">Experience</h3>
+      <div class="rows">
+        {%- for job in site.data.cv %}
+        <div class="row">
+          <div>
+            <h4 class="row__title">{{ job.company }}</h4>
+            <p class="tag tag--sm tag--muted">{{ job.role }}</p>
+            {%- if job.dates != "" %}
+            <p class="tag tag--sm tag--red">{{ job.dates }}</p>
+            {%- endif %}
+          </div>
+          <p class="row__text">{{ job.summary }}</p>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+
+    <div>
+      <h3 class="tag tag--caps tag--red">Mentorship and Education</h3>
+      <div class="rows rows--plain">
+        <div class="row"><div>Peer Mentor, ADPList.org</div><div class="row__meta">06/2022 to present</div></div>
+        <div class="row"><div>A.S., Graphic Design, Art Institute of Fort Lauderdale</div><div class="row__meta"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
