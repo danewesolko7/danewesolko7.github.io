@@ -1,13 +1,13 @@
 # Book cover design page — The Tracks trilogy.
 - title: "Ghost Crown"
-  image: ghostcrown.jpg
+  image: ghostcrown.webp
   width: 469
   height: 720
 - title: "Dark Territory"
-  image: darkterritory.jpg
+  image: darkterritory.webp
   width: 484
   height: 739
 - title: "Shadow Train"
-  image: shadowtrain.jpg
+  image: shadowtrain.webp
   width: 476
   height: 742

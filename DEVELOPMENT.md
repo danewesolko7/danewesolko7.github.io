@@ -55,18 +55,31 @@ assets/css/base.css      element defaults, focus, skip link
 assets/css/components.css  every shared component
 assets/css/pages/        CSS only one page uses
 assets/js/               nav.js (every page) + opt-in page scripts
-assets/img/              images (covers/, og/ share cards)
-scripts/                 make-og.sh + og-card.html share-image generator (not published)
+assets/img/              images: covers/, graphic/, work/ (JPG masters + the WebP the pages use), og/ share cards
+assets/fonts/            Montserrat, self-hosted (one variable woff2, latin subset) + its license
+scripts/                 make-og.sh + og-card.html share images, make-webp.py WebP images (not published)
 robots.txt, llms.txt, site.webmanifest, favicon.ico   root files for crawlers and browsers
 ```
 
 ## Adding a page
 
 1. Copy `_templates/page.html` to the site root, for example `speaking.html`. It will publish at `/speaking/`.
-2. Edit its front matter (title, description, nav).
+2. Edit its front matter (title, description, crumb, nav_cta). The header links are global: add the page to `_data/nav.yml` if it belongs in them.
 3. Make its share image: `scripts/make-og.sh <slug> "Kicker" "Title with *red* word"` and set `image: /assets/img/og/<slug>.png`.
 4. Build the content from the components below. If a page needs something unique, add `assets/css/pages/<name>.css` and list it under `styles:`.
 5. Add a line for it under **Pages** in `llms.txt`.
+
+## Adding an image
+
+1. Drop the JPG into `assets/img/covers/`, `graphic/` or `work/`.
+2. Run `python3 scripts/make-webp.py` (needs `pip install pillow`). It writes `<name>.webp`, plus `<name>-720.webp` for anything wider than 1000px.
+3. Reference the `.webp` in the page or `_data/` file, with `width`, `height` and `alt`. Add `loading="lazy" decoding="async"` unless it's in the first screen. Wide screenshots also get `srcset` with the 720w file, as on the home page.
+
+The JPGs aren't published (`exclude:` in `_config.yml`); they're the masters for both scripts.
+
+## Forms
+
+Forms post to FormSubmit (`https://formsubmit.co/<email>`) and return visitors to `/thanks/` via the hidden `_next` field. Copy the hidden fields from an existing form. The first submission to a new address triggers a confirmation email that has to be clicked before messages arrive.
 
 ## SEO and GEO
 
@@ -105,14 +118,14 @@ Check structured data after changes with https://search.google.com/test/rich-res
 |---|---|
 | `.hero`, `.hero--split` | Page intro. `--split` puts text beside media (`.hero__content` / `.hero__media`) |
 | `.band`, `.band--rule`, `.surface-dark` | Full-width strip. `.surface-dark` stays black in light and dark mode |
-| `.section` | Numbered section. Leave `.section__num` empty to auto-number. `--wide` for 1100px |
+| `.section` | Numbered section. Leave `.section__num` empty to auto-number |
 | `.section__head`, `--split` | Label + `.section__title` + `.section__intro`. `--split` puts a button on the right |
 | `.stack` | Even vertical spacing between blocks in a section body |
-| `.rows` / `.row` | Ruled rows. Default title \| text. Variants: `--table` (3 col), `--plain`, `--steps`. `a.row` is a link row |
+| `.rows` / `.row` | Ruled rows. Default title \| text. Variants: `--plain`, `--steps`. `a.row` is a link row |
 | `.bullets`, `--sm` | Ruled list |
-| `.grid`, `--sm`, `--lg`, `--3`, `--covers` | Responsive grids |
+| `.grid`, `--sm`, `--3`, `--covers` | Responsive grids |
 | `.cover`, `--lg` | Book cover image + caption |
 | `.btn` + `--primary`, `--outline`, `--dark`, `--block` | Buttons. Group them in `.actions` |
 | `.tag` + `--sm`, `--lg`, `--red`, `--muted` | Small uppercase label |
 | `.lede`, `.note`, `.note--ruled` | Paragraph styles |
-| `.stats`, `.cta-band`, `.plan`, `.quote`, `.faq`, `.split`, `.form` / `.field` | Landing-page pieces, see the book cover page for examples |
+| `.stats`, `.cta-band`, `.plan`, `.faq`, `.split`, `.form` / `.field` | Landing-page pieces, see the book cover page for examples |

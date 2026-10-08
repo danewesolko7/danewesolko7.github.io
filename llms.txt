@@ -5,14 +5,14 @@ sitemap: false
 ---
 # {{ site.person.name }}
 
-> {{ site.person.name }} is a {{ site.person.job_title | downcase }} with 9+ years building first-of-their-kind products in regulated, high-stakes industries: energy, pharma, cybersecurity and enterprise SaaS. Earlier career in print and branding as an art director, including in-house book cover design at Health Communications, Inc. (publisher of Chicken Soup for the Soul). Currently also offers book cover design for independent authors and small presses.
+> {{ site.person.name }} is a {{ site.person.job_title | downcase }}: eight years in print (2008 to 2016) and ten in software (2016 to now). Product work: first-of-their-kind software for regulated, high-stakes industries: energy, pharma, cybersecurity, payments and enterprise SaaS. Print work: art director at Counselor Magazine (ASHPE Bronze for best cover illustration) and the in-house book cover designer at Health Communications, Inc. (publisher of Chicken Soup for the Soul). Services offered: product design, graphic design (editorial, identity, print advertising) and book cover design for independent authors and small presses.
 
 Contact: {{ site.person.email }}
 {% for link in site.person.same_as %}Profile: {{ link }}
 {% endfor %}
 ## Pages
 
-- [Portfolio]({{ '/' | absolute_url }}): bio, selected product work, case studies, experience and education.
+- [Home]({{ '/' | absolute_url }}): overview of the three kinds of work (product design, graphic design, book covers), why one designer for all three, clients worked with, and a short bio.
 - [About]({{ '/about/' | absolute_url }}): bio, three ways to work together, interests outside work, and a full CV with strengths, experience, mentorship and education.
 - [Book Cover Design]({{ '/book-cover-design.html' | absolute_url }}): cover design services, portfolio of published covers, packages and pricing, process, FAQ and quote form.
 - [Product Design]({{ '/product-design/' | absolute_url }}): product design services, selected work, a Tuner case study, engagement types, process, FAQ and project form.

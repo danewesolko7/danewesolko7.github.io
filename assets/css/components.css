@@ -22,7 +22,12 @@
   font-size:var(--fs-15);
   letter-spacing:0.02em;
 }
-.topbar__brand a{text-decoration:none;}
+.topbar__brand a{
+  display:inline-block;
+  padding:12px 8px;
+  margin:-12px -8px;
+  text-decoration:none;
+}
 .topbar__crumb{
   color:var(--muted);
   font-weight:400;
@@ -38,7 +43,8 @@
   text-transform:uppercase;
   letter-spacing:var(--ls-caps);
   cursor:pointer;
-  padding:8px 0;
+  padding:14px 8px;
+  margin:-6px -8px;
 }
 .topnav{
   display:flex;
@@ -58,7 +64,7 @@
   border-bottom:2px solid transparent;
 }
 .topnav a:hover,
-.topnav a.active{
+.topnav a[aria-current="page"]{
   border-bottom-color:var(--red);
 }
 .topnav a.topnav__cta{
@@ -105,7 +111,7 @@
     width:100%;
   }
   .topnav a:hover,
-  .topnav a.active{
+  .topnav a[aria-current="page"]{
     color:var(--red);
     border-bottom-color:var(--rule);
     border-left-color:var(--red);
@@ -121,15 +127,6 @@
     color:var(--on-red);
   }
 }
-
-
-/* ---------- container ---------- */
-.container{
-  max-width:var(--container);
-  margin:0 auto;
-  padding:0 var(--gutter);
-}
-.container--wide{max-width:var(--container-wide);}
 
 
 /* ---------- hero ---------- */
@@ -181,7 +178,6 @@ main{counter-reset:section;}
   padding:var(--section-pad) var(--gutter);
   counter-increment:section;
 }
-.section--wide{max-width:var(--container-wide);}
 .section:not(:last-of-type)::after{
   content:"";
   position:absolute;
@@ -296,16 +292,6 @@ main{counter-reset:section;}
   white-space:nowrap;
 }
 
-/* name | role | year */
-.rows--table .row{
-  grid-template-columns:1fr 1fr 110px;
-  gap:12px;
-  padding:12px 0;
-  font-size:var(--fs-16);
-}
-.rows--table .row > :first-child{font-weight:700;}
-.rows--table .row > :nth-child(2){color:var(--muted);}
-
 /* title | meta, no rules */
 .rows--plain{gap:18px;}
 .rows--plain .row{
@@ -330,9 +316,7 @@ a.row:hover .row__title{color:var(--red);}
 
 @media (max-width:640px){
   .row,
-  .rows--table .row,
   .rows--plain .row{grid-template-columns:1fr;gap:6px;}
-  .rows--table .row,
   .rows--plain .row{gap:2px;}
   .row__meta{text-align:left;}
 }
@@ -358,10 +342,11 @@ a.row:hover .row__title{color:var(--red);}
 .footer__links{
   display:flex;
   flex-direction:column;
-  gap:6px;
+  margin:-12px 0;
   text-align:right;
 }
 .footer__links a{
+  padding:12px 0;
   font-size:var(--fs-14);
   font-weight:700;
   text-decoration:none;
@@ -369,6 +354,12 @@ a.row:hover .row__title{color:var(--red);}
   letter-spacing:var(--ls-caps-sm);
 }
 .footer__links a:hover{color:var(--red);}
+.footer__legal{
+  flex-basis:100%;
+  margin:0;
+  font-size:var(--fs-12);
+  color:var(--muted);
+}
 @media (max-width:640px){
   .footer__links{text-align:left;}
 }
@@ -530,7 +521,6 @@ a.row:hover .row__title{color:var(--red);}
   gap:32px;
 }
 .grid--sm{--grid-min:200px;}
-.grid--lg{--grid-min:280px;}
 .grid--covers{
   grid-template-columns:repeat(auto-fill,minmax(max(140px,22%),1fr));
   gap:40px clamp(16px,2.6vw,28px);
@@ -632,32 +622,15 @@ a.row:hover .row__title{color:var(--red);}
 }
 
 
-/* ---------- quote ---------- */
-.quote{
-  margin:0;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  border-top:2px solid var(--fg);
-  padding-top:18px;
-}
-.quote blockquote{
-  margin:0;
-  font-size:var(--fs-22);
-  font-weight:700;
-  line-height:1.3;
-}
-
-
 /* ---------- faq ---------- */
 .faq details{
-  padding:18px 0;
   border-bottom:1px solid var(--rule);
 }
+.faq details[open]{padding-bottom:18px;}
 .faq details:last-child{border-bottom:none;}
 .faq summary{
   position:relative;
-  padding-right:32px;
+  padding:18px 32px 18px 0;
   font-size:var(--fs-18);
   font-weight:700;
   cursor:pointer;
@@ -667,7 +640,7 @@ a.row:hover .row__title{color:var(--red);}
 .faq summary::after{
   content:"+";
   position:absolute;
-  top:0;
+  top:18px;
   right:4px;
   font-size:var(--fs-22);
   font-weight:400;
@@ -676,7 +649,7 @@ a.row:hover .row__title{color:var(--red);}
 }
 .faq details[open] summary::after{content:"\2212";}
 .faq p{
-  margin:10px 0 0;
+  margin:-8px 0 0;
   font-size:var(--fs-16);
   line-height:1.5;
   color:var(--muted);
