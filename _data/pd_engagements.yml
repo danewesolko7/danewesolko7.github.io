@@ -1,12 +1,11 @@
 # Product design page — engagement types. `option` is the text in the
-# project form's Engagement dropdown; `featured` lists it first.
-- name: "Prototype Sprint"
-  option: "Prototype sprint"
-  summary: "Discovery through a clickable prototype."
-- name: "Embedded Designer"
+# project form's Engagement type dropdown, in this order. Also used in structured data.
+- name: "Embedded designer"
   option: "Embedded designer"
-  featured: true
   summary: "Join your team, from research through handoff."
-- name: "Design Lead"
-  option: "Design lead"
+- name: "Project"
+  option: "Project"
+  summary: "A defined piece of work, from discovery to a tested prototype or engineering handoff."
+- name: "Advisory"
+  option: "Advisory"
   summary: "Set direction for a product or an AI feature."

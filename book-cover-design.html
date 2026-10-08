@@ -7,206 +7,155 @@ image: /assets/img/og/book-cover-design.png
 image_alt: "Book cover design by Dane Wesolko — a cover that sells your book in one second"
 schema: book-cover
 crumb: Book Cover Design
-nav_cta: { label: Start A Project, href: "#start" }
+nav_cta: { label: Start a project, href: "#start" }
 styles: [book-cover]
 scripts: [package-select]
+ground: white
+field: blue
+accent: blue
+hero:
+  kicker: "Book cover design — former publishing art director"
+  title: "A cover that <em>sells</em> your book in one second."
+  lead: "You spent years writing it. Readers decide in a glance whether to look closer. I was an in-house art director at Health Communications, Inc., the publisher behind Chicken Soup for the Soul, designing covers that had to compete on real shelves. Now I do the same for independent authors and small presses."
+  actions: true
+  aside: cover-trio
+why:
+  - { title: "Genre signals", text: "A cover has to say \"this is your kind of book\" before it says anything clever. I design to the shelf you're selling on." }
+  - { title: "Type that holds at 100px", text: "Titles get tested at Amazon search size, not just full screen. If it can't be read small, it doesn't ship." }
+  - { title: "Print-ready, first time", text: "Spine math, bleed, barcode space and CMYK handled to KDP and IngramSpark specs, so your proof isn't a surprise." }
+  - { title: "A real art director", text: "You work directly with me: concept, type, image sourcing and production, without a template mill in between." }
+series_points:
+  - { title: "Fixed framework", text: "Same title lettering, series badge and author block in the same positions on every volume." }
+  - { title: "A color per volume", text: "Blue, red and green tell the books apart at thumbnail size while keeping them a set." }
+  - { title: "One hero object", text: "Each cover centers a single image from its story: the crown, the tunnel, the train." }
+  - { title: "Built to extend", text: "Book four slots in with no redesign. You get the template and style guide." }
+process:
+  - { num: "Day 1", title: "Brief", text: "A short questionnaire plus a 30-minute call on your book, reader and comparable titles." }
+  - { num: "Days 2–7", title: "Concepts", text: "Distinct directions, each shown full size and at thumbnail size beside real competitors." }
+  - { num: "Days 8–12", title: "Refine", text: "We pick one and tighten type, image and color through your revision rounds." }
+  - { num: "Days 13–15", title: "Deliver", text: "Print and digital files, mockups and source files, checked against your printer's template." }
 ---
 
-<div class="band band--rule surface-dark">
-  <section class="hero hero--split">
-    <div class="hero__content">
-      <p class="hero__kicker">Book Cover Design — Former Publishing Art Director</p>
-      <h1 class="hero__title">A cover that <em>sells</em> your book in one second.</h1>
-      <p class="hero__text">You spent years writing it. Readers decide in a glance whether to look closer. I was an in-house art director at Health Communications, Inc., the publisher behind Chicken Soup for the Soul, designing covers that had to compete on real shelves. Now I do the same for independent authors and small presses.</p>
-      <div class="actions">
-        <a class="btn btn--primary" href="#start">Start A Project</a>
-        <a class="btn btn--outline" href="#work">See the work</a>
-      </div>
-      <p class="tag tag--muted">Free quote · No commitment · Reply within 24 hours</p>
-      <div class="stats">
-        <div><div class="stats__value">ASHPE Bronze</div><div class="tag tag--sm tag--muted">Best cover illustration</div></div>
-        <div><div class="stats__value">Art Director</div><div class="tag tag--sm tag--muted">Health Communications</div></div>
-      </div>
+<section class="section wrap" id="work" aria-labelledby="work-h">
+  {% include section-head.html label="Selected covers" title="Published, shelved and selling." intro="Self-help, memoir, relationships, cookbooks and reference, each designed to read in its genre at a glance." id="work-h" %}
+  <div class="section__body section__body--full stack">
+    <ul class="covers">
+      {%- for book in site.data.covers %}
+      <li class="cover">
+        <img src="{{ '/assets/img/covers/' | append: book.image | relative_url }}" width="{{ book.width }}" height="{{ book.height }}" alt="{{ book.title | escape }} cover" loading="lazy" decoding="async">
+        <div class="cover__caption">
+          <h3 class="cover__title">{{ book.title }}</h3>
+          <p class="label cover__by">{{ book.author }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="muted">Also: <em>Stopping the Noise in Your Head</em> (Reid Wilson, PhD) · ASHPE Bronze, Best Cover Illustration, for <em>Counselor</em> magazine.</p>
+    <div class="cta-strip">
+      <p class="cta-strip__text">Want your book on this wall?</p>
+      <a class="btn btn--primary" href="#start">Start a project</a>
     </div>
-    <div class="hero__media">
-      <div class="cover-stack">
-        <img src="{{ '/assets/img/covers/spirit.webp' | relative_url }}" width="480" height="742" alt="Spirit Recovery Medicine Bag cover" fetchpriority="high">
-        <img src="{{ '/assets/img/covers/soulfood.webp' | relative_url }}" width="234" height="350" alt="Soul Food cover">
-        <img src="{{ '/assets/img/covers/undefeated.webp' | relative_url }}" width="227" height="350" alt="The Undefeated Mind cover" fetchpriority="high">
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="why-h">
+  {% include section-head.html label="Why it matters" title="Readers decide in a thumbnail. Most indie covers lose there." intro="A weak cover doesn't get a bad review. It gets scrolled past, and you never find out why sales stalled. Here's what I fix." id="why-h" %}
+  <div class="section__body why">
+    <figure class="size-compare" aria-label="The same cover at full size and at 100 pixels">
+      <div class="figure">
+        <img src="{{ '/assets/img/covers/undefeated.webp' | relative_url }}" width="227" height="350" alt="" loading="lazy" decoding="async">
+        <span class="label">Full size</span>
       </div>
+      <div class="figure size-compare__small">
+        <img src="{{ '/assets/img/covers/undefeated.webp' | relative_url }}" width="227" height="350" alt="" loading="lazy" decoding="async">
+        <span class="label">100px</span>
+      </div>
+    </figure>
+    {% include points.html items=page.why cols=2 %}
+  </div>
+</section>
+
+<div class="band band-ink">
+  <section class="section wrap" id="series" aria-labelledby="series-h">
+    {% include section-head.html label="Series design" title="One system. Every book instantly part of the set." intro="The Tracks trilogy by J. Gabriel Gates and Charlene Keel: three covers built on one framework, so readers who finish book one spot book two on sight." id="series-h" %}
+    <div class="section__body section__body--full stack">
+      <ul class="covers covers--3">
+        {%- for book in site.data.series %}
+        <li class="cover">
+          <img src="{{ '/assets/img/covers/' | append: book.image | relative_url }}" width="{{ book.width }}" height="{{ book.height }}" alt="{{ book.title | escape }}, The Tracks book {{ forloop.index }}, cover" loading="lazy" decoding="async">
+          <div class="cover__caption cover__caption--split">
+            <h3 class="cover__title">{{ book.title }}</h3>
+            <p class="label">Book 0{{ forloop.index }}</p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+      {% include points.html items=page.series_points cols=4 %}
     </div>
   </section>
 </div>
 
-<section class="section" id="work">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">Selected Covers</p>
-      <h2 class="section__title">Published, shelved and selling.</h2>
-      <p class="section__intro">Self-help, memoir, relationships, cookbooks and reference, each designed to read in its genre at a glance.</p>
-    </div>
-    <div class="grid grid--covers">
-      {%- for book in site.data.covers %}
-      <figure class="cover">
-        <img src="{{ '/assets/img/covers/' | append: book.image | relative_url }}" width="{{ book.width }}" height="{{ book.height }}" alt="{{ book.title | escape }} cover" loading="lazy" decoding="async">
-        <figcaption>
-          <div class="cover__title">{{ book.title }}</div>
-          <div class="tag tag--sm tag--red">{{ book.author }}</div>
-        </figcaption>
-      </figure>
-      {%- endfor %}
-    </div>
-    <p class="note note--ruled">Also: <em>Stopping the Noise in Your Head</em> (Reid Wilson, PhD) · ASHPE Bronze, Best Cover Illustration, for <em>Counselor</em> magazine.</p>
-    <div class="cta-band surface-dark">
-      <p class="cta-band__text">Want your book on this wall?</p>
-      <a class="btn btn--primary" href="#start">Start A Project</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">Why It Matters</p>
-      <h2 class="section__title">Readers decide in a thumbnail. Most indie covers lose there.</h2>
-      <p class="section__intro">A weak cover doesn't get a bad review. It gets scrolled past, and you never find out why sales stalled. Here's what I fix.</p>
-    </div>
-    <div class="rows">
-      <div class="row"><h3 class="row__title">Genre signals</h3><p class="row__text">A cover has to say "this is your kind of book" before it says anything clever. I design to the shelf you're selling on.</p></div>
-      <div class="row"><h3 class="row__title">Type that holds at 100px</h3><p class="row__text">Titles get tested at Amazon search size, not just full screen. If it can't be read small, it doesn't ship.</p></div>
-      <div class="row"><h3 class="row__title">Print-ready, first time</h3><p class="row__text">Spine math, bleed, barcode space and CMYK handled to KDP and IngramSpark specs, so your proof isn't a surprise.</p></div>
-      <div class="row"><h3 class="row__title">A real art director</h3><p class="row__text">You work directly with me: concept, type, image sourcing and production, without a template mill in between.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="series">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head section__head--split">
-      <div>
-        <p class="section__label">Series Design</p>
-        <h2 class="section__title">One system. Every book instantly part of the set.</h2>
-        <p class="section__intro">The Tracks trilogy by J. Gabriel Gates and Charlene Keel: three covers built on one framework, so readers who finish book one spot book two on sight.</p>
-      </div>
-      <a class="btn btn--dark" href="#start" data-package="Series &amp; Publisher">Start A Project</a>
-    </div>
-    <div class="grid grid--3">
-      {%- for book in site.data.series %}
-      <figure class="cover cover--lg">
-        <img src="{{ '/assets/img/covers/' | append: book.image | relative_url }}" width="{{ book.width }}" height="{{ book.height }}" alt="{{ book.title | escape }}, The Tracks book {{ forloop.index }}, cover" loading="lazy" decoding="async">
-        <figcaption class="cover__caption--split">
-          <span class="cover__title">{{ book.title }}</span>
-          <span class="tag tag--sm tag--caps tag--red">Book {{ forloop.index | prepend: '0' }}</span>
-        </figcaption>
-      </figure>
-      {%- endfor %}
-    </div>
-    <div class="rows">
-      <div class="row"><h3 class="row__title">Fixed framework</h3><p class="row__text">Same title lettering, series badge and author block in the same positions on every volume.</p></div>
-      <div class="row"><h3 class="row__title">A color per volume</h3><p class="row__text">Blue, red and green tell the books apart at thumbnail size while keeping them a set.</p></div>
-      <div class="row"><h3 class="row__title">One hero object</h3><p class="row__text">Each cover centers a single image from its story: the crown, the tunnel, the train.</p></div>
-      <div class="row"><h3 class="row__title">Built to extend</h3><p class="row__text">Book four slots in with no redesign. You get the template and style guide.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="packages">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">Packages</p>
-      <h2 class="section__title">Flat fees. No surprises.</h2>
-      <p class="section__intro">Every package includes full commercial rights and layered source files. Stock image licensing is billed separately, based on the cost of each image.</p>
-    </div>
-    <div class="grid grid--sm">
+<section class="section wrap" id="packages" aria-labelledby="packages-h">
+  {% include section-head.html label="Packages" title="Flat fees. No surprises." intro="Every package includes full commercial rights and layered source files. Stock image licensing is billed separately, based on the cost of each image." id="packages-h" %}
+  <div class="section__body section__body--full stack">
+    <div class="plans">
       {%- for plan in site.data.packages %}
-      <div class="plan{% if plan.featured %} plan--featured{% endif %}">
-        <div>
-          <p class="tag tag--sm tag--caps {% if plan.featured %}tag--red{% else %}tag--muted{% endif %}">{{ plan.audience }}</p>
-          <h3 class="plan__name">{{ plan.name }}</h3>
-        </div>
-        <div class="plan__price">{% if plan.price_from %}<span class="plan__from">From </span>{% endif %}{{ plan.price }}</div>
-        <ul class="bullets bullets--sm">
+      <article class="plan{% if plan.featured %} plan--featured{% endif %}">
+        <p class="label plan__tag">{{ plan.audience }}</p>
+        <h3 class="plan__name">{{ plan.name }}</h3>
+        <p class="plan__price">{% if plan.price_from %}<span class="plan__from">From</span> {% endif %}{{ plan.price }}</p>
+        <ul class="list list--sm plan__features">
           {%- for feature in plan.features %}
           <li>{{ feature }}</li>
           {%- endfor %}
         </ul>
         <a class="btn btn--block {% if plan.featured %}btn--primary{% else %}btn--outline{% endif %}" href="#start" data-package="{{ plan.option | escape }}">{{ plan.button }}</a>
-      </div>
+      </article>
       {%- endfor %}
     </div>
-    <p class="note note--ruled">Add-ons: rush delivery +25% · extra revision round $150 · audiobook square $200 · interior formatting from $500</p>
+    <p class="muted">Add-ons: rush delivery +25% · extra revision round $150 · audiobook square $200 · interior formatting from $500</p>
   </div>
 </section>
 
-<section class="section" id="process">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">Process</p>
-      <h2 class="section__title">The in-house workflow, minus the committee.</h2>
+<section class="section wrap" id="process" aria-labelledby="process-h">
+  {% include section-head.html label="Process" title="The in-house workflow, minus the committee." id="process-h" %}
+  <div class="section__body section__body--full stack">
+    <div class="process-bar" aria-hidden="true">
+      {%- for step in page.process %}
+      <span class="label">{{ step.num }}</span>
+      {%- endfor %}
     </div>
-    <div class="rows rows--steps">
-      <div class="row"><div class="tag tag--lg tag--red">Day 1</div><h3 class="row__title">Brief</h3><p class="row__text">A short questionnaire plus a 30-minute call on your book, reader and comparable titles.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">Days 2–7</div><h3 class="row__title">Concepts</h3><p class="row__text">Distinct directions, each shown full size and at thumbnail size beside real competitors.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">Days 8–12</div><h3 class="row__title">Refine</h3><p class="row__text">We pick one and tighten type, image and color through your revision rounds.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">Days 13–15</div><h3 class="row__title">Deliver</h3><p class="row__text">Print and digital files, mockups and source files, checked against your printer's template.</p></div>
-    </div>
+    {% include points.html items=page.process cols=4 ordered=true %}
   </div>
 </section>
 
-<section class="section" id="faq">
-  <div class="section__num"></div>
+<section class="section section--aside wrap" id="faq" aria-labelledby="faq-h">
+  {% include section-head.html label="Questions" id="faq-h" %}
   <div class="section__body">
-    <h2 class="section__label">Questions</h2>
-    <div class="faq">
-      {%- for item in site.data.book_faq %}
-      <details{% if forloop.first %} open{% endif %}>
-        <summary>{{ item.q }}</summary>
-        <p>{{ item.a }}</p>
-      </details>
-      {%- endfor %}
-    </div>
+    {% include faq.html items=site.data.book_faq name="book-faq" %}
   </div>
 </section>
 
-<section class="section" id="start">
-  <div class="section__num"></div>
-  <div class="section__body split">
-    <div class="section__head">
-      <p class="section__label">Start a Project</p>
-      <h2 class="section__title">Let's make the cover your book deserves.</h2>
-      <p class="section__intro">Tell me about your book. You'll get a quote and an available start date within 24 hours.</p>
-      <p class="tag tag--lg">Prefer email? <a href="mailto:{{ site.email }}" class="tag--red">{{ site.email }}</a></p>
-    </div>
-    <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
-      <input type="hidden" name="_subject" value="New cover design inquiry">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
-      <div class="form__row">
-        <label class="field">Name <input type="text" name="name" required></label>
-        <label class="field">Email <input type="email" name="email" required></label>
-      </div>
-      <label class="field">Book title and genre <input type="text" name="book"></label>
-      <label class="field">Package
-        <select name="package">
-          {%- for plan in site.data.packages %}{% if plan.featured %}
-          <option>{{ plan.option }}</option>
-          {%- endif %}{% endfor %}
-          {%- for plan in site.data.packages %}{% unless plan.featured %}
-          <option>{{ plan.option }}</option>
-          {%- endunless %}{% endfor %}
-          <option>Not sure yet</option>
-        </select>
-      </label>
-      <label class="field">Target publish date <input type="text" name="date"></label>
-      <label class="field">Anything else? <textarea name="notes" rows="3"></textarea></label>
-      <button type="submit" class="btn btn--primary btn--block">Get my free quote</button>
-      <p class="form__fineprint">No commitment. Reply within 24 hours.</p>
-    </form>
-  </div>
+<section class="section section--form wrap" id="start" aria-labelledby="start-h">
+  {% include section-head.html label="Start a project" title="Let's make the cover your book deserves." intro="Tell me about your book. You'll get a quote and an available start date within 24 hours." stacked=true email=true id="start-h" %}
+  <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+    <input type="hidden" name="_subject" value="New cover design inquiry">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+    <label class="field field--half"><span>Name <span class="field__hint">(required)</span></span><input type="text" name="name" autocomplete="name" required></label>
+    <label class="field field--half"><span>Email <span class="field__hint">(required)</span></span><input type="email" name="email" autocomplete="email" required></label>
+    <label class="field">Book title and genre<input type="text" name="book"></label>
+    <label class="field field--half">Package
+      <select name="package">
+        {%- for plan in site.data.packages %}
+        <option{% if plan.featured %} selected{% endif %}>{{ plan.option }}</option>
+        {%- endfor %}
+      </select>
+    </label>
+    <label class="field field--half">Target publish date<input type="date" name="date"></label>
+    <label class="field">Anything else?<textarea name="notes" rows="3"></textarea></label>
+    <button type="submit" class="btn btn--primary btn--block">Get my free quote</button>
+    <p class="form__note">No commitment. Reply within 24 hours.</p>
+  </form>
 </section>

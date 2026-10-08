@@ -1,0 +1,38 @@
+# The three services. Used by the home page posters, the contact page tiles and the 404 rows.
+# color: ink | red | blue (the service's field color).  thumbs: three images for the home poster.
+- key: product
+  title: "Product design"
+  head: "Software for people who can't afford a confusing screen."
+  desc: "Nuclear scheduling at FPL. Campaign optimization at Valassis. A European health data product at IQVIA."
+  short: "Software for complex, high-stakes work, from first interviews through front-end handoff."
+  cta: "See product design"
+  href: /product-design/
+  color: ink
+  thumbs:
+    - { src: /assets/img/work/iqvia-rwe-720.webp, width: 720, height: 540, alt: "IQVIA Evidence Platform home screen with patient counts, a chart of patients per indication, and a map of European data sources" }
+    - { src: /assets/img/work/pfizer-field-case-manager-720.webp, width: 720, height: 540, alt: "Field Case Manager iPad app for Pfizer / Onco360, showing a list of health care providers with pending and active cases" }
+    - { src: /assets/img/work/coramed-sourcing-720.webp, width: 720, height: 540, alt: "CoraMed buyer dashboard with drug search and an order list showing a quote received" }
+- key: graphic
+  title: "Graphic design"
+  head: "Magazines, identities, and advertising, built for print."
+  desc: "An ASHPE award for cover illustration. Whole issues of Renew. Identity systems for Spartico and Copperline."
+  short: "Magazines, identities, and advertising, built for print."
+  cta: "See graphic design"
+  href: /graphic-design/
+  color: red
+  thumbs:
+    - { src: /assets/img/graphic/renew-2015-spring-cover.webp, width: 600, height: 780, alt: "Renew magazine Spring 2015 cover: Mike Ness of Social Distortion and his son Julian, under the headline Recovering Together" }
+    - { src: /assets/img/graphic/counselor-2012-10-cover.webp, width: 600, height: 775, alt: "Counselor magazine October 2012 cover illustration, which won an ASHPE award" }
+    - { src: /assets/img/graphic/omphoy-flyer.webp, width: 580, height: 751, alt: "The Omphoy flyer, Day-cation at The Omphoy: a couple on a beach cabana, the restaurant, and jet skis, over cabana rates" }
+- key: book
+  title: "Book cover design"
+  head: "A cover that sells your book in one second."
+  desc: "Published covers across self-help, memoir, relationships, cookbooks, and reference."
+  short: "Covers that sell a book in one second."
+  cta: "See book covers"
+  href: /book-cover-design.html
+  color: blue
+  thumbs:
+    - { src: /assets/img/covers/undefeated.webp, width: 227, height: 350, alt: "The Undefeated Mind book cover" }
+    - { src: /assets/img/covers/spirit.webp, width: 480, height: 742, alt: "Spirit Recovery Medicine Bag book cover" }
+    - { src: /assets/img/covers/soulfood.webp, width: 234, height: 350, alt: "Soul Food book cover" }

@@ -8,127 +8,42 @@ schema_type: ProfilePage
 image: /assets/img/og/home.png
 image_alt: "Dane Wesolko — Product Designer and Graphic Designer"
 styles: [home]
+ground: paper
+hero:
+  title: "Print taught me discipline.<br><em>Software taught me systems.</em>"
+  lead: "I'm Dane Wesolko. I spent eight years in print and ten in software. I design software for hard problems, and I still take on print, brands, and book covers."
+  aside: career-bar
+habits:
+  - { title: "Grid and type", text: "I learned layout in print. It still shapes every screen I design." }
+  - { title: "Research and testing", text: "Interviews, workshops, and usability tests come before the pixels." }
+  - { title: "I build what I design", text: "HTML, CSS, JavaScript, and WordPress. I've written front ends, not just handed them off." }
+  - { title: "Systems, not one-offs", text: "A logo that runs through menus and flyers. A component library that runs through a platform." }
+  - { title: "Business sense", text: "I've started businesses and sold one. I taught myself trading, corporate finance, and digital marketing." }
+  - { title: "Leadership", text: "I led an AI/ML lab, and I mentor designers on ADPList." }
 ---
 
-<section class="hero hero--split">
-  <div class="hero__content">
-    <h1 class="hero__title">Print taught me discipline. Software taught me systems.</h1>
-    <p class="hero__text">I'm Dane Wesolko. I spent eight years in print and ten in software. I design software for hard problems, and I still take on print, brands, and book covers.</p>
-    <p class="tag tag--muted">Print 2008 to 2016 · Software 2016 to now</p>
-  </div>
-  <div class="hero__media">
-    <div class="mix-stack">
-      <img class="mix-stack__screen" src="{{ '/assets/img/work/valassis-tuner.webp' | relative_url }}" srcset="{{ '/assets/img/work/valassis-tuner-720.webp' | relative_url }} 720w, {{ '/assets/img/work/valassis-tuner.webp' | relative_url }} 1440w" sizes="(max-width: 768px) 75vw, 370px" width="1440" height="1080" alt="Tuner line item settings screen for Valassis, with a campaign list and an optimization panel of constraints, values and priorities" fetchpriority="high">
-      <img class="mix-stack__book" src="{{ '/assets/img/covers/spirit.webp' | relative_url }}" width="480" height="742" alt="Spirit Recovery Medicine Bag book cover" fetchpriority="high">
-      <img class="mix-stack__mag" src="{{ '/assets/img/graphic/counselor-2012-10-cover.webp' | relative_url }}" width="600" height="775" alt="Counselor magazine October 2012 cover illustration, which won an ASHPE award: a figure tumbling into a swirling vortex of pizza, dice, money, pills and cheeseburgers" fetchpriority="high">
-    </div>
+<section class="section wrap" id="work" aria-labelledby="work-h">
+  {% include section-head.html label="Three kinds of work" id="work-h" %}
+  <div class="section__body section__body--full posters">
+    {%- for s in site.data.services %}
+    <article class="poster poster--{{ s.key }} on-{{ s.color }}">
+      <p class="label">0{{ forloop.index }} — {{ s.title }}</p>
+      <h3 class="poster__head">{{ s.head }}</h3>
+      <p>{{ s.desc }}</p>
+      <div class="poster__thumbs">
+        {%- for t in s.thumbs %}
+        <img src="{{ t.src | relative_url }}" width="{{ t.width }}" height="{{ t.height }}" alt="{{ t.alt | escape }}" loading="lazy" decoding="async">
+        {%- endfor %}
+      </div>
+      <a class="poster__cta" href="{{ s.href | relative_url }}">{{ s.cta }}</a>
+    </article>
+    {%- endfor %}
   </div>
 </section>
 
-<section class="section" id="work">
-  <div class="section__num"></div>
+<section class="section wrap" id="why" aria-labelledby="why-h">
+  {% include section-head.html label="Why one designer" title="The same habits run through all of it." id="why-h" %}
   <div class="section__body">
-    <h2 class="section__label">Three Kinds of Work</h2>
-    <div class="rows">
-      <div class="row">
-        <h3 class="row__title">Product design</h3>
-        <div class="row__body">
-          <p class="row__lead">Software for people who can't afford a confusing screen.</p>
-          <p class="row__text">Nuclear scheduling at FPL. Campaign optimization at Valassis. A European health data product at IQVIA.</p>
-          <div class="shots shots--screen">
-            <img src="{{ '/assets/img/work/iqvia-rwe.webp' | relative_url }}" srcset="{{ '/assets/img/work/iqvia-rwe-720.webp' | relative_url }} 720w, {{ '/assets/img/work/iqvia-rwe.webp' | relative_url }} 1440w" sizes="(max-width: 640px) 33vw, 320px" width="1440" height="1080" alt="IQVIA Evidence Platform home screen with patient counts, a chart of patients per indication, and a map of European data sources" loading="lazy" decoding="async">
-            <img src="{{ '/assets/img/work/pfizer-field-case-manager.webp' | relative_url }}" srcset="{{ '/assets/img/work/pfizer-field-case-manager-720.webp' | relative_url }} 720w, {{ '/assets/img/work/pfizer-field-case-manager.webp' | relative_url }} 1440w" sizes="(max-width: 640px) 33vw, 320px" width="1440" height="1080" alt="Field Case Manager iPad app for Pfizer / Onco360, showing a list of health care providers with pending and active cases" loading="lazy" decoding="async">
-            <img src="{{ '/assets/img/work/coramed-sourcing.webp' | relative_url }}" srcset="{{ '/assets/img/work/coramed-sourcing-720.webp' | relative_url }} 720w, {{ '/assets/img/work/coramed-sourcing.webp' | relative_url }} 1440w" sizes="(max-width: 640px) 33vw, 320px" width="1440" height="1080" alt="CoraMed buyer dashboard with drug search and an order list showing a quote received" loading="lazy" decoding="async">
-          </div>
-          <a class="more" href="{{ '/product-design/' | relative_url }}">See product design</a>
-        </div>
-      </div>
-      <div class="row">
-        <h3 class="row__title">Graphic design</h3>
-        <div class="row__body">
-          <p class="row__lead">Magazines, identities, and advertising, built for print.</p>
-          <p class="row__text">An ASHPE award for cover illustration. Whole issues of Renew. Identity systems for Spartico and Copperline.</p>
-          <div class="shots shots--print">
-            <img src="{{ '/assets/img/graphic/renew-2015-spring-cover.webp' | relative_url }}" width="600" height="780" alt="Renew magazine Spring 2015 cover: Mike Ness of Social Distortion and his son Julian, under the headline Recovering Together" loading="lazy" decoding="async">
-            <img src="{{ '/assets/img/graphic/counselor-2015-06-cover.webp' | relative_url }}" width="572" height="732" alt="Counselor magazine June 2015 cover: an illustrated attorney waving a white flag, under the headline The Impaired Professional" loading="lazy" decoding="async">
-            <img src="{{ '/assets/img/graphic/omphoy-flyer.webp' | relative_url }}" width="580" height="751" alt="The Omphoy flyer, Day-cation at The Omphoy: a couple on a beach cabana, the restaurant, and jet skis, over cabana rates" loading="lazy" decoding="async">
-          </div>
-          <a class="more" href="{{ '/graphic-design/' | relative_url }}">See graphic design</a>
-        </div>
-      </div>
-      <div class="row">
-        <h3 class="row__title">Book cover design</h3>
-        <div class="row__body">
-          <p class="row__lead">A cover that sells your book in one second.</p>
-          <p class="row__text">Published covers across self-help, memoir, relationships, cookbooks, and reference.</p>
-          <div class="shots shots--book">
-            <img src="{{ '/assets/img/covers/undefeated.webp' | relative_url }}" width="227" height="350" alt="The Undefeated Mind book cover" loading="lazy" decoding="async">
-            <img src="{{ '/assets/img/covers/spirit.webp' | relative_url }}" width="480" height="742" alt="Spirit Recovery Medicine Bag book cover" loading="lazy" decoding="async">
-            <img src="{{ '/assets/img/covers/soulfood.webp' | relative_url }}" width="234" height="350" alt="Soul Food book cover" loading="lazy" decoding="async">
-          </div>
-          <a class="more" href="{{ '/book-cover-design.html' | relative_url }}">See book covers</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="why">
-  <div class="section__num"></div>
-  <div class="section__body">
-    <h2 class="section__label">Why One Designer</h2>
-    <p class="lede">The same habits run through all of it.</p>
-    <div class="rows">
-      <div class="row">
-        <h3 class="row__title">Grid and type</h3>
-        <p class="row__text">I learned layout in print. It still shapes every screen I design.</p>
-      </div>
-      <div class="row">
-        <h3 class="row__title">Research and testing</h3>
-        <p class="row__text">Interviews, workshops, and usability tests come before the pixels.</p>
-      </div>
-      <div class="row">
-        <h3 class="row__title">I build what I design</h3>
-        <p class="row__text">HTML, CSS, JavaScript, and WordPress. I've written front ends, not just handed them off.</p>
-      </div>
-      <div class="row">
-        <h3 class="row__title">Systems, not one-offs</h3>
-        <p class="row__text">A logo that runs through menus and flyers. A component library that runs through a platform.</p>
-      </div>
-      <div class="row">
-        <h3 class="row__title">Business sense</h3>
-        <p class="row__text">I've started businesses and sold one. I taught myself trading, corporate finance, and digital marketing.</p>
-      </div>
-      <div class="row">
-        <h3 class="row__title">Leadership</h3>
-        <p class="row__text">I led an AI/ML lab, and I mentor designers on ADPList.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="clients">
-  <div class="section__num"></div>
-  <div class="section__body">
-    <h2 class="section__label">Worked With</h2>
-    <div class="rows">
-      <div class="row">
-        <h3 class="row__title">Software</h3>
-        <p class="row__text">FPL · Mercator Digital · Cision / PR Newswire · IQVIA · Valassis · PepsiCo / Gatorade · Spreedly</p>
-      </div>
-      <div class="row">
-        <h3 class="row__title">Print and brand</h3>
-        <p class="row__text">Counselor · Renew · Health Communications · The Brazilian Court · The Omphoy · Spartico · Copperline Partners · Altier Jewelers</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <h2 class="section__label">About</h2>
-    <p class="lede">Started in print. Moved into UX, then product leadership, then AI. Still sketches by hand before opening Figma.</p>
-    <p><a class="more" href="{{ '/about/' | relative_url }}">Read more and see the CV</a></p>
+    {% include points.html items=page.habits cols=3 %}
   </div>
 </section>

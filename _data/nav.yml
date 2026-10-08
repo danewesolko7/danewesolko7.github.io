@@ -1,4 +1,4 @@
-# Global header links, the same on every page. `cta: true` renders a link as a red button, unless the page sets `nav_cta:`, which replaces it.
+# Global header links, the same on every page. `cta: true` renders a link as a button, unless the page sets `nav_cta:`, which replaces it.
 - label: Home
   href: /
 - label: About
@@ -9,6 +9,6 @@
   href: /graphic-design/
 - label: Book Covers
   href: /book-cover-design.html
-- label: Start A Project
+- label: Start a project
   href: /contact/
   cta: true

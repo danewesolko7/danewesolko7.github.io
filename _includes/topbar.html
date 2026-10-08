@@ -1,31 +1,32 @@
 {%- comment -%}
   Global header. The links come from _data/nav.yml and are the same on every page;
-  items with `cta: true` (Start a project → /contact/) render as red buttons at the end,
+  items with `cta: true` (Start a project → /contact/) render as a button at the end,
   unless the page sets its own nav_cta, which replaces them.
   Page front matter can set:
     crumb:   text after the DW mark, e.g. "Book Cover Design"
-    nav_cta: { label, href } — red button that replaces the nav.yml one, e.g. a link to the page's form
+    nav_cta: { label, href } — button that replaces the nav.yml one, e.g. a link to the page's form
 {%- endcomment -%}
 <header class="topbar">
-  <div class="topbar__brand">
-    <a href="{{ '/' | relative_url }}" aria-label="Home">DW</a>
-    {%- if page.crumb %} <span class="topbar__crumb">/ {{ page.crumb }}</span>{% endif %}
+  <div class="topbar__inner wrap">
+    <div class="topbar__brand">
+      <a href="{{ '/' | relative_url }}"{% unless page.crumb %} aria-label="Dane Wesolko, home"{% endunless %}>DW{% if page.crumb %}<span class="topbar__crumb">/ {{ page.crumb }}</span>{% endif %}</a>
+    </div>
+    <nav aria-label="Primary">
+      <button type="button" class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="topnav">Menu</button>
+      <ul class="topnav" id="topnav">
+        {%- assign links = site.data.nav | where_exp: "item", "item.cta != true" -%}
+        {%- assign buttons = site.data.nav | where: "cta", true -%}
+        {%- for item in links %}
+        <li><a href="{{ item.href | relative_url }}"{% if item.href == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+        {%- if page.nav_cta %}
+        <li><a class="topnav__cta" href="{{ page.nav_cta.href }}">{{ page.nav_cta.label }}</a></li>
+        {%- else %}
+        {%- for item in buttons %}
+        <li><a class="topnav__cta" href="{{ item.href | relative_url }}"{% if item.href == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+        {%- endif %}
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Main">
-    <button type="button" class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="topnav">Menu</button>
-    <ul class="topnav" id="topnav">
-      {%- assign links = site.data.nav | where_exp: "item", "item.cta != true" -%}
-      {%- assign buttons = site.data.nav | where: "cta", true -%}
-      {%- for item in links %}
-      <li><a href="{{ item.href | relative_url }}"{% if item.href == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
-      {%- endfor %}
-      {%- if page.nav_cta %}
-      <li><a class="topnav__cta" href="{{ page.nav_cta.href }}">{{ page.nav_cta.label }}</a></li>
-      {%- else %}
-      {%- for item in buttons %}
-      <li><a class="topnav__cta" href="{{ item.href | relative_url }}"{% if item.href == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
-      {%- endfor %}
-      {%- endif %}
-    </ul>
-  </nav>
 </header>

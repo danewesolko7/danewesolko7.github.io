@@ -1,0 +1,22 @@
+{%- comment -%}
+  Ruled title + text items in columns.
+    items     [{ title, text, num }]   num: optional label above the title ("Step 1")
+    cols      2 | 3 | 4 (desktop columns)
+    numbered  true labels items 01, 02… when they have no num
+    steps     true for the thick accent rule (process steps)
+    ordered   true renders an <ol>
+{%- endcomment -%}
+{%- assign tag = 'ul' %}{% if include.ordered %}{% assign tag = 'ol' %}{% endif -%}
+<{{ tag }} class="points points--{{ include.cols | default: 4 }}{% if include.steps %} points--steps{% endif %}">
+  {%- for item in include.items %}
+  <li class="point">
+    {%- if item.num %}
+    <span class="label point__num">{{ item.num }}</span>
+    {%- elsif include.numbered %}
+    <span class="label point__num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+    {%- endif %}
+    <h3 class="point__title">{{ item.title }}</h3>
+    <p class="point__text">{{ item.text }}</p>
+  </li>
+  {%- endfor %}
+</{{ tag }}>

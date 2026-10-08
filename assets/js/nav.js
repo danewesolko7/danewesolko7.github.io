@@ -3,12 +3,12 @@
   var toggle = document.getElementById('navtoggle');
   var nav = document.getElementById('topnav');
   if(!toggle || !nav) return;
+  var desktop = window.matchMedia('(min-width:1024px)');
 
   function setOpen(open){
     nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.textContent = open ? 'Close' : 'Menu';
-    document.body.style.overflow = open ? 'hidden' : '';
   }
 
   toggle.addEventListener('click', function(){
@@ -23,7 +23,5 @@
       toggle.focus();
     }
   });
-  window.addEventListener('resize', function(){
-    if(window.innerWidth > 768) setOpen(false);
-  });
+  desktop.addEventListener('change', function(){ setOpen(false); });
 })();

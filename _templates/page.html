@@ -6,28 +6,24 @@ title: Page Title — Dane Wesolko
 description: One sentence for search results and link previews.
 # permalink: /speaking/            # optional; default is /<filename>/
 # crumb: Speaking                  # text after the DW mark in the top bar
-# nav_cta: { label: Start A Project, href: "#start" }   # red button; replaces the default one in the nav
+# ground: paper                    # paper (default) | white | dark
+# field: red                       # optional color field behind header + hero: red | blue | yellow
+# accent: blue                     # optional: blue accent instead of red
+# nav_cta: { label: Start a project, href: "#start" }   # header button; replaces the default one
 # styles: [speaking]               # loads assets/css/pages/speaking.css
 # scripts: [package-select]        # loads assets/js/package-select.js
+hero:
+  kicker: "Short kicker line"
+  title: "Page title"
+  lead: "One or two sentences introducing the page."
+items:
+  - { title: "Item", text: "Description." }
+  - { title: "Item", text: "Description." }
 ---
 
-<section class="hero">
-  <h1 class="hero__title">Page Title</h1>
-  <p class="hero__kicker">Short kicker line</p>
-  <p class="hero__text">One or two sentences introducing the page.</p>
-</section>
-
-<section class="section" id="first">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <h2 class="section__label">Section Label</h2>
-      <p class="section__title">Optional large heading.</p>
-      <p class="section__intro">Optional intro paragraph.</p>
-    </div>
-    <div class="rows">
-      <div class="row"><h3 class="row__title">Item</h3><p class="row__text">Description.</p></div>
-      <div class="row"><h3 class="row__title">Item</h3><p class="row__text">Description.</p></div>
-    </div>
+<section class="section wrap" id="first" aria-labelledby="first-h">
+  {% include section-head.html label="Section label" title="Optional large headline." intro="Optional intro." id="first-h" %}
+  <div class="section__body">
+    {% include points.html items=page.items cols=2 %}
   </div>
 </section>

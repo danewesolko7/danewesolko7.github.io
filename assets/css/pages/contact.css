@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Contact page — styles nothing else uses.
+   ========================================================================== */
+
+/* message: black intro panel beside the form (5fr | 7fr) */
+.contact{max-width:1280px;margin-inline:auto;counter-increment:section;}
+.contact__intro{
+  --accent:var(--c-yellow);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:40px var(--margin);
+}
+.contact__email{color:var(--accent);}
+.contact__links{display:flex;flex-direction:column;gap:8px;}
+.contact__links a{display:inline-flex;align-items:center;min-height:var(--tap);}
+.contact__form{padding:32px var(--margin) 48px;}
+
+/* topic: radio buttons drawn as toggle buttons */
+.choices{margin:0;padding:0;border:0;}
+.choices legend{padding:0;margin-bottom:12px;}
+.choices__list{display:flex;flex-wrap:wrap;gap:8px;}
+.choice input{position:absolute;width:1px;height:1px;opacity:0;}
+.choice span{
+  display:inline-flex;
+  align-items:center;
+  min-height:var(--tap);
+  padding:0 14px;
+  border:2px solid var(--fg);
+  font-size:var(--fs-small);
+  font-weight:700;
+  cursor:pointer;
+}
+.choice input:checked + span{background:var(--fg);color:var(--bg);}
+.choice input:focus-visible + span{outline:3px solid var(--focus);outline-offset:3px;}
+
+@media (min-width:1024px){
+  .contact{display:grid;grid-template-columns:5fr 7fr;}
+  .contact__intro{
+    gap:16px;
+    padding:56px 48px;
+    /* run the black panel out to the window's left edge on screens wider than 1280px */
+    border-image:linear-gradient(var(--bg), var(--bg)) fill 0 / 0 / 0 0 0 100vw;
+  }
+  .contact__links{margin-top:auto;border-top:1px solid var(--c-rule-footer);padding-top:16px;gap:0;}
+  .contact__form{gap:32px 24px;padding:56px 48px;}
+  .contact__form .field input,
+  .contact__form .field textarea{font-size:20px;}
+  .choice span{padding:0 16px;font-size:var(--fs-body);}
+}
+
+/* pick the service: one tile per service, in its color */
+.tiles{display:grid;gap:12px;}
+.tile{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:24px;
+  padding:20px;
+}
+.tile:hover{text-decoration:none;outline:4px solid var(--c-ink);outline-offset:-4px;}
+.tile__text{display:flex;flex-direction:column;gap:6px;}
+.tile__title{font-size:22px;font-weight:700;letter-spacing:var(--ls-h3);}
+.tile__cta{margin-top:6px;text-decoration:underline;text-underline-offset:3px;}
+@media (min-width:1024px){
+  .tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .tile{min-height:280px;padding:24px;}
+  .tile__text{gap:8px;}
+  .tile__title{font-size:28px;}
+  .tile__cta{margin-top:8px;}
+}

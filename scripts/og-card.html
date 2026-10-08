@@ -1,63 +1,84 @@
 <!doctype html>
 <!-- Share-card template (1200×630). Rendered by scripts/make-og.sh; not published.
-     Query params: kicker, title, covers (comma-separated files in assets/img/covers/). -->
+     Matches the site: Helvetica Neue, a 2px rule, label + large tight headline, the page's color.
+     Query params:
+       theme   paper | dark | red | blue | yellow  (the page's ground or color field)
+       crumb   text after the DW mark
+       kicker  small uppercase label above the title
+       title   headline; *word* renders in the theme's highlight color
+       covers  comma-separated files in assets/img/covers/, shown at the right -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=block" rel="stylesheet">
 <style>
   *{box-sizing:border-box;}
   html,body{margin:0;width:1200px;height:630px;overflow:hidden;}
   body{
-    position:relative;
+    --bg:#F3F1EC; --fg:#111111; --soft:#595959; --accent:#C4241A; --highlight:#C4241A;
     display:flex;
-    align-items:center;
     gap:48px;
-    padding:72px 80px;
-    background:#000;
-    color:#fff;
-    font-family:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding:56px 64px;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
-    border-bottom:12px solid #D52B1E;
   }
-  .text{flex:1;display:flex;flex-direction:column;gap:22px;}
-  .mark{font-weight:700;font-size:26px;letter-spacing:0.02em;}
-  .mark span{color:#a8a8a8;font-weight:400;}
-  .kicker{margin:0;font-weight:700;font-size:22px;color:#D52B1E;text-transform:uppercase;letter-spacing:0.06em;}
-  h1{margin:0;font-weight:700;font-size:72px;line-height:1.02;letter-spacing:-0.015em;}
-  h1 em{font-style:normal;color:#D52B1E;}
-  .url{font-weight:700;font-size:20px;color:#a8a8a8;letter-spacing:0.04em;text-transform:uppercase;}
-  .covers{position:relative;width:400px;height:460px;flex:none;}
-  .covers::before{content:"";position:absolute;left:50%;top:50%;width:340px;height:340px;transform:translate(-50%,-50%);border-radius:50%;background:#D52B1E;}
-  .covers img{position:absolute;top:50%;width:170px;aspect-ratio:2/3;object-fit:cover;box-shadow:0 22px 44px rgba(0,0,0,.6);}
-  .covers img:nth-child(1){left:0;transform:translateY(-50%) rotate(-8deg);}
-  .covers img:nth-child(2){right:0;transform:translateY(-50%) rotate(8deg);}
-  .covers img:nth-child(3){left:50%;width:205px;transform:translate(-50%,-50%);box-shadow:0 30px 60px rgba(0,0,0,.7);}
+  body[data-theme="dark"]{--bg:#0E0E0E;--fg:#F2F0EA;--soft:#B5B2AB;--accent:#FF5C4D;--highlight:#FF5C4D;}
+  body[data-theme="red"]{--bg:#C4241A;--fg:#FFFFFF;--soft:#FFFFFF;--accent:#FFFFFF;--highlight:#FFFFFF;}
+  body[data-theme="blue"]{--bg:#0F5FB3;--fg:#FFFFFF;--soft:#FFFFFF;--accent:#FFFFFF;--highlight:#F2C230;}
+  body[data-theme="yellow"]{--bg:#F2C230;--fg:#111111;--soft:#111111;--accent:#111111;--highlight:#111111;}
+
+  .text{flex:1;min-width:0;display:flex;flex-direction:column;}
+  .mark{font-weight:700;font-size:24px;}
+  .mark span{margin-left:6px;font-weight:400;color:var(--soft);}
+  .head{margin-top:auto;display:flex;flex-direction:column;gap:20px;}
+  .label{
+    margin:0;
+    font-size:16px;
+    font-weight:700;
+    line-height:1.4;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .kicker{color:var(--accent);}
+  h1{margin:0;font-size:80px;font-weight:700;line-height:0.95;letter-spacing:-0.045em;}
+  h1 em{font-style:normal;color:var(--highlight);}
+  body.has-covers h1{font-size:68px;}
+  .foot{margin-top:40px;border-top:2px solid var(--fg);padding-top:14px;}
+
+  .covers{flex:none;align-self:center;display:grid;grid-template-columns:repeat(3,128px);gap:10px;}
+  .covers img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;}
+  .covers[hidden]{display:none;}
 </style>
 </head>
 <body>
   <div class="text">
     <div class="mark" id="mark">DW</div>
-    <p class="kicker" id="kicker"></p>
-    <h1 id="title"></h1>
-    <div class="url">danewesolko.com</div>
+    <div class="head">
+      <p class="label kicker" id="kicker"></p>
+      <h1 id="title"></h1>
+    </div>
+    <p class="label foot">danewesolko.com</p>
   </div>
   <div class="covers" id="covers" hidden></div>
 <script>
   var q = new URLSearchParams(location.search);
+  document.body.dataset.theme = q.get('theme') || 'paper';
   document.getElementById('kicker').textContent = q.get('kicker') || '';
-  // *word* in the title renders in red
+  // *word* in the title renders in the highlight color
   document.getElementById('title').innerHTML = (q.get('title') || '')
     .replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; })
     .replace(/\*(.+?)\*/g, '<em>$1</em>');
-  if(q.get('crumb')) document.getElementById('mark').innerHTML = 'DW <span>/ ' + q.get('crumb') + '</span>';
+  if(q.get('crumb')) document.getElementById('mark').innerHTML = 'DW<span>/ ' + q.get('crumb') + '</span>';
   var covers = (q.get('covers') || '').split(',').filter(Boolean);
   if(covers.length){
     var box = document.getElementById('covers');
     box.hidden = false;
+    document.body.classList.add('has-covers');
     covers.forEach(function(f){
       var img = document.createElement('img');
       img.src = '../assets/img/covers/' + f;
+      img.alt = '';
       box.appendChild(img);
     });
   }

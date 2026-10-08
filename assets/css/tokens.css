@@ -1,83 +1,180 @@
 /* ==========================================================================
    Design tokens — the only place raw colors and sizes are defined.
-   Components reference these via var(--name).
+   Components read the semantic tokens (--bg, --fg, --accent…); the scope
+   classes below remap them for each ground, color field and band.
 
    Breakpoints (CSS variables can't be used in media queries):
-     640px — single-column layouts
-     768px — mobile nav
+     600px  — two-column card grids
+     1024px — desktop: 12-column grid, desktop type scale, inline nav
    ========================================================================== */
 
 :root{
-  /* color — light */
-  --bg:#ffffff;
-  --fg:#000000;
-  --red:#D52B1E;
-  --muted:#595959;
-  --rule:#e0e0e0;
-  --on-red:#ffffff;
+  /* palette — every pair used here is checked for WCAG 2.2 AA */
+  --c-ink:#111111;
+  --c-ink-page:#0E0E0E;
+  --c-card-dark:#1A1A1A;
+  --c-paper:#F3F1EC;
+  --c-white:#FFFFFF;
+  --c-red:#C4241A;
+  --c-red-on-dark:#FF5C4D;
+  --c-blue:#0F5FB3;
+  --c-blue-mid:#3D74C2;
+  --c-blue-on-dark:#7FB2EC;
+  --c-yellow:#F2C230;
+  --c-text-paper:#3D3A35;
+  --c-text-grey:#595959;
+  --c-text-dark:#F2F0EA;
+  --c-text-dark-muted:#C9C6BF;
+  --c-text-dark-soft:#B5B2AB;
+  --c-rule-paper:#CFC9BC;
+  --c-rule-white:#D9D9D9;
+  --c-rule-dark:#333333;
+  --c-rule-footer:#444444;
+  --focus:#0F5FB3;
 
-  /* type */
-  --font:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --fs-12:12px;
-  --fs-13:13px;
-  --fs-14:14px;
-  --fs-15:15px;
-  --fs-16:16px;
-  --fs-17:17px;
-  --fs-18:18px;
-  --fs-19:19px;
-  --fs-22:22px;
-  --fs-h2:clamp(30px,4vw,44px);
-  --fs-display:clamp(40px,8vw,84px);
-  --fs-footer:clamp(28px,5vw,44px);
-  --fs-price:clamp(38px,4.4vw,48px);
+  /* type — mobile values; desktop values below */
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --fs-label:12px;
+  --fs-small:15px;
+  --fs-body:16px;
+  --fs-lead:18px;
+  --fs-h3:18px;
+  --fs-h3-lg:22px;
+  --fs-pull:22px;
+  --fs-h2:32px;
+  --fs-price:44px;
+  --fs-footer:44px;
+  --fs-h1:48px;
 
-  --ls-caps:0.08em;      /* nav, labels, buttons */
-  --ls-caps-sm:0.05em;   /* small meta text */
-  --ls-caps-xs:0.03em;   /* company / author tags */
-  --ls-tight:-0.01em;    /* large headings */
+  --ls-caps:0.08em;
+  --ls-h3:-0.02em;
+  --ls-h2:-0.03em;
+  --ls-h1:-0.04em;
+  --lh-h2:1.02;
+  --lh-h1:0.95;
 
   /* layout */
-  --container:980px;
-  --container-wide:1100px;
+  --wrap:1184px;          /* 1280px canvas minus 2 × 48px margins */
+  --margin:20px;
   --gutter:24px;
-  --gutter-sm:20px;
-  --section-pad:56px;
-  --section-pad-sm:40px;
-  --num-col:100px;
-  --rule-thick:4px;
-
-  /* effects */
-  --shadow-cover:0 12px 26px rgba(0,0,0,0.22), 0 2px 6px rgba(0,0,0,0.12);
-  --shadow-cover-lg:0 16px 32px rgba(0,0,0,0.28), 0 3px 8px rgba(0,0,0,0.16);
-  --ease:0.18s ease;
+  --section:56px;
+  --header:64px;
+  --tap:44px;
+  --btn-h:52px;
 }
 
-/* color — dark (system preference, unless the page forces light) */
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#000000;
-    --fg:#ffffff;
-    --red:#FF4433;
-    --muted:#a8a8a8;
-    --rule:#333333;
+@media (min-width:1024px){
+  :root{
+    --fs-lead:20px;
+    --fs-h3:20px;
+    --fs-h3-lg:28px;
+    --fs-pull:28px;
+    --fs-h2:56px;
+    --fs-price:56px;
+    --fs-footer:72px;
+    --fs-h1:96px;
+    --ls-h2:-0.04em;
+    --ls-h1:-0.045em;
+    --lh-h2:0.98;
+    --lh-h1:0.92;
+    --margin:48px;
+    --section:96px;
+    --header:80px;
   }
 }
-:root[data-theme="dark"]{
-  --bg:#000000;
-  --fg:#ffffff;
-  --red:#FF4433;
-  --muted:#a8a8a8;
-  --rule:#333333;
+
+
+/* ---------- grounds: the page background, set on <body> ---------- */
+.ground-paper,
+.ground-white{
+  --bg:var(--c-paper);
+  --fg:var(--c-ink);
+  --muted:var(--c-text-paper);
+  --soft:var(--c-text-grey);
+  --rule:var(--c-rule-paper);
+  --accent:var(--c-red);
+  --btn-bg:var(--c-red);
+  --btn-fg:var(--c-white);
+  --btn-hover-bg:var(--c-ink);
+  --btn-hover-fg:var(--c-white);
+}
+.ground-white{
+  --bg:var(--c-white);
+  --rule:var(--c-rule-white);
+}
+.ground-dark{
+  --bg:var(--c-ink-page);
+  --fg:var(--c-text-dark);
+  --muted:var(--c-text-dark-muted);
+  --soft:var(--c-text-dark-soft);
+  --rule:var(--c-rule-dark);
+  --accent:var(--c-red-on-dark);
+  --btn-bg:var(--c-red);
+  --btn-fg:var(--c-white);
+  --btn-hover-bg:var(--c-text-dark);
+  --btn-hover-fg:var(--c-ink);
+  color-scheme:dark;
 }
 
-/* Always-dark surface: re-scopes the color tokens for everything inside it.
-   Keeps the brand red (#D52B1E) so it matches the light page around it. */
-.surface-dark{
-  --bg:#000000;
-  --fg:#ffffff;
-  --muted:#a8a8a8;
-  --rule:#333333;
+/* ---------- accent: book covers swaps red for blue ---------- */
+.accent-blue{
+  --accent:var(--c-blue);
+  --btn-bg:var(--c-blue);
+}
+
+/* ---------- black band inside a light page ---------- */
+.band-ink{
+  --bg:var(--c-ink);
+  --fg:var(--c-paper);
+  --muted:var(--c-text-dark-muted);
+  --soft:var(--c-text-dark-soft);
+  --rule:var(--c-rule-dark);
+  --accent:var(--c-red-on-dark);
   background:var(--bg);
   color:var(--fg);
 }
+.accent-blue .band-ink{--accent:var(--c-blue-on-dark);}
+
+/* ---------- color fields: header + hero on Graphic, Book, Contact, Thanks ---------- */
+.field-red,
+.field-blue{
+  --bg:var(--c-red);
+  --fg:var(--c-white);
+  --muted:var(--c-white);
+  --soft:var(--c-white);
+  --rule:var(--c-white);
+  --accent:var(--c-white);
+  --btn-bg:var(--c-white);
+  --btn-fg:var(--c-ink);
+  --btn-hover-bg:var(--c-ink);
+  --btn-hover-fg:var(--c-white);
+  --highlight:var(--c-yellow);
+  background:var(--bg);
+  color:var(--fg);
+}
+.field-blue{--bg:var(--c-blue);}
+.field-yellow{
+  --bg:var(--c-yellow);
+  --fg:var(--c-ink);
+  --muted:var(--c-ink);
+  --soft:var(--c-ink);
+  --rule:var(--c-ink);
+  --accent:var(--c-ink);
+  --btn-bg:var(--c-ink);
+  --btn-fg:var(--c-white);
+  --btn-hover-bg:var(--c-white);
+  --btn-hover-fg:var(--c-ink);
+  background:var(--bg);
+  color:var(--fg);
+}
+
+/* ---------- service colors: posters, tiles, color bars ---------- */
+.on-ink,
+.on-red,
+.on-blue{
+  --fg:var(--c-white);
+  background:var(--c-ink);
+  color:var(--fg);
+}
+.on-red{background:var(--c-red);}
+.on-blue{background:var(--c-blue);}

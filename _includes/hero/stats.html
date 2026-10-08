@@ -1,0 +1,5 @@
+<dl class="stats{% if page.hero.stats_wide %} stats--wide{% endif %}">
+  {%- for stat in page.hero.stats %}
+  <div{% if stat.wide %} class="stats__wide"{% endif %}><dt class="label">{{ stat.label }}</dt><dd>{{ stat.value }}</dd></div>
+  {%- endfor %}
+</dl>
