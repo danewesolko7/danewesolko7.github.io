@@ -13,6 +13,7 @@ Contact: {{ site.person.email }}
 ## Pages
 
 - [Portfolio]({{ '/' | absolute_url }}): bio, selected product work, case studies, experience and education.
+- [About]({{ '/about/' | absolute_url }}): bio, three ways to work together, interests outside work, and a full CV with strengths, experience, mentorship and education.
 - [Book Cover Design]({{ '/book-cover-design.html' | absolute_url }}): cover design services, portfolio of published covers, packages and pricing, process, FAQ and quote form.
 - [Product Design]({{ '/product-design/' | absolute_url }}): product design services, selected work, a Tuner case study, engagement types, process, FAQ and project form.
 - [Graphic Design]({{ '/graphic-design/' | absolute_url }}): graphic design services: magazine layout and cover illustration, identity, print advertising and collateral, a lost-mailer case study, process, FAQ and project form.
