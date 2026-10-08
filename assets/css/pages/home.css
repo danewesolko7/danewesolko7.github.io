@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Home page — styles nothing else uses.
+   ========================================================================== */
+
+/* hero: one piece from each discipline over a red block.
+   A software screen at the back, a book cover and a magazine cover in front. */
+.mix-stack{
+  position:relative;
+  width:100%;
+  max-width:540px;
+  aspect-ratio:1 / 0.9;
+}
+.mix-stack::before{
+  content:"";
+  position:absolute;
+  left:18%;
+  top:8%;
+  width:64%;
+  height:80%;
+  background:var(--red);
+}
+.mix-stack img{
+  position:absolute;
+  height:auto;
+  object-fit:cover;
+  box-shadow:var(--shadow-cover-lg);
+}
+.mix-stack__screen{left:0;top:0;width:70%;aspect-ratio:4 / 3;}
+.mix-stack__book{left:8%;bottom:0;width:30%;aspect-ratio:2 / 3;}
+.mix-stack__mag{right:0;bottom:4%;width:46%;aspect-ratio:600 / 775;}
+
+/* row text column with a lead line, detail and a link */
+.row__body{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.row__lead{
+  margin:0;
+  font-size:var(--fs-17);
+  font-weight:700;
+  line-height:1.4;
+}
+
+/* three pieces of work under a row's text, cropped to one shape per discipline */
+.shots{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(10px,2vw,20px);
+  margin:12px 0 8px;
+}
+.shots img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  object-position:top;
+  box-shadow:var(--shadow-cover);
+}
+.shots--screen img{aspect-ratio:4 / 3;}
+.shots--print img{aspect-ratio:600 / 775;}
+.shots--book img{aspect-ratio:2 / 3;}
+
+/* small red text link */
+.more{
+  align-self:flex-start;
+  margin-top:4px;
+  font-size:var(--fs-13);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:var(--ls-caps);
+  text-decoration:none;
+  color:var(--red);
+  border-bottom:2px solid currentColor;
+  padding-bottom:2px;
+}
+.more:hover{color:var(--fg);}
