@@ -1,6 +1,6 @@
 # Dane Wesolko
 
-**Product Design Leader. 9+ years.**
+**Product designer and graphic designer. 8 years in print, 10 in software.**
 
 I design products that don't have a template yet: AI risk platforms, nuclear scheduling tools, expert-network communities.
 
@@ -10,7 +10,7 @@ I design products that don't have a template yet: AI risk platforms, nuclear sch
 
 I started in print and branding, moved into UX, then product leadership, then AI.
 
-- 9+ years building new products from scratch
+- 10 years building new products from scratch
 - Regulated, high-stakes industries: energy, pharma, cybersecurity, enterprise SaaS
 - More often first-to-exist than tenth-to-market
 - Still sketch by hand before opening Figma

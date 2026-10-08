@@ -15,7 +15,7 @@
   summary: "A generative AI MVP built inside an established design system, so it felt native to the product."
 - title: "Comparator Sourcing"
   company: "CoraMed"
-  image: coramed-sourcing.jpg
+  image: coramed-sourcing.webp
   image_alt: "CoraMed buyer dashboard with drug search and an order list showing a quote received"
   summary: "A platform connecting clinical trial buyers directly to manufacturers. Buyer dashboards first, then manufacturer workflows shaped in a multi-day workshop."
 - title: "Field Case Manager"

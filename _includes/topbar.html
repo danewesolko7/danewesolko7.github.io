@@ -1,10 +1,11 @@
 {%- comment -%}
-  Page front matter controls this bar:
-    crumb:   text after the DW mark, e.g. "Cover Design"
-    nav:     list of { label, href } — falls back to _data/nav.yml
-    nav_cta: { label, href } — red button at the end of the nav
+  Global header. The links come from _data/nav.yml and are the same on every page;
+  items with `cta: true` (Start a project → /contact/) render as red buttons at the end,
+  unless the page sets its own nav_cta, which replaces them.
+  Page front matter can set:
+    crumb:   text after the DW mark, e.g. "Book Cover Design"
+    nav_cta: { label, href } — red button that replaces the nav.yml one, e.g. a link to the page's form
 {%- endcomment -%}
-{%- assign nav = page.nav | default: site.data.nav -%}
 <header class="topbar">
   <div class="topbar__brand">
     <a href="{{ '/' | relative_url }}" aria-label="Home">DW</a>
@@ -13,11 +14,17 @@
   <nav aria-label="Main">
     <button type="button" class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="topnav">Menu</button>
     <ul class="topnav" id="topnav">
-      {%- for item in nav %}
-      <li><a href="{{ item.href }}">{{ item.label }}</a></li>
+      {%- assign links = site.data.nav | where_exp: "item", "item.cta != true" -%}
+      {%- assign buttons = site.data.nav | where: "cta", true -%}
+      {%- for item in links %}
+      <li><a href="{{ item.href | relative_url }}"{% if item.href == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
       {%- endfor %}
       {%- if page.nav_cta %}
       <li><a class="topnav__cta" href="{{ page.nav_cta.href }}">{{ page.nav_cta.label }}</a></li>
+      {%- else %}
+      {%- for item in buttons %}
+      <li><a class="topnav__cta" href="{{ item.href | relative_url }}"{% if item.href == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+      {%- endfor %}
       {%- endif %}
     </ul>
   </nav>

@@ -1,6 +1,6 @@
 # Site settings — available in templates as site.<key>
 title: Dane Wesolko
-description: Product design leader with 9+ years building first-of-their-kind products in energy, pharma, cybersecurity and enterprise SaaS.
+description: "Product designer and graphic designer. Eight years in print, ten in software: energy, pharma, cybersecurity and enterprise SaaS, plus brands and book covers."
 lang: en
 locale: en_US
 
@@ -16,7 +16,7 @@ image: /assets/img/og/home.png
 # Who the site is about — used in structured data (JSON-LD) and the footer.
 person:
   name: Dane Wesolko
-  job_title: Product Design Leader
+  job_title: Product Designer and Graphic Designer
   email: danewesolko@gmail.com
   alumni_of: The Art Institute of Fort Lauderdale
   knows_about:
@@ -25,6 +25,11 @@ person:
     - AI product design
     - Enterprise SaaS
     - Design leadership
+    - Graphic design
+    - Editorial and magazine design
+    - Cover illustration
+    - Brand identity
+    - Print design and advertising
     - Book cover design
     - Art direction
   same_as:
@@ -61,3 +66,7 @@ exclude:
   - vendor/
   - .bundle/
   - scripts/
+  # JPG masters for scripts/make-webp.py and make-og.sh; pages use the .webp files
+  - assets/img/covers/*.jpg
+  - assets/img/graphic/*.jpg
+  - assets/img/work/*.jpg

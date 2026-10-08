@@ -1,17 +1,12 @@
 ---
 layout: default
-title: Product Design — Dane Wesolko
-description: Product design for energy, pharma, payments and enterprise SaaS. 9+ years taking complex software from research through engineering handoff.
+title: Product Design for Complex Software — Dane Wesolko
+description: Product design for energy, pharma, payments and enterprise SaaS. 10 years taking complex software from research through engineering handoff.
 image: /assets/img/og/product-design.png
 image_alt: "Product design by Dane Wesolko — software that has to work"
 schema: product-design
 crumb: Product Design
-nav:
-  - { label: Work, href: "#work" }
-  - { label: Case, href: "#case" }
-  - { label: Process, href: "#process" }
-  - { label: FAQ, href: "#faq" }
-nav_cta: { label: Start a project, href: "#start" }
+nav_cta: { label: Start A Project, href: "#start" }
 styles: [product-design]
 scripts: [package-select]
 ---
@@ -23,20 +18,19 @@ scripts: [package-select]
       <h1 class="hero__title">Product design for software that has to <em>work</em>.</h1>
       <p class="hero__text">Nuclear schedulers, pharma sales teams, payment developers. I design for people who can't afford a confusing screen.</p>
       <div class="actions">
-        <a class="btn btn--primary" href="#start">Start a project</a>
+        <a class="btn btn--primary" href="#start">Start A Project</a>
         <a class="btn btn--outline" href="#work">See the work</a>
       </div>
-      <p class="tag tag--muted">9+ years · Energy, pharma, cybersecurity, payments, enterprise SaaS · Research through engineering handoff</p>
+      <p class="tag tag--muted">10 years · Energy, pharma, cybersecurity, payments, enterprise SaaS · Research through engineering handoff</p>
       <div class="stats">
-        <div><div class="stats__value">9+ years</div><div class="tag tag--sm tag--muted">In product design</div></div>
-        <div><div class="stats__value">Toptal</div><div class="tag tag--sm tag--muted">Designer</div></div>
+        <div><div class="stats__value">10 years</div><div class="tag tag--sm tag--muted">In software design</div></div>
         <div><div class="stats__value">ADPList</div><div class="tag tag--sm tag--muted">Mentor</div></div>
       </div>
     </div>
     <div class="hero__media">
       <div class="screen-stack">
-        <img src="{{ '/assets/img/work/pfizer-field-case-manager.jpg' | relative_url }}" width="1440" height="1080" alt="Field Case Manager iPad app for Pfizer / Onco360, showing a list of health care providers with pending and active cases" fetchpriority="high">
-        <img src="{{ '/assets/img/work/iqvia-rwe.jpg' | relative_url }}" width="1440" height="1080" alt="IQVIA Evidence Platform home screen with patient counts, a chart of patients per indication, and a map of European data sources" fetchpriority="high">
+        <img src="{{ '/assets/img/work/pfizer-field-case-manager.webp' | relative_url }}" srcset="{{ '/assets/img/work/pfizer-field-case-manager-720.webp' | relative_url }} 720w, {{ '/assets/img/work/pfizer-field-case-manager.webp' | relative_url }} 1440w" sizes="(max-width: 768px) 75vw, 370px" width="1440" height="1080" alt="Field Case Manager iPad app for Pfizer / Onco360, showing a list of health care providers with pending and active cases" fetchpriority="high">
+        <img src="{{ '/assets/img/work/iqvia-rwe.webp' | relative_url }}" srcset="{{ '/assets/img/work/iqvia-rwe-720.webp' | relative_url }} 720w, {{ '/assets/img/work/iqvia-rwe.webp' | relative_url }} 1440w" sizes="(max-width: 768px) 75vw, 370px" width="1440" height="1080" alt="IQVIA Evidence Platform home screen with patient counts, a chart of patients per indication, and a map of European data sources" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -52,7 +46,7 @@ scripts: [package-select]
     </div>
     {%- for item in site.data.pd_work %}{% if item.image %}
     <figure class="feature">
-      <img class="shot" src="{{ '/assets/img/work/' | append: item.image | relative_url }}" width="1440" height="1080" alt="{{ item.image_alt | escape }}" loading="lazy" decoding="async">
+      <img class="shot" src="{{ '/assets/img/work/' | append: item.image | relative_url }}" srcset="{{ '/assets/img/work/' | append: item.image | replace: '.webp', '-720.webp' | relative_url }} 720w, {{ '/assets/img/work/' | append: item.image | relative_url }} 1440w" sizes="(max-width: 1020px) 100vw, 980px" width="1440" height="1080" alt="{{ item.image_alt | escape }}" loading="lazy" decoding="async">
       <figcaption class="feature__text">
         <p class="tag tag--sm tag--caps tag--red">Featured — {{ item.company }}</p>
         <h3 class="feature__title">{{ item.title }}</h3>
@@ -73,7 +67,7 @@ scripts: [package-select]
     </div>
     <div class="cta-band surface-dark">
       <p class="cta-band__text">Have a product that has to work?</p>
-      <a class="btn btn--primary" href="#start">Start a project</a>
+      <a class="btn btn--primary" href="#start">Start A Project</a>
     </div>
   </div>
 </section>
@@ -103,10 +97,10 @@ scripts: [package-select]
         <h2 class="section__title">Work only a few experts could do, opened up to analysts.</h2>
         <p class="section__intro">Business Analysts couldn't optimize the campaigns they owned. Only a few Data Scientists working in Python, R, and Jupyter notebooks could.</p>
       </div>
-      <a class="btn btn--dark" href="#start" data-package="Embedded designer">Work like this</a>
+      <a class="btn btn--dark" href="#start" data-package="Embedded designer">Start A Project</a>
     </div>
     <figure class="shot-frame">
-      <img class="shot" src="{{ '/assets/img/work/valassis-tuner.jpg' | relative_url }}" width="1440" height="1080" alt="Tuner line item settings screen, with a campaign list and an optimization panel of constraints, values and priorities" loading="lazy" decoding="async">
+      <img class="shot" src="{{ '/assets/img/work/valassis-tuner.webp' | relative_url }}" srcset="{{ '/assets/img/work/valassis-tuner-720.webp' | relative_url }} 720w, {{ '/assets/img/work/valassis-tuner.webp' | relative_url }} 1440w" sizes="(max-width: 1020px) 100vw, 980px" width="1440" height="1080" alt="Tuner line item settings screen, with a campaign list and an optimization panel of constraints, values and priorities" loading="lazy" decoding="async">
     </figure>
     <div class="rows rows--steps">
       <div class="row"><div class="tag tag--lg tag--red">01</div><h3 class="row__title">Start with evidence</h3><p class="row__text">The lead engineer and I released an experimental interface to a small group of Data Scientists. Usage data showed which optimizations people actually made.</p></div>
@@ -170,6 +164,7 @@ scripts: [package-select]
     <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
       <input type="hidden" name="_subject" value="New product design inquiry">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
       <div class="form__row">
         <label class="field">Name <input type="text" name="name" required></label>

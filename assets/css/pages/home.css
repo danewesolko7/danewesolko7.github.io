@@ -63,6 +63,7 @@
 
 /* small red text link */
 .more{
+  position:relative;
   align-self:flex-start;
   margin-top:4px;
   font-size:var(--fs-13);
@@ -75,3 +76,5 @@
   padding-bottom:2px;
 }
 .more:hover{color:var(--fg);}
+/* 44px-tall tap area without moving the underline */
+.more::before{content:"";position:absolute;inset:-12px 0;}
