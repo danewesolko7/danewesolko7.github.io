@@ -1,0 +1,7 @@
+{%- comment -%}
+  A 4:3 product screenshot from assets/img/work/, with its 720w version.
+    file, alt, sizes, class;  width: the file's width if not 1440;  eager: true for images in the first screen
+{%- endcomment -%}
+{%- assign src = '/assets/img/work/' | append: include.file -%}
+{%- assign w = include.width | default: 1440 -%}
+<img{% if include.class %} class="{{ include.class }}"{% endif %} src="{{ src | relative_url }}" srcset="{{ src | replace: '.webp', '-720.webp' | relative_url }} 720w, {{ src | relative_url }} {{ w }}w" sizes="{{ include.sizes | default: '100vw' }}" width="{{ w }}" height="{{ w | times: 3 | divided_by: 4 }}" alt="{{ include.alt | escape }}"{% if include.eager %} fetchpriority="high"{% else %} loading="lazy" decoding="async"{% endif %}>

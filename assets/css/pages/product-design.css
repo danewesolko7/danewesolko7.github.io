@@ -3,65 +3,36 @@
    Screens are 1440×1080 mockups with their own colored backgrounds.
    ========================================================================== */
 
-.shot{
-  display:block;
-  width:100%;
-  height:auto;
-  aspect-ratio:4 / 3;
-  object-fit:cover;
-}
+/* hero buttons sit in the right column, flush right */
+@media (min-width:1024px){.hero__aside .hero__actions{justify-content:flex-end;}}
 
-/* two overlapping screens over a red block, in the hero */
-.screen-stack{
-  position:relative;
-  width:100%;
-  max-width:540px;
-  aspect-ratio:1 / 0.9;
-}
-.screen-stack::before{
-  content:"";
-  position:absolute;
-  left:14%;
-  top:8%;
-  width:72%;
-  height:84%;
-  background:var(--red);
-}
-.screen-stack img{
-  position:absolute;
-  width:76%;
-  height:auto;
-  aspect-ratio:4 / 3;
-  object-fit:cover;
-  box-shadow:0 22px 44px rgba(0,0,0,0.6), 0 4px 10px rgba(0,0,0,0.4);
-}
-.screen-stack img:nth-child(1){left:0;top:0;}
-.screen-stack img:nth-child(2){right:0;bottom:0;}
-
-/* featured project: screen beside its description */
-.feature{
-  display:grid;
-  grid-template-columns:3fr 2fr;
-  align-items:center;
-  gap:32px;
-  margin:0;
-  padding-bottom:8px;
-}
-.feature .shot{box-shadow:var(--shadow-cover-lg);}
-.feature__text{display:flex;flex-direction:column;gap:10px;}
+/* featured project: screen beside its description, on blue */
+.feature{background:var(--c-blue);color:var(--c-white);}
+.feature__shot{width:100%;aspect-ratio:4 / 3;object-fit:cover;}
+.feature__text{display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:20px;}
 .feature__title{
-  margin:0;
-  font-size:var(--fs-22);
-  font-weight:700;
+  font-size:var(--fs-h2);
+  line-height:var(--lh-h2);
+  letter-spacing:var(--ls-h2);
+}
+@media (min-width:1024px){
+  .feature{display:grid;grid-template-columns:7fr 5fr;}
+  .feature__text{padding:32px;}
 }
 
-/* a full-width screen inside a section */
-.shot-frame{margin:0;}
-.shot-frame .shot{
-  aspect-ratio:16 / 10;
-  box-shadow:var(--shadow-cover-lg);
+/* project cards: screenshot over company, title and summary */
+.cards{display:grid;gap:12px;}
+.card{background:var(--c-card-dark);}
+.card__shot{width:100%;aspect-ratio:16 / 9;object-fit:cover;object-position:top;}
+.card__text{display:flex;flex-direction:column;gap:8px;padding:16px 16px 20px;}
+.card__company{color:var(--accent);}
+.card__title{font-size:20px;line-height:1.15;letter-spacing:-0.01em;}
+@media (min-width:600px){.cards{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (min-width:1024px){
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .card__text{padding:20px 20px 24px;}
 }
 
-@media (max-width:640px){
-  .feature{grid-template-columns:1fr;gap:20px;}
-}
+/* case study: full-width screen */
+.case-shot{width:100%;aspect-ratio:16 / 10;object-fit:cover;object-position:top;}
+.case-note{color:var(--fg);}

@@ -5,31 +5,24 @@ title: Page not found — Dane Wesolko
 description: That page doesn't exist or has moved. Find product design, graphic design and book cover work by Dane Wesolko.
 sitemap: false
 noindex: true
+hero:
+  kicker: "Page not found"
+  title: "404"
+  lead: "That page doesn't exist or has moved. <a href=\"/\">Back to the home page</a>."
 ---
 
-<section class="hero">
-  <h1 class="hero__title">404</h1>
-  <p class="hero__kicker">Page not found</p>
-  <p class="hero__text">That page doesn't exist or has moved. <a href="{{ '/' | relative_url }}">Back to the home page</a>.</p>
-</section>
-
-<section class="section">
-  <div class="section__num"></div>
-  <div class="section__body">
-    <h2 class="section__label">Looking for the Work?</h2>
-    <div class="rows">
-      <a class="row" href="{{ '/product-design/' | relative_url }}">
-        <h3 class="row__title">Product design</h3>
-        <p class="row__text">Software for complex, high-stakes work, from first interviews through front-end handoff.</p>
-      </a>
-      <a class="row" href="{{ '/graphic-design/' | relative_url }}">
-        <h3 class="row__title">Graphic design</h3>
-        <p class="row__text">Magazines, identities, and advertising, built for print.</p>
-      </a>
-      <a class="row" href="{{ '/book-cover-design.html' | relative_url }}">
-        <h3 class="row__title">Book cover design</h3>
-        <p class="row__text">Covers that sell a book in one second.</p>
-      </a>
-    </div>
+<section class="section section--aside wrap" aria-labelledby="work-h">
+  {% include section-head.html label="Looking for the work?" id="work-h" %}
+  <div class="section__body service-links">
+    {%- for s in site.data.services %}
+    <a class="service-link" href="{{ s.href | relative_url }}">
+      <span class="service-link__bar on-{{ s.color }}"></span>
+      <span class="service-link__text">
+        <span class="service-link__title">{{ s.title }}</span>
+        <span class="service-link__short">{{ s.short }}</span>
+      </span>
+      <span aria-hidden="true">→</span>
+    </a>
+    {%- endfor %}
   </div>
 </section>

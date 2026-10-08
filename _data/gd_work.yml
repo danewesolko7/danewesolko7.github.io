@@ -1,16 +1,14 @@
 # Graphic design page — "Selected Work", in display order, grouped by `group`.
-# Optional `images`: files in assets/img/graphic/, shown under the item's text,
-# two to a row. `label` is an optional caption under each image; use it when
-# one item shows work from two projects (Omphoy + Mayfair). `panel: true` sets a
-# small image (a logo) on a white panel as tall as its neighbor. `wide: true` on
-# an item runs its images across the full row instead of the text column.
+# Optional `images`: files in assets/img/graphic/, shown under the item's text
+# (one image: a single narrow column; three: three across; otherwise two across).
+#   label        optional caption under the image
+#   panel: true  sets a small image (a logo) on a white panel as tall as its neighbor
 #   images:
 #     - { file: counselor-2015-04.webp, width: 1200, height: 1553, alt: "…", label: "…" }
 - group: "Editorial"
   title: "Counselor magazine"
   meta: "Art Director, 2012–2016"
   summary: "I ran each issue from start to finish: cover concepts and design, feature article layouts, directory inserts, and every page through final layout. When a story called for it, I illustrated the cover myself, as with the June 2015 issue on attorneys seeking help for substance abuse (below)."
-  wide: true
   images:
     - { file: counselor-2015-04-texting-aftercare.webp, width: 600, height: 390, alt: "Counselor April 2015 spread, A Mobile Texting Aftercare Pilot Program: a large headline over a young man looking at his phone, facing a photo of students texting and three columns of text", label: "A Mobile Texting Aftercare Pilot Program" }
     - { file: counselor-2015-04-collegiate-recovery.webp, width: 600, height: 390, alt: "Counselor April 2015 spread, Welcome to a New Era: Collegiate Recovery Programs, with a campus lawn photo and a red drop cap", label: "Collegiate Recovery Programs" }
@@ -26,9 +24,11 @@
 - group: "Illustration"
   title: "Counselor covers"
   meta: "October 2012 · June 2015"
-  summary: "October 2012: cover illustration and design. It won an ASHPE Bronze award for best cover illustration, and it's the cover at the top of this page. June 2015: asked to illustrate the cover for the story on attorneys seeking help. I wanted it fun and true to my illustrative style. The process is shown from sketch to final."
+  summary: "October 2012: cover illustration and design. It won an ASHPE Bronze award for best cover illustration, and it's the cover at the top of this page. June 2015: asked to illustrate the cover for the story on attorneys seeking help. I wanted it fun and true to my illustrative style."
   images:
+    - { file: counselor-2015-04-cover.webp, width: 578, height: 741, alt: "Counselor magazine April 2015 special edition cover, Adolescents and Young Adults: a smiling young woman in glasses and a striped top sitting cross-legged with a tablet, on blue, with cover lines on mobile-based aftercare and collegiate recovery", label: "April 2015" }
     - { file: counselor-2015-06-cover.webp, width: 572, height: 732, alt: "Counselor magazine June 2015 cover: an illustrated attorney waving a white flag, with cannabis, pills and a liquor box bursting from his head, under the headline The Impaired Professional", label: "June 2015" }
+    - { file: counselor-2015-tennessee-directory.webp, width: 290, height: 371, alt: "Counselor 2015 Tennessee Treatment Center Directory cover: a red push pin in a road map at Nashville, over navy display type", label: "2015 Tennessee directory" }
 
 - group: "Identity"
   title: "Spartico"

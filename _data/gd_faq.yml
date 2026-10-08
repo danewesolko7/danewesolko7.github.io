@@ -1,13 +1,13 @@
 # Graphic design page — FAQ. Rendered on the page and as FAQPage structured data.
-# Answers are HTML-free; the book cover link is added by the page template.
+# Answers are HTML-free; an optional `link` is added after the answer by the template.
 - q: "Do you work in print and on the web?"
   a: "Both. I've designed websites, web ads, and print."
 - q: "Can you recreate a design from a printed copy?"
-  a: "Yes. I did that for the Brazilian Court mailer."
+  a: "Yes. The Brazilian Court mailer was rebuilt from an actual printed proof, with a new insert pocket and editable files."
 - q: "Do you illustrate?"
-  a: "Yes. Illustration is the work behind two Counselor covers."
+  a: "Yes. My October 2012 Counselor cover illustration won an ASHPE Bronze."
 - q: "Can you take over an ongoing publication?"
-  a: "That's what I did with Renew in 2014."
+  a: "Yes. I took over layout and design for every issue of Renew in 2014."
 - q: "Do you do book covers?"
-  a: "Yes, and they have their own page."
-  link: { label: "Book cover design", href: "/book-cover-design.html" }
+  a: "Yes. Published covers across self-help, memoir, relationships, cookbooks, and reference."
+  link: { label: "See the book covers page.", href: "/book-cover-design.html" }

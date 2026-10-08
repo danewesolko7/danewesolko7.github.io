@@ -1,0 +1,13 @@
+{%- comment -%}
+  FAQ accordion: one open at a time (native <details name>), the first open by default.
+    items  [{ q, a, link: { label, href } }]
+    name   group name, unique per page
+{%- endcomment -%}
+<div class="faq">
+  {%- for item in include.items %}
+  <details name="{{ include.name }}"{% if forloop.first %} open{% endif %}>
+    <summary>{{ item.q }}</summary>
+    <p>{{ item.a }}{% if item.link %} <a class="link" href="{{ item.link.href | relative_url }}">{{ item.link.label }}</a>{% endif %}</p>
+  </details>
+  {%- endfor %}
+</div>

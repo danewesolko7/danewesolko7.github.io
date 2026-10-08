@@ -2,38 +2,70 @@
    Book cover design page — styles nothing else uses.
    ========================================================================== */
 
-/* three fanned covers over a red disc, in the hero */
-.cover-stack{
-  position:relative;
-  width:100%;
-  max-width:520px;
-  aspect-ratio:1 / 0.86;
+/* hero: three covers side by side */
+.cover-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.cover-trio img{width:100%;aspect-ratio:2 / 3;object-fit:cover;}
+@media (min-width:1024px){.cover-trio{gap:12px;}}
+
+/* cover grid: 2:3 image over a ruled caption */
+.covers{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px 12px;
+  margin:0;
+  padding:0;
+  list-style:none;
 }
-.cover-stack::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:74%;
-  aspect-ratio:1 / 1;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:var(--red);
+.cover{display:flex;flex-direction:column;gap:12px;}
+.cover img{width:100%;aspect-ratio:2 / 3;object-fit:cover;}
+.cover__caption{display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--fg);padding-top:10px;}
+.cover__caption--split{flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 12px;}
+.cover__title{font-size:var(--fs-small);line-height:1.3;}
+.cover__by{color:var(--accent);}
+.covers--3{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+@media (min-width:1024px){
+  .covers{grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 16px;}
+  .covers--3{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .cover__title{font-size:var(--fs-body);}
 }
-.cover-stack img{
-  position:absolute;
-  top:50%;
-  width:38%;
-  height:auto;
-  aspect-ratio:2 / 3;
-  object-fit:cover;
-  box-shadow:0 22px 44px rgba(0,0,0,0.6), 0 4px 10px rgba(0,0,0,0.4);
+
+/* why it matters: one cover at full size and at 100px tall */
+.size-compare{display:flex;align-items:flex-end;gap:16px;margin-bottom:24px;}
+.size-compare img{width:160px;aspect-ratio:2 / 3;object-fit:cover;}
+.size-compare__small img{width:auto;height:100px;outline:2px solid var(--accent);outline-offset:2px;}
+.size-compare__small .label{color:var(--accent);}
+@media (min-width:1024px){
+  .why{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));column-gap:var(--gutter);}
+  .size-compare{grid-column:1 / 4;align-self:start;margin:0;}
+  .why .points{grid-column:5 / 12;}
 }
-.cover-stack img:nth-child(1){left:0;transform:translateY(-50%) rotate(-8deg);}
-.cover-stack img:nth-child(2){right:0;transform:translateY(-50%) rotate(8deg);}
-.cover-stack img:nth-child(3){
-  left:50%;
-  width:46%;
-  transform:translate(-50%,-50%);
-  box-shadow:0 30px 60px rgba(0,0,0,0.7), 0 6px 14px rgba(0,0,0,0.45);
+
+/* packages: bordered cards, an 8px top border in ink (accent for the featured plan) */
+.plans{display:grid;gap:12px;}
+.plan{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  border:2px solid var(--fg);
+  border-top:8px solid var(--fg);
+  padding:20px;
 }
+.plan--featured{border-top-color:var(--accent);}
+.plan--featured .plan__tag{color:var(--accent);}
+.plan__name{font-size:var(--fs-h3-lg);letter-spacing:var(--ls-h3);}
+.plan__price{font-size:var(--fs-price);font-weight:700;line-height:1;letter-spacing:var(--ls-h1);}
+.plan__from{font-size:var(--fs-body);letter-spacing:0;}
+.plan__features{flex:1;}
+@media (min-width:1024px){
+  .plans{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .plan{gap:20px;padding:24px;}
+}
+
+/* process: the 15 days as one bar, segments sized 1 : 6 : 5 : 3 */
+.process-bar{display:none;gap:4px;}
+.process-bar span{padding:12px;overflow:hidden;white-space:nowrap;background:var(--c-ink);color:var(--c-white);}
+.process-bar span:nth-child(1){flex:1;}
+.process-bar span:nth-child(2){flex:6;background:var(--c-blue);}
+.process-bar span:nth-child(3){flex:5;background:var(--c-blue-mid);}
+.process-bar span:nth-child(4){flex:3;}
+@media (min-width:600px){.process-bar{display:flex;}}

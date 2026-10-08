@@ -1,14 +1,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% include seo.html %}
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+{%- case page.field -%}
+  {%- when "red" %}{% assign theme_color = "#C4241A" -%}
+  {%- when "blue" %}{% assign theme_color = "#0F5FB3" -%}
+  {%- when "yellow" %}{% assign theme_color = "#F2C230" -%}
+  {%- else -%}
+    {%- case page.ground -%}
+      {%- when "dark" %}{% assign theme_color = "#0E0E0E" -%}
+      {%- when "white" %}{% assign theme_color = "#FFFFFF" -%}
+      {%- else %}{% assign theme_color = "#F3F1EC" -%}
+    {%- endcase -%}
+{%- endcase %}
+<meta name="theme-color" content="{{ theme_color }}">
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="32x32">
 <link rel="icon" href="{{ '/assets/icons/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-<link rel="preload" href="{{ '/assets/fonts/montserrat-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}">

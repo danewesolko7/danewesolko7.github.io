@@ -3,10 +3,17 @@
 <head>
 {% include head.html %}
 </head>
-<body>
+<body class="ground-{{ page.ground | default: 'paper' }}{% if page.accent %} accent-{{ page.accent }}{% endif %}">
 <a class="skip" href="#main">Skip to content</a>
 
+{%- if page.field %}
+<div class="field-{{ page.field }}">
+{%- endif %}
 {% include topbar.html %}
+{% include hero.html %}
+{%- if page.field %}
+</div>
+{%- endif %}
 
 <main id="main">
 {{ content }}

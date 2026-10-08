@@ -6,227 +6,148 @@ image: /assets/img/og/graphic-design.png
 image_alt: "Graphic design by Dane Wesolko — built for print"
 schema: graphic-design
 crumb: Graphic Design
-nav_cta: { label: Start A Project, href: "#start" }
+nav_cta: { label: Start a project, href: "#start" }
 styles: [graphic-design]
 scripts: [package-select]
-# Hero images, files in assets/img/graphic/ (up to three, fanned). Empty = text-only hero.
-hero_caption: "Counselor, October 2012 · ASHPE Bronze, best cover illustration"
-hero_images:
-  - { file: counselor-2012-10-cover.webp, width: 600, height: 775, alt: "Counselor magazine October 2012 cover illustration: a figure tumbling into a swirling vortex of pizza, dice, money, pills and cheeseburgers, a stomach full of junk food, for the Process Addictions special issue" }
+ground: paper
+field: red
+hero:
+  kicker: "Graphic design — editorial, identity, advertising"
+  title: "Graphic design, built for print."
+  lead: "Magazines, identities, and advertising for publishers, hotels, restaurants, and brands."
+  variant: top
+  actions: true
+  stats:
+    - { value: "ASHPE Bronze", label: "Best cover illustration" }
+    - { value: "Art Director", label: "Health Communications" }
+  aside: award-cover
+bring:
+  - { title: "Print literacy", text: "I build things that have to be made. A pocket mailer with slits for removable inserts, rebuilt from a physical proof, is the kind of job I like." }
+  - { title: "One system, many pieces", text: "A logo is the start. At Spartico it ran through the website, menus, and flyers. At Copperline it ran through cards, letterhead, and envelopes. In the media kit, three brands ran as one." }
+  - { title: "Editorial range", text: "Covers, features, directory inserts, and full issues. I've laid out entire magazines, not just single spreads." }
+  - { title: "Illustration with a point of view", text: "An ASHPE Bronze for cover illustration, and a June 2015 cover that was meant to be fun in a serious issue." }
+mailer:
+  - { title: "Start from the object", text: "I recreated the document from an actual printed proof." }
+  - { title: "Rebuild the structure", text: "The mailer needed a pocket with slits so inserts could be added and removed." }
+  - { title: "Make it editable", text: "The brief also asked for changes, so the new file was built to be modified, not just copied." }
+  - { title: "Deliver", text: "Print-ready files for the reprint." }
+process:
+  - { num: "Step 1", title: "Brief", text: "Goals, audience, and where it will be used." }
+  - { num: "Step 2", title: "Concepts", text: "Sketches first, then a direction." }
+  - { num: "Step 3", title: "Layout", text: "Refined design and revisions." }
+  - { num: "Step 4", title: "Deliver", text: "Print-ready or web-ready files." }
 ---
 
-<div class="band band--rule surface-dark">
-  <section class="hero hero--split">
-    <div class="hero__content">
-      <p class="hero__kicker">Graphic Design — Editorial, Identity, Advertising</p>
-      <h1 class="hero__title">Graphic design, built for <em>print</em>.</h1>
-      <p class="hero__text">Magazines, identities, and advertising for publishers, hotels, restaurants, and brands.</p>
-      <div class="actions">
-        <a class="btn btn--primary" href="#start">Start A Project</a>
-        <a class="btn btn--outline" href="#work">See the work</a>
-      </div>
-      <p class="tag tag--muted">Magazine art direction · Award-winning cover illustration · Identity and print marketing</p>
-      <div class="stats">
-        <div><div class="stats__value">ASHPE Bronze</div><div class="tag tag--sm tag--muted">Best cover illustration</div></div>
-        <div><div class="stats__value">Art Director</div><div class="tag tag--sm tag--muted">Health Communications</div></div>
-      </div>
-    </div>
-    {%- if page.hero_images.size > 0 %}
-    <div class="hero__media">
-      <figure class="print-hero">
-        <div class="print-stack">
-          {%- for img in page.hero_images limit:3 %}
-          <img src="{{ '/assets/img/graphic/' | append: img.file | relative_url }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ img.alt | escape }}" fetchpriority="high">
-          {%- endfor %}
-        </div>
-        {%- if page.hero_caption %}
-        <figcaption class="tag tag--sm tag--muted">{{ page.hero_caption }}</figcaption>
-        {%- endif %}
-      </figure>
-    </div>
-    {%- endif %}
-  </section>
-</div>
-
-<section class="section" id="work">
-  <div class="section__num"></div>
+<section class="section wrap" id="work" aria-labelledby="work-h">
+  {% include section-head.html label="Selected work" title="Editorial, illustration, identity and advertising." intro="Magazines for a publisher, launch material for hotels, and identities for a restaurant and a real estate firm." id="work-h" %}
   <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">Selected Work</p>
-      <h2 class="section__title">Editorial, illustration, identity and advertising.</h2>
-      <p class="section__intro">Magazines for a publisher, launch material for hotels, and identities for a restaurant and a real estate firm.</p>
-    </div>
     {%- assign groups = site.data.gd_work | group_by: "group" %}
     {%- for group in groups %}
     <div class="work-group">
-      <h3 class="work-group__title tag tag--caps tag--red">{{ group.name }}</h3>
-      <div class="rows">
-        {%- for item in group.items %}
-        {%- capture pieces %}
-            <div class="pieces{% if item.wide %} pieces--wide{% endif %}">
-              {%- for img in item.images %}
-              <figure class="piece{% if img.panel %} piece--panel{% endif %}">
-                <img src="{{ '/assets/img/graphic/' | append: img.file | relative_url }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ img.alt | escape }}" loading="lazy" decoding="async">
-                {%- if img.label %}
-                <figcaption class="tag tag--sm tag--muted">{{ img.label }}</figcaption>
-                {%- endif %}
-              </figure>
-              {%- endfor %}
-            </div>
-        {%- endcapture %}
-        <div class="row">
-          <div>
-            <h4 class="row__title">{{ item.title }}</h4>
-            <p class="tag tag--sm tag--red">{{ item.meta }}</p>
+      <h3 class="label work-group__title">{{ group.name }}</h3>
+      {%- for item in group.items %}
+      <article class="entry entry--wide">
+        <h4 class="entry__title">{{ item.title }}</h4>
+        <p class="label entry__sub">{{ item.meta }}</p>
+        <div class="entry__body">
+          <p class="entry__text">{{ item.summary }}</p>
+          {%- if item.images %}
+          <div class="pieces pieces--{{ item.images.size }}">
+            {%- for img in item.images %}
+            <figure class="figure piece{% if img.panel %} piece--panel{% endif %}">
+              <img src="{{ '/assets/img/graphic/' | append: img.file | relative_url }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ img.alt | escape }}" loading="lazy" decoding="async">
+              {%- if img.label %}
+              <figcaption class="label">{{ img.label }}</figcaption>
+              {%- endif %}
+            </figure>
+            {%- endfor %}
           </div>
-          <div class="stack">
-            <p class="row__text">{{ item.summary }}</p>
-            {%- if item.images and item.wide != true %}{{ pieces }}{% endif %}
-          </div>
-          {%- if item.images and item.wide %}{{ pieces }}{% endif %}
+          {%- endif %}
         </div>
-        {%- endfor %}
-      </div>
+      </article>
+      {%- endfor %}
     </div>
     {%- endfor %}
-    <div class="cta-band surface-dark">
-      <p class="cta-band__text">Need something that's printed?</p>
-      <a class="btn btn--primary" href="#start">Start A Project</a>
+    <div class="cta-strip">
+      <p class="cta-strip__text">Need something that's printed?</p>
+      <a class="btn btn--primary" href="#start">Start a project</a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">What I Bring</p>
-      <h2 class="section__title">Things that have to be made, not just shown.</h2>
-    </div>
-    <div class="rows">
-      <div class="row"><h3 class="row__title">Print literacy</h3><p class="row__text">I build things that have to be made. A pocket mailer with slits for removable inserts, rebuilt from a physical proof, is the kind of job I like.</p></div>
-      <div class="row"><h3 class="row__title">One system, many pieces</h3><p class="row__text">A logo is the start. At Spartico it ran through the website, menus, and flyers. At Copperline it ran through cards, letterhead, and envelopes. In the media kit, three brands ran as one.</p></div>
-      <div class="row"><h3 class="row__title">Editorial range</h3><p class="row__text">Covers, features, directory inserts, and full issues. I've laid out entire magazines, not just single spreads.</p></div>
-      <div class="row"><h3 class="row__title">Illustration with a point of view</h3><p class="row__text">An ASHPE Bronze for cover illustration, and a June 2015 cover that was meant to be fun in a serious issue.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="case">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head section__head--split">
-      <div>
-        <p class="section__label">Case in Depth — The Brazilian Court</p>
-        <h2 class="section__title">The lost mailer.</h2>
-        <p class="section__intro">The Brazilian Court's original files were gone and they needed a reprint.</p>
-      </div>
-      <a class="btn btn--dark" href="#start" data-package="Single project">Start A Project</a>
-    </div>
-    <div class="pieces pieces--case">
-      <figure class="piece">
-        <img src="{{ '/assets/img/graphic/brazilian-court-mailer.webp' | relative_url }}" width="575" height="388" alt="The Brazilian Court mailer cover, Spend Two Nights at the Top: the hotel's courtyard restaurant at dusk with a cherub fountain" loading="lazy" decoding="async">
-        <figcaption class="tag tag--sm tag--muted">Cover</figcaption>
-      </figure>
-      <figure class="piece">
-        <img src="{{ '/assets/img/graphic/brazilian-court-mailer-flat.webp' | relative_url }}" width="600" height="310" alt="The rebuilt mailer laid out flat: offer and map panels, hotel photo spreads, and the gold pocket with die lines for the insert slits" loading="lazy" decoding="async">
-        <figcaption class="tag tag--sm tag--muted">Rebuilt file, flat, with the insert pocket</figcaption>
-      </figure>
-    </div>
-    <div class="rows rows--steps">
-      <div class="row"><div class="tag tag--lg tag--red">01</div><h3 class="row__title">Start from the object</h3><p class="row__text">I recreated the document from an actual printed proof.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">02</div><h3 class="row__title">Rebuild the structure</h3><p class="row__text">The mailer needed a pocket with slits so inserts could be added and removed.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">03</div><h3 class="row__title">Make it editable</h3><p class="row__text">The brief also asked for changes, so the new file was built to be modified, not just copied.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">04</div><h3 class="row__title">Deliver</h3><p class="row__text">Print-ready files for the reprint.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="engagements">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">Ways to Work Together</p>
-      <h2 class="section__title">One piece, a whole system, or every issue.</h2>
-    </div>
-    <div class="rows">
-      {%- for plan in site.data.gd_engagements %}
-      <div class="row">
-        <h3 class="row__title">{{ plan.name }}</h3>
-        <p class="row__text">{{ plan.summary }} <a href="#start" class="tag--red" data-package="{{ plan.option | escape }}">Start one</a></p>
-      </div>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section" id="process">
-  <div class="section__num"></div>
-  <div class="section__body stack">
-    <div class="section__head">
-      <p class="section__label">Process</p>
-      <h2 class="section__title">Sketch first, then a direction.</h2>
-    </div>
-    <div class="rows rows--steps">
-      <div class="row"><div class="tag tag--lg tag--red">Step 1</div><h3 class="row__title">Brief</h3><p class="row__text">Goals, audience, and where it will be used.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">Step 2</div><h3 class="row__title">Concepts</h3><p class="row__text">Sketches first, then a direction.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">Step 3</div><h3 class="row__title">Layout</h3><p class="row__text">Refined design and revisions.</p></div>
-      <div class="row"><div class="tag tag--lg tag--red">Step 4</div><h3 class="row__title">Deliver</h3><p class="row__text">Print-ready or web-ready files.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="faq">
-  <div class="section__num"></div>
+<section class="section wrap" aria-labelledby="bring-h">
+  {% include section-head.html label="What I bring" title="Things that have to be made, not just shown." id="bring-h" %}
   <div class="section__body">
-    <h2 class="section__label">Questions</h2>
-    <div class="faq">
-      {%- for item in site.data.gd_faq %}
-      <details{% if forloop.first %} open{% endif %}>
-        <summary>{{ item.q }}</summary>
-        <p>{{ item.a }}{% if item.link %} <a href="{{ item.link.href | relative_url }}" class="tag--red">{{ item.link.label }}</a>{% endif %}</p>
-      </details>
-      {%- endfor %}
-    </div>
+    {% include points.html items=page.bring cols=4 %}
   </div>
 </section>
 
-<section class="section" id="start">
-  <div class="section__num"></div>
-  <div class="section__body split">
-    <div class="section__head">
-      <p class="section__label">Start a Project</p>
-      <h2 class="section__title">Tell me what needs to be made.</h2>
-      <p class="section__intro">The piece, where it will be used, and the deadline.</p>
-      <p class="tag tag--lg">Prefer email? <a href="mailto:{{ site.email }}" class="tag--red">{{ site.email }}</a></p>
-      <p class="tag tag--lg"><a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></p>
+<div class="band band-ink">
+  <section class="section wrap" id="case" aria-labelledby="case-h">
+    {% include section-head.html label="Case in depth — The Brazilian Court" title="The lost mailer." intro="The Brazilian Court's original files were gone and they needed a reprint." id="case-h" %}
+    <div class="section__body section__body--full stack">
+      <div class="pieces pieces--case">
+        <figure class="figure">
+          <img src="{{ '/assets/img/graphic/brazilian-court-mailer.webp' | relative_url }}" width="575" height="388" alt="The Brazilian Court mailer cover, Spend Two Nights at the Top: the hotel's courtyard restaurant at dusk with a cherub fountain" loading="lazy" decoding="async">
+          <figcaption class="label">Cover</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="{{ '/assets/img/graphic/brazilian-court-mailer-flat.webp' | relative_url }}" width="600" height="310" alt="The rebuilt mailer laid out flat: offer and map panels, hotel photo spreads, and the gold pocket with die lines for the insert slits" loading="lazy" decoding="async">
+          <figcaption class="label">Rebuilt file, flat, with the insert pocket</figcaption>
+        </figure>
+      </div>
+      {% include points.html items=page.mailer cols=4 numbered=true ordered=true %}
     </div>
-    <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
-      <input type="hidden" name="_subject" value="New graphic design inquiry">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
-      <div class="form__row">
-        <label class="field">Name <input type="text" name="name" required></label>
-        <label class="field">Email <input type="email" name="email" required></label>
-      </div>
-      <label class="field">Company <input type="text" name="company"></label>
-      <div class="form__row">
-        <label class="field">Project type
-          <select name="package">
-            {%- for plan in site.data.gd_engagements %}{% if plan.featured %}
-            <option>{{ plan.option }}</option>
-            {%- endif %}{% endfor %}
-            {%- for plan in site.data.gd_engagements %}{% unless plan.featured %}
-            <option>{{ plan.option }}</option>
-            {%- endunless %}{% endfor %}
-            <option>Not sure yet</option>
-          </select>
-        </label>
-        <label class="field">Deadline <input type="text" name="deadline"></label>
-      </div>
-      <label class="field">Notes <textarea name="notes" rows="3"></textarea></label>
-      <button type="submit" class="btn btn--primary btn--block">Start a conversation</button>
-    </form>
+  </section>
+</div>
+
+<section class="section wrap" id="engagements" aria-labelledby="ways-h">
+  {% include section-head.html label="Ways to work together" title="One piece, a whole system, or every issue." id="ways-h" %}
+  <div class="section__body ways">
+    {%- for plan in site.data.gd_engagements %}
+    <div class="way">
+      <span class="label way__num">0{{ forloop.index }}</span>
+      <h3 class="way__title">{{ plan.name }}</h3>
+      <p>{{ plan.summary }}</p>
+      <a class="label link way__link" href="#start" data-package="{{ plan.option | escape }}">Start one</a>
+    </div>
+    {%- endfor %}
   </div>
+</section>
+
+<section class="section wrap" id="process" aria-labelledby="process-h">
+  {% include section-head.html label="Process" title="Sketch first, then a direction." id="process-h" %}
+  <div class="section__body">
+    {% include points.html items=page.process cols=4 steps=true ordered=true %}
+  </div>
+</section>
+
+<section class="section section--aside wrap" id="faq" aria-labelledby="faq-h">
+  {% include section-head.html label="Questions" id="faq-h" %}
+  <div class="section__body">
+    {% include faq.html items=site.data.gd_faq name="gd-faq" %}
+  </div>
+</section>
+
+<section class="section section--form wrap" id="start" aria-labelledby="start-h">
+  {% include section-head.html label="Start a project" title="Tell me what needs to be made." intro="The piece, where it will be used, and the deadline." stacked=true email=true id="start-h" %}
+  <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+    <input type="hidden" name="_subject" value="New graphic design inquiry">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+    <label class="field field--half"><span>Name <span class="field__hint">(required)</span></span><input type="text" name="name" autocomplete="name" required></label>
+    <label class="field field--half"><span>Email <span class="field__hint">(required)</span></span><input type="email" name="email" autocomplete="email" required></label>
+    <label class="field">Company<input type="text" name="company" autocomplete="organization"></label>
+    <label class="field field--half">Project type
+      <select name="package">
+        {%- for plan in site.data.gd_engagements %}
+        <option>{{ plan.option }}</option>
+        {%- endfor %}
+      </select>
+    </label>
+    <label class="field field--half">Deadline<input type="date" name="deadline"></label>
+    <label class="field">Notes<textarea name="notes" rows="3"></textarea></label>
+    <button type="submit" class="btn btn--primary btn--block">Start a conversation</button>
+  </form>
 </section>

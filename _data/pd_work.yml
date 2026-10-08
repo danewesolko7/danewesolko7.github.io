@@ -1,35 +1,56 @@
 # Product design page — "Selected Work", in display order.
-# Items with `image` (file in assets/img/work/, 1440×1080) show as a featured
-# image block above the list instead of as a row.
-- title: "NucleusForge"
-  company: "FPL"
-  summary: "AI-assisted screening workflow for nuclear operations. Regulatory gap analysis, flows, and a Figma Make prototype that cut iteration from weeks to hours."
-- title: "Tuner"
-  company: "Valassis"
-  summary: "A campaign optimization tool that let Business Analysts do work only Data Scientists could. Two quarters of sprints, from experimental interface to engineering handoff."
-- title: "European Real-World Evidence"
-  company: "IQVIA"
-  summary: "A new research product for regulated European health data. Usability testing reshaped the first prototype, then the process repeated for two more user roles."
-- title: "Press Release Builder"
-  company: "PR Newswire / Cision Labs"
-  summary: "A generative AI MVP built inside an established design system, so it felt native to the product."
+# featured: true shows the item as the large blue card above the grid.
+# image: file in assets/img/work/ (4:3, with a -720 version); image_width if it
+# isn't 1440px wide. Items without an image show text only.
 - title: "Comparator Sourcing"
   company: "CoraMed"
+  featured: true
   image: coramed-sourcing.webp
   image_alt: "CoraMed buyer dashboard with drug search and an order list showing a quote received"
   summary: "A platform connecting clinical trial buyers directly to manufacturers. Buyer dashboards first, then manufacturer workflows shaped in a multi-day workshop."
+- title: "NucleusForge"
+  company: "FPL"
+  image: fpl-nucleusforge.webp
+  image_alt: "NucleusForge IT screening console on a desktop monitor: fleet overview of six nuclear units with output, outage and screening counts, an AI-assist rollout timeline, and a fleet briefing panel of flagged tickets awaiting review"
+  summary: "AI-assisted screening workflow for nuclear operations. Regulatory gap analysis, flows, and a Figma Make prototype that cut iteration from weeks to hours."
+- title: "Tuner"
+  company: "Valassis"
+  image: valassis-tuner.webp
+  image_alt: "Tuner line item settings screen, with a campaign list and an optimization panel of constraints, values and priorities"
+  summary: "A campaign optimization tool that let Business Analysts do work only Data Scientists could. Two quarters of sprints, from experimental interface to engineering handoff."
+- title: "European Real-World Evidence"
+  company: "IQVIA"
+  image: iqvia-rwe.webp
+  image_alt: "IQVIA Evidence Platform home screen with patient counts, a chart of patients per indication, and a map of European data sources"
+  summary: "A new research product for regulated European health data. Usability testing reshaped the first prototype, then the process repeated for two more user roles."
+- title: "Press Release Builder"
+  company: "PR Newswire / Cision Labs"
+  image: cision-press-release-builder.webp
+  image_width: 1024
+  image_alt: "Cision Press Release Builder on a laptop: a list of press releases with headline, date, company and draft status, and a Create a New AI Press Release button"
+  summary: "A generative AI MVP built inside an established design system, so it felt native to the product."
 - title: "Field Case Manager"
   company: "Pfizer / Onco360"
+  image: pfizer-field-case-manager.webp
+  image_alt: "Field Case Manager iPad app for Pfizer / Onco360, showing a list of health care providers with pending and active cases"
   summary: "A native iPad app that replaced a daily spreadsheet-filtering routine with a clear list of action items for field reps."
 - title: "TeamZone"
-  company: "Gatorade / PepsiCo Ecomm"
+  company: "Gatorade / PepsiCo"
+  image: gatorade-teamzone.webp
+  image_alt: "Gatorade Team Zone login screen on a laptop: the G Team Zone logo over email and password fields and an orange Login button"
   summary: "A team ordering platform taken to a minimum loveable product in three months."
 - title: "Customer Portal"
   company: "Spreedly"
+  image: spreedly-customer-portal.webp
+  image_alt: "Spreedly customer portal dashboard on a tablet and a phone: billing total, API usage counts, and a line chart of all transactions over 24 hours"
   summary: "One account console replacing several fragmented tools."
 - title: "Support App"
   company: "Spreedly"
+  image: spreedly-support-app.webp
+  image_alt: "Spreedly support site on a laptop: system status bar, a transaction token search, and cards for developer docs, API guides, getting started, platforms and billing"
   summary: "The company's first support knowledge base, with transaction debugging. Designed and built front-end in two releases."
 - title: "Barbell Academy"
   company: "Founder"
+  image: barbell-academy.webp
+  image_alt: "Barbell Academy app on a phone: personal records, a progress chart for five lifts, completed workouts this week, and today's workout with a Start Workout button"
   summary: "A strength-training app and business I founded, designed, and sold."

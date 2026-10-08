@@ -1,0 +1,26 @@
+{%- comment -%}
+  Head of a numbered .section: the number, a label, and an optional h2 headline.
+    label   section label; becomes the <h2> itself when there's no title
+    title   h2 headline
+    intro   muted paragraph; beside the head (columns 10–12), or under it when stacked
+    stacked true keeps the intro and any `email` line inside the head column (form sections)
+    email   true adds a "Prefer email?" line (form sections)
+    id      id for the heading, for aria-labelledby
+{%- endcomment -%}
+{%- if include.title %}
+<div class="section__head">
+  <p class="label"><span class="section__num" aria-hidden="true"></span>{{ include.label }}</p>
+  <h2 class="h2"{% if include.id %} id="{{ include.id }}"{% endif %}>{{ include.title }}</h2>
+  {%- if include.stacked and include.intro %}
+  <p class="section__intro">{{ include.intro }}</p>
+  {%- endif %}
+  {%- if include.email %}
+  <p>Prefer email? <a class="link" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+  {%- endif %}
+</div>
+{%- else %}
+<h2 class="label section__head section__head--label"{% if include.id %} id="{{ include.id }}"{% endif %}><span class="section__num" aria-hidden="true"></span>{{ include.label }}</h2>
+{%- endif %}
+{%- if include.intro and include.stacked != true %}
+<p class="section__intro">{{ include.intro }}</p>
+{%- endif %}

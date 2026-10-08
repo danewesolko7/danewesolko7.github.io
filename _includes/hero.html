@@ -1,0 +1,49 @@
+{%- comment -%}
+  Page intro, driven by `hero:` in the page's front matter.
+    kicker      label above the title
+    title       h1; <em> marks the highlighted words
+    tag         label in the row's left column (used with variant: label)
+    lead        intro paragraph;  lead_pull: true sets it at 28px
+    actions     true = "Start a project" (#start) and "See the work" (#work) buttons
+    stats       [{ value, label, wide }] key facts;  stats_wide: true puts them on their own row
+    aside       name of an include in _includes/hero/ for the right column
+    statement   text for the right column instead of an aside;  statement_h2: true sets it at h2 size
+    variant     top | label (see .hero in components.css)
+{%- endcomment -%}
+{%- assign h = page.hero -%}
+{%- if h %}
+<section class="hero wrap{% if h.variant %} hero--{{ h.variant }}{% endif %}">
+  {%- if h.kicker %}
+  <p class="label hero__kicker">{{ h.kicker }}</p>
+  {%- endif %}
+  <h1 class="hero__title">{{ h.title }}</h1>
+  {%- if h.tag or h.lead or h.aside or h.statement %}
+  <div class="hero__row grid12">
+    <div class="hero__main">
+      {%- if h.tag %}
+      <p class="label hero__kicker">{{ h.tag }}</p>
+      {%- endif %}
+      {%- if h.lead %}
+      <p class="hero__lead{% if h.lead_pull %} hero__lead--pull{% endif %}">{{ h.lead }}</p>
+      {%- endif %}
+      {%- if h.actions and h.aside != "actions" %}
+      {% include hero/actions.html %}
+      {%- endif %}
+      {%- if h.stats and h.stats_wide != true %}
+      {% include hero/stats.html %}
+      {%- endif %}
+    </div>
+    {%- if h.statement %}
+    <p class="hero__aside hero__statement{% if h.statement_h2 %} hero__statement--h2{% endif %}">{{ h.statement }}</p>
+    {%- elsif h.aside %}
+    <div class="hero__aside">
+      {%- include hero/{{ h.aside }}.html %}
+    </div>
+    {%- endif %}
+  </div>
+  {%- endif %}
+  {%- if h.stats and h.stats_wide %}
+  {% include hero/stats.html %}
+  {%- endif %}
+</section>
+{%- endif %}

@@ -46,17 +46,16 @@ To match a newer GitHub Pages release later, compare https://pages.github.com/ve
 
 ```
 _config.yml              site settings (title, email, LinkedIn, plugins)
-_layouts/default.html    page shell: head, top bar, main, footer, scripts
-_includes/               head.html · topbar.html · footer.html
+_layouts/default.html    page shell: head, color field (top bar + hero), main, footer, scripts
+_includes/               head · topbar · hero (+ hero/ asides) · footer · section-head · points · faq · shot
 _data/                   lists rendered by pages (work, experience, covers, packages…)
 _templates/page.html     starter for a new page (never published)
-assets/css/tokens.css    colors, type sizes, widths, dark mode. Change the look here
+assets/css/tokens.css    palette, type scale, layout, and the ground / field / band scopes. Change the look here
 assets/css/base.css      element defaults, focus, skip link
 assets/css/components.css  every shared component
 assets/css/pages/        CSS only one page uses
 assets/js/               nav.js (every page) + opt-in page scripts
 assets/img/              images: covers/, graphic/, work/ (JPG masters + the WebP the pages use), og/ share cards
-assets/fonts/            Montserrat, self-hosted (one variable woff2, latin subset) + its license
 scripts/                 make-og.sh + og-card.html share images, make-webp.py WebP images (not published)
 robots.txt, llms.txt, site.webmanifest, favicon.ico   root files for crawlers and browsers
 ```
@@ -64,8 +63,8 @@ robots.txt, llms.txt, site.webmanifest, favicon.ico   root files for crawlers an
 ## Adding a page
 
 1. Copy `_templates/page.html` to the site root, for example `speaking.html`. It will publish at `/speaking/`.
-2. Edit its front matter (title, description, crumb, nav_cta). The header links are global: add the page to `_data/nav.yml` if it belongs in them.
-3. Make its share image: `scripts/make-og.sh <slug> "Kicker" "Title with *red* word"` and set `image: /assets/img/og/<slug>.png`.
+2. Edit its front matter (title, description, crumb, ground, field, hero). The header links are global: add the page to `_data/nav.yml` if it belongs in them.
+3. Make its share image: `scripts/make-og.sh <slug> <theme> "Kicker" "Title with *highlighted* word" "Crumb"` (theme: paper, dark, red, blue or yellow, matching the page) and set `image: /assets/img/og/<slug>.png`.
 4. Build the content from the components below. If a page needs something unique, add `assets/css/pages/<name>.css` and list it under `styles:`.
 5. Add a line for it under **Pages** in `llms.txt`.
 
@@ -73,7 +72,7 @@ robots.txt, llms.txt, site.webmanifest, favicon.ico   root files for crawlers an
 
 1. Drop the JPG into `assets/img/covers/`, `graphic/` or `work/`.
 2. Run `python3 scripts/make-webp.py` (needs `pip install pillow`). It writes `<name>.webp`, plus `<name>-720.webp` for anything wider than 1000px.
-3. Reference the `.webp` in the page or `_data/` file, with `width`, `height` and `alt`. Add `loading="lazy" decoding="async"` unless it's in the first screen. Wide screenshots also get `srcset` with the 720w file, as on the home page.
+3. Reference the `.webp` in the page or `_data/` file, with `width`, `height` and `alt`. Add `loading="lazy" decoding="async"` unless it's in the first screen. Product screenshots (1440×1080) go through `{% include shot.html %}`, which adds the 720w `srcset`.
 
 The JPGs aren't published (`exclude:` in `_config.yml`); they're the masters for both scripts.
 
@@ -107,25 +106,38 @@ Check structured data after changes with https://search.google.com/test/rich-res
 
 ## Rules
 
-- Colors and sizes come from `tokens.css` variables. No hex values elsewhere, and no inline `style=""`.
+- Colors and sizes come from `tokens.css` variables. No hex values elsewhere, and no inline `style=""` except CSS custom properties carrying data (the timeline's `--from`/`--to`).
 - Class names follow `.block`, `.block__part`, `.block--variant`.
-- Breakpoints: 640px (stack to one column) and 768px (mobile nav).
+- Breakpoints: 600px (two-column card grids) and 1024px (desktop: 12-column grid, desktop type scale, inline nav).
 - A component used by two pages belongs in `components.css`. A component used by one page belongs in `pages/`.
+- No border radius, no shadows. Rules (1, 2, 4px) and color fields do the structural work.
+
+## Look
+
+Helvetica Neue (system font, no web font), a 12-column grid, a primary palette and large type. Each service has its own color: product = ink, graphic = red, book covers = blue.
+
+| Front matter | Effect |
+|---|---|
+| `ground: paper \| white \| dark` | Page background and its text, rule and accent colors (`.ground-*` in `tokens.css`) |
+| `field: red \| blue \| yellow` | Color field behind the header and hero; buttons inside it recolor themselves |
+| `accent: blue` | Blue section numbers, labels and primary buttons (book covers) |
+| `hero:` | The page intro, rendered by `_includes/hero.html` (see the comment there for its keys) |
 
 ## Components
 
-| Class | Use |
+| Class / include | Use |
 |---|---|
-| `.hero`, `.hero--split` | Page intro. `--split` puts text beside media (`.hero__content` / `.hero__media`) |
-| `.band`, `.band--rule`, `.surface-dark` | Full-width strip. `.surface-dark` stays black in light and dark mode |
-| `.section` | Numbered section. Leave `.section__num` empty to auto-number |
-| `.section__head`, `--split` | Label + `.section__title` + `.section__intro`. `--split` puts a button on the right |
-| `.stack` | Even vertical spacing between blocks in a section body |
-| `.rows` / `.row` | Ruled rows. Default title \| text. Variants: `--plain`, `--steps`. `a.row` is a link row |
-| `.bullets`, `--sm` | Ruled list |
-| `.grid`, `--sm`, `--3`, `--covers` | Responsive grids |
-| `.cover`, `--lg` | Book cover image + caption |
-| `.btn` + `--primary`, `--outline`, `--dark`, `--block` | Buttons. Group them in `.actions` |
-| `.tag` + `--sm`, `--lg`, `--red`, `--muted` | Small uppercase label |
-| `.lede`, `.note`, `.note--ruled` | Paragraph styles |
-| `.stats`, `.cta-band`, `.plan`, `.faq`, `.split`, `.form` / `.field` | Landing-page pieces, see the book cover page for examples |
+| `.wrap`, `.grid12` | 1184px content column with 20/48px margins; 12-column grid on desktop |
+| `.section` + `section-head.html` | Numbered section: 2px rule, auto number, label, h2, intro. `--aside` puts a label-only head beside the body, `--form` puts the text beside a form. `.section__body` (`--full`) and `.section__sub` place the content |
+| `.band` + `.band-ink` / `.ground-*` | Full-width color strip around a section |
+| `.label`, `.h2`, `.lead`, `.pull`, `.muted`, `.link` | Type roles |
+| `.btn` + `--primary`, `--outline`, `--block`, `--arrow` | Buttons. Group them in `.actions` |
+| `points.html` → `.points` (`--2 --3 --4`, `--steps`) | Ruled title + text items in columns; steps get a 4px accent rule |
+| `.list` (`--2 --4 --lg --sm`) | Ruled `<ul>` |
+| `.entries` / `.entry` (`--wide`) | CV jobs and portfolio items on an 11-column grid |
+| `.stats` (`--wide`) | Key facts `<dl>` in a hero |
+| `.cta-strip` | Bordered line of copy + button |
+| `.figure` | Image + caption |
+| `faq.html` → `.faq` | One-open-at-a-time accordion (native `<details name>`) |
+| `.form`, `.field` (`--half`), `.field__hint` | Forms: bottom-border fields, two columns from 600px |
+| `.service-link`, `.on-ink / .on-red / .on-blue` | Service row with a color bar; service color fills |
