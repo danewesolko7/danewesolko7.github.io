@@ -1,0 +1,70 @@
+---
+layout: default
+title: Contact — Dane Wesolko
+description: Get in touch with Dane Wesolko about product design, graphic design or book cover design. Send a message, email, or connect on LinkedIn.
+image: /assets/img/og/contact.png
+image_alt: "Contact Dane Wesolko — let's talk"
+schema_type: ContactPage
+crumb: Contact
+---
+
+<section class="hero">
+  <h1 class="hero__title">Contact</h1>
+  <p class="hero__kicker">Product, graphic, and book cover design</p>
+  <p class="hero__text">Tell me what you're working on. I reply within two business days.</p>
+</section>
+
+<section class="section" id="message">
+  <div class="section__num"></div>
+  <div class="section__body split">
+    <div class="section__head">
+      <h2 class="section__label">Send a Message</h2>
+      <p class="section__title">What do you need?</p>
+      <p class="section__intro">A project, a role, or a question. A few sentences is plenty.</p>
+      <p class="tag tag--lg">Prefer email? <a href="mailto:{{ site.email }}" class="tag--red">{{ site.email }}</a></p>
+      <p class="tag tag--lg"><a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+    <form class="form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      <input type="hidden" name="_subject" value="New message from the contact page">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+      <div class="form__row">
+        <label class="field">Name <input type="text" name="name" autocomplete="name" required></label>
+        <label class="field">Email <input type="email" name="email" autocomplete="email" required></label>
+      </div>
+      <label class="field">About
+        <select name="topic">
+          <option>Product design</option>
+          <option>Graphic design</option>
+          <option>Book cover design</option>
+          <option>A full-time role</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label class="field">Message <textarea name="message" rows="5" required></textarea></label>
+      <button type="submit" class="btn btn--primary btn--block">Send message</button>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section__num"></div>
+  <div class="section__body">
+    <h2 class="section__label">Starting a Project?</h2>
+    <p class="note">Each service has its own page with process, pricing or engagement types, and a form that asks the right questions.</p>
+    <div class="rows">
+      <a class="row" href="{{ '/product-design/' | relative_url }}">
+        <h3 class="row__title">Product design</h3>
+        <p class="row__text">Software for complex, high-stakes work, from first interviews through front-end handoff.</p>
+      </a>
+      <a class="row" href="{{ '/graphic-design/' | relative_url }}">
+        <h3 class="row__title">Graphic design</h3>
+        <p class="row__text">Magazines, identities, and advertising, built for print.</p>
+      </a>
+      <a class="row" href="{{ '/book-cover-design.html' | relative_url }}">
+        <h3 class="row__title">Book cover design</h3>
+        <p class="row__text">Covers that sell a book in one second.</p>
+      </a>
+    </div>
+  </div>
+</section>
