@@ -1,111 +1,141 @@
 ---
 layout: default
 permalink: /
-title: Dane Wesolko — Product Design Leader
-description: Dane Wesolko is a product design leader with 9+ years building first-of-their-kind products — AI risk platforms, nuclear scheduling tools and expert-network communities.
+title: Dane Wesolko — Product Designer and Graphic Designer
+description: Dane Wesolko designs software for hard problems and still takes on print, brand identity, and book covers. Eight years in print, ten in software.
 og_type: profile
 schema_type: ProfilePage
 image: /assets/img/og/home.png
-image_alt: "Dane Wesolko — Product Design Leader"
+image_alt: "Dane Wesolko — Product Designer and Graphic Designer"
 nav:
-  - { label: About, href: "#about" }
-  - { label: Off the Clock, href: "#offtheclock" }
   - { label: Work, href: "#work" }
-  - { label: Case Studies, href: "#casestudies" }
-  - { label: Experience, href: "#experience" }
+  - { label: Why One Designer, href: "#why" }
+  - { label: Clients, href: "#clients" }
+  - { label: About, href: "#about" }
 nav_cta: { label: Contact, href: "#contact" }
+styles: [home]
 scripts: [scrollspy]
 ---
 
-<section class="hero">
-  <h1 class="hero__title">Dane Wesolko</h1>
-  <p class="hero__kicker">Product Design Leader — 9+ Years</p>
-  <p class="hero__text">I design products that don't have a template yet: AI risk platforms, nuclear scheduling tools, expert-network communities.</p>
-</section>
-
-<section class="section" id="about">
-  <div class="section__num"></div>
-  <div class="section__body">
-    <h2 class="section__label">About</h2>
-    <p class="lede">Started in print and branding. Moved into UX, then product leadership, then AI.</p>
-    <ul class="bullets">
-      <li>9+ years building new products from scratch</li>
-      <li>Regulated, high-stakes industries: energy, pharma, cybersecurity, enterprise SaaS</li>
-      <li>More often first-to-exist than tenth-to-market</li>
-      <li>Still sketches by hand before opening Figma</li>
-    </ul>
+<section class="hero hero--split">
+  <div class="hero__content">
+    <h1 class="hero__title">Print taught me discipline. Software taught me systems.</h1>
+    <p class="hero__text">I'm Dane Wesolko. I spent eight years in print and ten in software. I design software for hard problems, and I still take on print, brands, and book covers.</p>
+    <p class="tag tag--muted">Print 2008 to 2016 · Software 2016 to now</p>
   </div>
-</section>
-
-<section class="section" id="offtheclock">
-  <div class="section__num"></div>
-  <div class="section__body">
-    <h2 class="section__label">Off the Clock</h2>
-    <ul class="bullets">
-      <li>Started businesses. Some failed.</li>
-      <li>Self-taught trading and corporate finance</li>
-      <li>Deep in digital marketing, hands-on</li>
-      <li>Built more WordPress sites than I can count</li>
-      <li>Long-term interest in newsletters and online media</li>
-      <li>Organized real-world communities — harder than any app</li>
-      <li>Use AI in my own process before it shows up in a job description</li>
-    </ul>
+  <div class="hero__media">
+    <div class="mix-stack">
+      <img class="mix-stack__screen" src="{{ '/assets/img/work/valassis-tuner.jpg' | relative_url }}" width="1440" height="1080" alt="Tuner line item settings screen for Valassis, with a campaign list and an optimization panel of constraints, values and priorities" fetchpriority="high">
+      <img class="mix-stack__book" src="{{ '/assets/img/covers/spirit.jpg' | relative_url }}" width="640" height="990" alt="Spirit Recovery Medicine Bag book cover" fetchpriority="high">
+      <img class="mix-stack__mag" src="{{ '/assets/img/graphic/counselor-2012-10-cover.jpg' | relative_url }}" width="600" height="775" alt="Counselor magazine October 2012 cover illustration, which won an ASHPE award: a figure tumbling into a swirling vortex of pizza, dice, money, pills and cheeseburgers" fetchpriority="high">
+    </div>
   </div>
 </section>
 
 <section class="section" id="work">
   <div class="section__num"></div>
   <div class="section__body">
-    <h2 class="section__label">Selected Work</h2>
+    <h2 class="section__label">Three Kinds of Work</h2>
     <div class="rows">
-      {%- for item in site.data.work %}
       <div class="row">
-        <div>
-          <h3 class="row__title">{{ item.title }}</h3>
-          <div class="tag tag--lg tag--red">{{ item.company }}</div>
+        <h3 class="row__title">Product design</h3>
+        <div class="row__body">
+          <p class="row__lead">Software for people who can't afford a confusing screen.</p>
+          <p class="row__text">Nuclear scheduling at FPL. Campaign optimization at Valassis. A European health data product at IQVIA.</p>
+          <div class="shots shots--screen">
+            <img src="{{ '/assets/img/work/iqvia-rwe.jpg' | relative_url }}" width="1440" height="1080" alt="IQVIA Evidence Platform home screen with patient counts, a chart of patients per indication, and a map of European data sources" loading="lazy" decoding="async">
+            <img src="{{ '/assets/img/work/pfizer-field-case-manager.jpg' | relative_url }}" width="1440" height="1080" alt="Field Case Manager iPad app for Pfizer / Onco360, showing a list of health care providers with pending and active cases" loading="lazy" decoding="async">
+            <img src="{{ '/assets/img/work/coramed-sourcing.jpg' | relative_url }}" width="1440" height="1080" alt="CoraMed buyer dashboard with drug search and an order list showing a quote received" loading="lazy" decoding="async">
+          </div>
+          <a class="more" href="{{ '/product-design/' | relative_url }}">See product design</a>
         </div>
-        <p class="row__text">{{ item.summary }}</p>
       </div>
-      {%- endfor %}
+      <div class="row">
+        <h3 class="row__title">Graphic design</h3>
+        <div class="row__body">
+          <p class="row__lead">Magazines, identities, and advertising, built for print.</p>
+          <p class="row__text">An ASHPE award for cover illustration. Whole issues of Renew. Identity systems for Spartico and Copperline.</p>
+          <div class="shots shots--print">
+            <img src="{{ '/assets/img/graphic/renew-2015-spring-cover.jpg' | relative_url }}" width="600" height="780" alt="Renew magazine Spring 2015 cover: Mike Ness of Social Distortion and his son Julian, under the headline Recovering Together" loading="lazy" decoding="async">
+            <img src="{{ '/assets/img/graphic/counselor-2015-06-cover.jpg' | relative_url }}" width="572" height="732" alt="Counselor magazine June 2015 cover: an illustrated attorney waving a white flag, under the headline The Impaired Professional" loading="lazy" decoding="async">
+            <img src="{{ '/assets/img/graphic/omphoy-flyer.jpg' | relative_url }}" width="580" height="751" alt="The Omphoy flyer, Day-cation at The Omphoy: a couple on a beach cabana, the restaurant, and jet skis, over cabana rates" loading="lazy" decoding="async">
+          </div>
+          <a class="more" href="{{ '/graphic-design/' | relative_url }}">See graphic design</a>
+        </div>
+      </div>
+      <div class="row">
+        <h3 class="row__title">Book cover design</h3>
+        <div class="row__body">
+          <p class="row__lead">A cover that sells your book in one second.</p>
+          <p class="row__text">Published covers across self-help, memoir, relationships, cookbooks, and reference.</p>
+          <div class="shots shots--book">
+            <img src="{{ '/assets/img/covers/undefeated.jpg' | relative_url }}" width="227" height="350" alt="The Undefeated Mind book cover" loading="lazy" decoding="async">
+            <img src="{{ '/assets/img/covers/spirit.jpg' | relative_url }}" width="640" height="990" alt="Spirit Recovery Medicine Bag book cover" loading="lazy" decoding="async">
+            <img src="{{ '/assets/img/covers/soulfood.jpg' | relative_url }}" width="234" height="350" alt="Soul Food book cover" loading="lazy" decoding="async">
+          </div>
+          <a class="more" href="{{ '/book-cover-design.html' | relative_url }}">See book covers</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="casestudies">
+<section class="section" id="why">
   <div class="section__num"></div>
   <div class="section__body">
-    <h2 class="section__label">Case Studies</h2>
+    <h2 class="section__label">Why One Designer</h2>
+    <p class="lede">The same habits run through all of it.</p>
     <div class="rows">
-      {%- for item in site.data.case_studies %}
-      <a class="row" href="{{ item.url }}" target="_blank" rel="noopener">
-        <div class="row__title">{{ item.title }}</div>
-        <div class="tag tag--muted">{{ item.source }}</div>
-      </a>
-      {%- endfor %}
+      <div class="row">
+        <h3 class="row__title">Grid and type</h3>
+        <p class="row__text">I learned layout in print. It still shapes every screen I design.</p>
+      </div>
+      <div class="row">
+        <h3 class="row__title">Research and testing</h3>
+        <p class="row__text">Interviews, workshops, and usability tests come before the pixels.</p>
+      </div>
+      <div class="row">
+        <h3 class="row__title">I build what I design</h3>
+        <p class="row__text">HTML, CSS, JavaScript, and WordPress. I've written front ends, not just handed them off.</p>
+      </div>
+      <div class="row">
+        <h3 class="row__title">Systems, not one-offs</h3>
+        <p class="row__text">A logo that runs through menus and flyers. A component library that runs through a platform.</p>
+      </div>
+      <div class="row">
+        <h3 class="row__title">Business sense</h3>
+        <p class="row__text">I've started businesses and sold one. I taught myself trading, corporate finance, and digital marketing.</p>
+      </div>
+      <div class="row">
+        <h3 class="row__title">Leadership</h3>
+        <p class="row__text">I led an AI/ML lab, and I mentor designers on ADPList.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="experience">
+<section class="section" id="clients">
   <div class="section__num"></div>
   <div class="section__body">
-    <h2 class="section__label">Experience</h2>
-    <div class="rows rows--table">
-      {%- for job in site.data.experience %}
-      <div class="row"><div>{{ job.company }}</div><div>{{ job.role }}</div><div class="row__meta">{{ job.years }}</div></div>
-      {%- endfor %}
+    <h2 class="section__label">Worked With</h2>
+    <div class="rows">
+      <div class="row">
+        <h3 class="row__title">Software</h3>
+        <p class="row__text">FPL · Mercator Digital · Cision / PR Newswire · IQVIA · Valassis · PepsiCo / Gatorade · Spreedly</p>
+      </div>
+      <div class="row">
+        <h3 class="row__title">Print and brand</h3>
+        <p class="row__text">Counselor · Renew · Health Communications · The Brazilian Court · The Omphoy · Spartico · Copperline Partners · Altier Jewelers</p>
+      </div>
     </div>
-    <p class="note">Earlier: Art Director / Senior Graphic Designer — Counselor Magazine, The WSR Group, agencies</p>
   </div>
 </section>
 
-<section class="section" id="credentials">
+<section class="section" id="about">
   <div class="section__num"></div>
-  <div class="section__body">
-    <h2 class="section__label">Mentorship &amp; Education</h2>
-    <div class="rows rows--plain">
-      <div class="row"><div>Peer Mentor, ADPList.org</div><div class="row__meta">2022–Present</div></div>
-      <div class="row"><div>A.S., Graphic Design — Art Institute of Fort Lauderdale</div><div class="row__meta"></div></div>
-    </div>
+  <div class="section__body stack">
+    <h2 class="section__label">About</h2>
+    <p class="lede">Started in print. Moved into UX, then product leadership, then AI. Still sketches by hand before opening Figma.</p>
+    <p><a class="more" href="{{ '/about/' | relative_url }}">Read more and see the CV</a></p>
   </div>
 </section>
