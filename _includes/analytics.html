@@ -1,5 +1,14 @@
 {%- comment -%}
-  Analytics snippet goes here. Enable it by setting `analytics: true` in _config.yml.
+  Google Analytics (GA4). Enabled by `analytics: true` in _config.yml.
   It only loads in production builds (JEKYLL_ENV=production — what GitHub Pages uses),
   so local previews don't count as visits.
 {%- endcomment -%}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6KMQXBH8H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6KMQXBH8H');
+</script>

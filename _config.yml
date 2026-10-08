@@ -45,8 +45,8 @@ verification:
   google: ""   # Google Search Console → HTML tag method
   bing: ""     # Bing Webmaster Tools → meta tag method
 
-# Analytics — paste the provider's snippet into _includes/analytics.html.
-analytics: false
+# Analytics — Google Analytics snippet lives in _includes/analytics.html.
+analytics: true
 
 # New pages get clean URLs (/about/ instead of /about.html).
 # Existing pages pin their own permalink so old links keep working.
